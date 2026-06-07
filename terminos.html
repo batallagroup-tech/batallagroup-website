@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Términos y Condiciones — Batalla Group</title>
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://batallagroup.com/terminos.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0a; --surface: #111; --border: #1e1e1e;
+      --text-primary: #fff; --text-secondary: #888; --text-muted: #444;
+    }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none; z-index: 0;
+    }
+    header {
+      position: fixed; top: 0; left: 0; right: 0; height: 68px;
+      background: rgba(10,10,10,0.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); z-index: 100;
+      display: flex; align-items: center;
+    }
+    .header-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 32px; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-primary); text-decoration: none;
+    }
+    .back-link {
+      font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-secondary); text-decoration: none; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--text-primary); }
+    main {
+      max-width: 860px; margin: 0 auto;
+      padding: 120px 32px 80px; position: relative; z-index: 1;
+    }
+    .doc-label {
+      font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 24px;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700; text-transform: uppercase;
+      letter-spacing: -0.01em; line-height: 1.05; margin-bottom: 16px;
+    }
+    .doc-meta {
+      font-size: 13px; font-weight: 300; color: var(--text-muted);
+      margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-primary); margin: 48px 0 16px;
+    }
+    p, li { font-size: 0.95rem; font-weight: 300; color: var(--text-secondary); line-height: 1.85; }
+    p + p { margin-top: 16px; }
+    ul { padding-left: 20px; margin-top: 12px; }
+    li { margin-bottom: 8px; }
+    a { color: var(--text-secondary); }
+    a:hover { color: var(--text-primary); }
+    .highlight-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 4px; padding: 24px 28px; margin: 24px 0;
+    }
+    footer {
+      border-top: 1px solid var(--border); padding: 32px; text-align: center;
+      font-size: 12px; color: var(--text-muted); position: relative; z-index: 1;
+    }
+    @media (max-width: 600px) { main { padding: 100px 20px 60px; } }
+    .cookie-banner { position:fixed;bottom:0;left:0;right:0;background:rgba(14,14,14,.97);backdrop-filter:blur(16px);border-top:1px solid #2a2a2a;padding:20px 32px;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s ease; }
+    .cookie-banner.visible { transform:translateY(0); }
+    .cookie-text { font-size:13px;font-weight:300;color:#888;line-height:1.6;flex:1;min-width:180px; }
+    .cookie-text a { color:#888;text-decoration:underline; }
+    .cookie-actions { display:flex;gap:10px;flex-wrap:wrap; }
+    .cookie-btn { font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:2px;cursor:pointer;border:1px solid transparent;transition:all .2s; }
+    .cookie-accept { background:#fff;color:#0a0a0a;border-color:#fff; }
+    .cookie-accept:hover { background:#e0e0e0; }
+    .cookie-decline { background:transparent;color:#888;border-color:#2a2a2a; }
+    .cookie-decline:hover { border-color:#555;color:#fff; }
+    .whatsapp-float { position:fixed;bottom:32px;right:32px;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:150;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s,bottom .4s ease; }
+    .whatsapp-float:hover { transform:scale(1.1); }
+    .cookie-showing .whatsapp-float { bottom:112px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">Batalla Group</a>
+      <a href="index.html" class="back-link">← Volver al inicio</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="doc-label">Documento legal</div>
+    <h1>Términos y Condiciones</h1>
+    <p class="doc-meta">Última actualización: 3 de junio de 2026 · Aplicables a todos los servicios de Batalla Group S.A.S.</p>
+
+    <h2>1. Aceptación de los términos</h2>
+    <p>
+      Al acceder o utilizar cualquier servicio de <strong style="color:#fff;">Batalla Group S.A.S.</strong> — incluyendo el sitio web batallagroup.com y la aplicación Ya Voy — usted acepta quedar vinculado por estos Términos y Condiciones y nuestra <a href="privacidad.html">Política de Privacidad</a>.
+    </p>
+    <p>Si no está de acuerdo con alguno de estos términos, le pedimos que se abstenga de utilizar nuestros servicios.</p>
+
+    <h2>2. Descripción de los servicios</h2>
+    <p>Batalla Group S.A.S. ofrece los siguientes servicios:</p>
+    <ul>
+      <li><strong style="color:#ccc;">Ya Voy:</strong> Plataforma de delivery que conecta usuarios finales, restaurantes y repartidores en zonas semiurbanas y rurales de México.</li>
+      <li><strong style="color:#ccc;">Desarrollo tecnológico:</strong> Consultoría y desarrollo de productos digitales para empresas y comunidades.</li>
+      <li><strong style="color:#ccc;">Sitio corporativo:</strong> Información general sobre la empresa y sus actividades.</li>
+    </ul>
+
+    <h2>3. Registro y cuenta de usuario</h2>
+    <p>Para acceder a ciertas funciones de nuestros servicios, puede ser necesario crear una cuenta. Usted se compromete a:</p>
+    <ul>
+      <li>Proporcionar información veraz, completa y actualizada</li>
+      <li>Mantener la confidencialidad de sus credenciales de acceso</li>
+      <li>Notificarnos de inmediato cualquier uso no autorizado de su cuenta</li>
+      <li>Ser mayor de 18 años o contar con autorización de un tutor legal</li>
+    </ul>
+    <p>Batalla Group se reserva el derecho de suspender o cancelar cuentas que incumplan estos términos.</p>
+
+    <h2>4. Uso aceptable</h2>
+    <p>Al usar nuestros servicios, usted se compromete a no:</p>
+    <ul>
+      <li>Usar los servicios para fines ilegales o fraudulentos</li>
+      <li>Publicar información falsa, engañosa o que infrinja derechos de terceros</li>
+      <li>Intentar acceder sin autorización a sistemas, redes o cuentas de otros usuarios</li>
+      <li>Interferir con el funcionamiento normal de la plataforma</li>
+      <li>Realizar pedidos falsos o cancelaciones abusivas en Ya Voy</li>
+    </ul>
+
+    <h2>5. Responsabilidades en Ya Voy</h2>
+    <div class="highlight-box">
+      <p><strong style="color:#fff;">Usuarios:</strong> Son responsables de proporcionar una dirección de entrega correcta y estar disponibles para recibirla en el horario acordado.</p>
+    </div>
+    <div class="highlight-box">
+      <p><strong style="color:#fff;">Restaurantes:</strong> Son responsables de la calidad, inocuidad y exactitud de los productos ofrecidos en la plataforma.</p>
+    </div>
+    <div class="highlight-box">
+      <p><strong style="color:#fff;">Repartidores:</strong> Son prestadores de servicios independientes. Batalla Group no es su empleador. Son responsables de cumplir las entregas acordadas y tratar a los clientes con respeto.</p>
+    </div>
+
+    <h2>6. Precios y pagos</h2>
+    <p>Los precios mostrados en Ya Voy son determinados por cada restaurante. Batalla Group no se hace responsable por variaciones de precio que los comercios realicen sin previo aviso.</p>
+    <p>Los pagos podrán realizarse en efectivo al momento de la entrega o mediante métodos digitales habilitados en la plataforma. Las comisiones aplicables serán informadas en todo momento antes de confirmar un pedido.</p>
+
+    <h2>7. Propiedad intelectual</h2>
+    <p>Todo el contenido de los servicios de Batalla Group — incluyendo logotipos, nombres, código, diseño, textos e imágenes — es propiedad exclusiva de Batalla Group S.A.S. o se utiliza bajo licencia.</p>
+    <p>Queda prohibida la reproducción, distribución o uso no autorizado de cualquier elemento sin consentimiento previo y por escrito de Batalla Group.</p>
+
+    <h2>8. Limitación de responsabilidad</h2>
+    <p>Batalla Group no será responsable por:</p>
+    <ul>
+      <li>Daños indirectos, incidentales o consecuentes derivados del uso de los servicios</li>
+      <li>Interrupciones del servicio por causas de fuerza mayor o fallas de terceros</li>
+      <li>Pérdidas de datos por causas ajenas a nuestra infraestructura</li>
+      <li>La calidad o entrega de productos cuando el incumplimiento sea imputable al restaurante o repartidor</li>
+    </ul>
+
+    <h2>9. Modificaciones al servicio</h2>
+    <p>Batalla Group se reserva el derecho de modificar, suspender o descontinuar cualquiera de sus servicios en cualquier momento, con o sin previo aviso. Notificaremos cambios significativos a los usuarios registrados con al menos 30 días de anticipación cuando sea posible.</p>
+
+    <h2>10. Modificaciones a estos términos</h2>
+    <p>Nos reservamos el derecho de actualizar estos Términos y Condiciones. La versión vigente siempre estará disponible en <a href="https://batallagroup.com/terminos.html">batallagroup.com/terminos.html</a>. El uso continuado de nuestros servicios tras una actualización constituye aceptación de los nuevos términos.</p>
+
+    <h2>11. Legislación aplicable y jurisdicción</h2>
+    <p>Estos Términos y Condiciones se rigen por las leyes de los <strong style="color:#ccc;">Estados Unidos Mexicanos</strong>. Para cualquier controversia derivada de estos términos, las partes se someten a la jurisdicción de los tribunales competentes del estado de Puebla, México, renunciando a cualquier otra que pudiera corresponderles.</p>
+
+    <h2>12. Contacto</h2>
+    <p>Para dudas, quejas o sugerencias sobre estos términos:</p>
+    <ul>
+      <li>Email: <a href="mailto:legal@batallagroup.com">legal@batallagroup.com</a></li>
+      <li>Email general: <a href="mailto:batallagroup@gmail.com">batallagroup@gmail.com</a></li>
+    </ul>
+  </main>
+
+  <footer>
+    &copy; 2026 Batalla Group S.A.S. · <a href="index.html">Volver al inicio</a> · <a href="privacidad.html">Política de privacidad</a>
+  </footer>
+
+  <a href="https://wa.me/521XXXXXXXXXX?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Batalla%20Group" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Aviso de cookies">
+    <p class="cookie-text">Usamos cookies para analizar el tráfico y mejorar tu experiencia. <a href="privacidad.html">Política de privacidad</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-decline" id="cookie-decline">Solo esenciales</button>
+      <button class="cookie-btn cookie-accept" id="cookie-accept">Aceptar todo</button>
+    </div>
+  </div>
+
+  <script>
+    const b = document.getElementById('cookie-banner');
+    const c = localStorage.getItem('bg-cookie-consent');
+    function hideB() { b.classList.remove('visible'); document.body.classList.remove('cookie-showing'); setTimeout(()=>{b.style.display='none';},420); }
+    if (c) { b.style.display='none'; } else { setTimeout(()=>{ b.classList.add('visible'); document.body.classList.add('cookie-showing'); },1200); }
+    document.getElementById('cookie-accept').addEventListener('click',()=>{ localStorage.setItem('bg-cookie-consent','accepted'); hideB(); });
+    document.getElementById('cookie-decline').addEventListener('click',()=>{ localStorage.setItem('bg-cookie-consent','declined'); hideB(); });
+  </script>
+</body>
+</html>

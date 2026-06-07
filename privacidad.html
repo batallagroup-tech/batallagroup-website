@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad — Batalla Group</title>
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="canonical" href="https://batallagroup.com/privacidad.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0a; --surface: #111; --border: #1e1e1e;
+      --text-primary: #fff; --text-secondary: #888; --text-muted: #444;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none; z-index: 0;
+    }
+    header {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 68px;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      display: flex; align-items: center;
+    }
+    .header-inner {
+      max-width: 860px; margin: 0 auto; padding: 0 32px;
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-primary); text-decoration: none;
+    }
+    .back-link {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-secondary); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--text-primary); }
+    main {
+      max-width: 860px; margin: 0 auto;
+      padding: 120px 32px 80px;
+      position: relative; z-index: 1;
+    }
+    .doc-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 24px;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700; text-transform: uppercase;
+      letter-spacing: -0.01em; line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .doc-meta {
+      font-size: 13px; font-weight: 300;
+      color: var(--text-muted); margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-primary);
+      margin: 48px 0 16px;
+    }
+    h2:first-of-type { margin-top: 0; }
+    p, li {
+      font-size: 0.95rem; font-weight: 300;
+      color: var(--text-secondary); line-height: 1.85;
+    }
+    p + p { margin-top: 16px; }
+    ul { padding-left: 20px; margin-top: 12px; }
+    li { margin-bottom: 8px; }
+    a { color: var(--text-secondary); }
+    a:hover { color: var(--text-primary); }
+    .highlight-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px 28px;
+      margin: 24px 0;
+    }
+    .highlight-box p { color: var(--text-secondary); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+      font-size: 12px; color: var(--text-muted);
+      position: relative; z-index: 1;
+    }
+    @media (max-width: 600px) { main { padding: 100px 20px 60px; } }
+    .cookie-banner { position:fixed;bottom:0;left:0;right:0;background:rgba(14,14,14,.97);backdrop-filter:blur(16px);border-top:1px solid #2a2a2a;padding:20px 32px;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s ease; }
+    .cookie-banner.visible { transform:translateY(0); }
+    .cookie-text { font-size:13px;font-weight:300;color:#888;line-height:1.6;flex:1;min-width:180px; }
+    .cookie-text a { color:#888;text-decoration:underline; }
+    .cookie-actions { display:flex;gap:10px;flex-wrap:wrap; }
+    .cookie-btn { font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:2px;cursor:pointer;border:1px solid transparent;transition:all .2s; }
+    .cookie-accept { background:#fff;color:#0a0a0a;border-color:#fff; }
+    .cookie-accept:hover { background:#e0e0e0; }
+    .cookie-decline { background:transparent;color:#888;border-color:#2a2a2a; }
+    .cookie-decline:hover { border-color:#555;color:#fff; }
+    .whatsapp-float { position:fixed;bottom:32px;right:32px;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:150;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.3);transition:transform .2s,box-shadow .2s,bottom .4s ease; }
+    .whatsapp-float:hover { transform:scale(1.1); }
+    .cookie-showing .whatsapp-float { bottom:112px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">Batalla Group</a>
+      <a href="index.html" class="back-link">← Volver al inicio</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="doc-label">Documento legal</div>
+    <h1>Política de Privacidad</h1>
+    <p class="doc-meta">Última actualización: 3 de junio de 2026 · Vigente para todos los servicios de Batalla Group S.A.S.</p>
+
+    <h2>1. Responsable del tratamiento de datos</h2>
+    <p>
+      <strong style="color:#fff;">Batalla Group S.A.S.</strong>, con domicilio en Puebla, México, es responsable del tratamiento de sus datos personales conforme a la <em>Ley Federal de Protección de Datos Personales en Posesión de los Particulares</em> (LFPDPPP) y su Reglamento.
+    </p>
+    <p>Contacto del responsable: <a href="mailto:privacidad@batallagroup.com">privacidad@batallagroup.com</a></p>
+
+    <h2>2. Datos personales que recabamos</h2>
+    <p>Recabamos los siguientes datos personales a través de nuestros servicios (sitio web, aplicación Ya Voy y formulario de contacto):</p>
+    <ul>
+      <li>Nombre completo</li>
+      <li>Dirección de correo electrónico</li>
+      <li>Número de teléfono (cuando aplique)</li>
+      <li>Dirección de entrega (cuando aplique en la app Ya Voy)</li>
+      <li>Información de uso de la plataforma (historial de pedidos, preferencias)</li>
+      <li>Datos del dispositivo y dirección IP (recopilados automáticamente)</li>
+    </ul>
+    <p>No recabamos datos financieros directamente. Los pagos son procesados por terceros certificados.</p>
+
+    <h2>3. Finalidades del tratamiento</h2>
+    <p>Sus datos personales serán utilizados para las siguientes finalidades:</p>
+    <ul>
+      <li><strong style="color:#ccc;">Primarias:</strong> Creación y gestión de su cuenta, procesamiento de pedidos, contacto de soporte, envío de confirmaciones y notificaciones del servicio.</li>
+      <li><strong style="color:#ccc;">Secundarias:</strong> Envío de comunicaciones comerciales y promocionales (solo con su consentimiento previo), mejora de nuestros productos y análisis estadístico anónimo.</li>
+    </ul>
+    <p>Puede oponerse a las finalidades secundarias en cualquier momento enviando un correo a <a href="mailto:privacidad@batallagroup.com">privacidad@batallagroup.com</a>.</p>
+
+    <h2>4. Derechos ARCO</h2>
+    <div class="highlight-box">
+      <p>Usted tiene derecho a <strong style="color:#fff;">Acceder, Rectificar, Cancelar u Oponerse</strong> al tratamiento de sus datos personales (derechos ARCO), conforme a la LFPDPPP.</p>
+    </div>
+    <p>Para ejercer sus derechos ARCO, envíe una solicitud a <a href="mailto:privacidad@batallagroup.com">privacidad@batallagroup.com</a> con:</p>
+    <ul>
+      <li>Su nombre completo e identificación oficial</li>
+      <li>Descripción clara del derecho que desea ejercer</li>
+      <li>Cualquier documento que facilite la localización de sus datos</li>
+    </ul>
+    <p>Responderemos su solicitud en un plazo máximo de <strong style="color:#ccc;">20 días hábiles</strong>.</p>
+
+    <h2>5. Transferencia de datos</h2>
+    <p>Sus datos personales podrán ser compartidos con:</p>
+    <ul>
+      <li>Proveedores de servicios tecnológicos necesarios para la operación de la plataforma (servidores, análisis, pagos)</li>
+      <li>Repartidores afiliados a Ya Voy, exclusivamente los datos de entrega necesarios</li>
+      <li>Autoridades competentes, cuando sea requerido por ley</li>
+    </ul>
+    <p>No vendemos ni cedemos sus datos personales a terceros con fines comerciales propios.</p>
+
+    <h2>6. Cookies y tecnologías de rastreo</h2>
+    <p>Nuestro sitio web utiliza cookies propias para el funcionamiento técnico y mejora de la experiencia. No utilizamos cookies de rastreo publicitario de terceros.</p>
+    <p>Puede deshabilitar las cookies en la configuración de su navegador, aunque esto puede afectar el funcionamiento de algunos elementos del sitio.</p>
+
+    <h2>7. Seguridad de los datos</h2>
+    <p>Implementamos medidas de seguridad técnicas y administrativas razonables para proteger sus datos personales contra pérdida, robo, acceso no autorizado, divulgación, alteración o destrucción.</p>
+
+    <h2>8. Cambios a este aviso</h2>
+    <p>Nos reservamos el derecho de actualizar este aviso de privacidad. Cualquier modificación será notificada a través de nuestro sitio web o por correo electrónico a los usuarios registrados.</p>
+
+    <h2>9. Contacto</h2>
+    <p>Para cualquier duda sobre este aviso de privacidad o el tratamiento de sus datos personales:</p>
+    <ul>
+      <li>Email: <a href="mailto:privacidad@batallagroup.com">privacidad@batallagroup.com</a></li>
+      <li>Domicilio: Puebla, México</li>
+    </ul>
+  </main>
+
+  <footer>
+    &copy; 2026 Batalla Group S.A.S. · <a href="index.html">Volver al inicio</a> · <a href="terminos.html">Términos y condiciones</a>
+  </footer>
+
+  <a href="https://wa.me/521XXXXXXXXXX?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Batalla%20Group" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Aviso de cookies">
+    <p class="cookie-text">Usamos cookies para analizar el tráfico y mejorar tu experiencia. <a href="privacidad.html">Política de privacidad</a>.</p>
+    <div class="cookie-actions">
+      <button class="cookie-btn cookie-decline" id="cookie-decline">Solo esenciales</button>
+      <button class="cookie-btn cookie-accept" id="cookie-accept">Aceptar todo</button>
+    </div>
+  </div>
+
+  <script>
+    const b = document.getElementById('cookie-banner');
+    const c = localStorage.getItem('bg-cookie-consent');
+    function hideB() { b.classList.remove('visible'); document.body.classList.remove('cookie-showing'); setTimeout(()=>{b.style.display='none';},420); }
+    if (c) { b.style.display='none'; } else { setTimeout(()=>{ b.classList.add('visible'); document.body.classList.add('cookie-showing'); },1200); }
+    document.getElementById('cookie-accept').addEventListener('click',()=>{ localStorage.setItem('bg-cookie-consent','accepted'); hideB(); });
+    document.getElementById('cookie-decline').addEventListener('click',()=>{ localStorage.setItem('bg-cookie-consent','declined'); hideB(); });
+  </script>
+</body>
+</html>

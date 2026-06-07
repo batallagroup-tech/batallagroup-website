@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Fondo negro -->
+  <rect width="400" height="400" fill="#0a0a0a"/>
+
+  <!-- Grid sutil (coherente con el sitio) -->
+  <line x1="0" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+  <line x1="200" y1="0" x2="200" y2="400" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- Monograma BG -->
+  <text
+    x="200" y="248"
+    font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+    font-size="180"
+    font-weight="900"
+    fill="#ffffff"
+    text-anchor="middle"
+    letter-spacing="-8">BG</text>
+
+  <!-- Línea decorativa inferior -->
+  <rect x="120" y="298" width="160" height="1" fill="rgba(255,255,255,0.15)"/>
+</svg>
