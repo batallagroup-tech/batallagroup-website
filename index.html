@@ -410,6 +410,7 @@
       border-top: 1px solid var(--border);
     }
     .stat { padding: 32px 0; border-right: 1px solid var(--border); }
+    .stat + .stat { padding-left: 40px; }
     .stat:last-child { border-right: none; }
     .stat-num {
       font-family: 'Space Grotesk', sans-serif;
@@ -1113,6 +1114,7 @@
     /* ── RESPONSIVE: 640px — Tablet vertical / Teléfono grande ── */
     @media (max-width: 640px) {
       .section-pad { padding: 80px 0; }
+      .form-submit { width: 100%; text-align: center; justify-content: center; }
 
       /* Testimonios → 1 columna */
       .testimonios-grid { grid-template-columns: 1fr; }
@@ -1147,11 +1149,15 @@
     @media (max-width: 480px) {
       .container  { padding: 0 18px; }
       .section-pad { padding: 60px 0; }
+      .hero-content { padding: 48px 0; }
 
       .nosotros-stats { grid-template-columns: 1fr 1fr; }
+      .stat + .stat   { padding-left: 0; }
       .product-card   { padding: 24px 18px; }
       .phone-frame    { width: 200px; }
       .phone-screen   { min-height: 380px; }
+
+      .cookie-banner  { padding: 16px 18px; }
 
       .redes-inner    { flex-direction: column; align-items: flex-start; }
       .footer-inner   { flex-direction: column; align-items: flex-start; gap: 12px; }
@@ -1315,11 +1321,11 @@
           <div class="stat-num">2026</div>
           <div class="stat-label">Fundación</div>
         </div>
-        <div class="stat" style="padding-left:40px;">
+        <div class="stat">
           <div class="stat-num">MX</div>
           <div class="stat-label">100% mexicana</div>
         </div>
-        <div class="stat" style="padding-left:40px;">
+        <div class="stat">
           <div class="stat-num">+1</div>
           <div class="stat-label">Producto activo</div>
         </div>
@@ -1793,11 +1799,13 @@
       const phoneEl  = document.getElementById('showcase-phone');
       if (!section || !textEl || !phoneEl) return;
 
+      const ANIM_OFFSET = window.innerWidth < 640 ? 36 : 88;
+
       // Estado inicial: texto fuera a la izquierda, teléfono fuera a la derecha
       textEl.style.opacity  = '0';
-      textEl.style.transform = 'translateX(-88px)';
+      textEl.style.transform = `translateX(-${ANIM_OFFSET}px)`;
       phoneEl.style.opacity  = '0';
-      phoneEl.style.transform = 'translateX(88px)';
+      phoneEl.style.transform = `translateX(${ANIM_OFFSET}px)`;
       textEl.style.willChange  = 'transform, opacity';
       phoneEl.style.willChange = 'transform, opacity';
 
@@ -1821,7 +1829,7 @@
         }
 
         const p       = easeOut(raw);
-        const offset  = (1 - p) * 88;
+        const offset  = (1 - p) * ANIM_OFFSET;
         const opacity = Math.min(1, p * 1.6);
 
         textEl.style.transform  = `translateX(${-offset}px)`;
