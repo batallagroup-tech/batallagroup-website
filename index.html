@@ -75,6 +75,15 @@
       gtag('js', new Date());
       gtag('config', window._GA_ID, { anonymize_ip: true });
     }
+    function loadAdSense() {
+      if (window._adsLoaded) return;
+      window._adsLoaded = true;
+      const s = document.createElement('script');
+      s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3849768825456219';
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      document.head.appendChild(s);
+    }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1852,6 +1861,7 @@
 
     if (savedConsent === 'accepted') {
       loadAnalytics();
+      loadAdSense();
       cookieBanner.style.display = 'none';
     } else if (savedConsent === 'declined') {
       cookieBanner.style.display = 'none';
@@ -1865,6 +1875,7 @@
     document.getElementById('cookie-accept').addEventListener('click', () => {
       localStorage.setItem('bg-cookie-consent', 'accepted');
       loadAnalytics();
+      loadAdSense();
       hideCookieBanner();
     });
     document.getElementById('cookie-decline').addEventListener('click', () => {
