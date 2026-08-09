@@ -154,7 +154,7 @@
       <div class="prof-card active" onclick="selectProf('docentes', this)">
         <span class="prof-icon">🎓</span>
         <div class="prof-title">Docentes &amp; Edu</div>
-        <div class="prof-count">3 Herramientas</div>
+        <div class="prof-count">7 Herramientas</div>
       </div>
       <div class="prof-card" onclick="selectProf('medicos', this)">
         <span class="prof-icon">🩺</span>
@@ -194,17 +194,37 @@
       <div class="subtool-card" onclick="openSingleTool('doc-lista')">
         <span class="subtool-icon">📋</span>
         <div class="subtool-title">Limpiador de Listas</div>
-        <div class="subtool-desc">Ordena alfabéticamente y elimina formatos sucios de tus listas de alumnos.</div>
+        <div class="subtool-desc">Pega tu lista sucia con números o mayúsculas irregulares — sale ordenada y limpia.</div>
       </div>
       <div class="subtool-card" onclick="openSingleTool('doc-asistencia')">
         <span class="subtool-icon">📄</span>
         <div class="subtool-title">Lista de Asistencia</div>
-        <div class="subtool-desc">Genera y exporta listas impresas ordenadas con espacios de firma.</div>
+        <div class="subtool-desc">Genera lista numerada lista para imprimir con espacios de firma por alumno.</div>
       </div>
       <div class="subtool-card" onclick="openSingleTool('doc-promedio')">
         <span class="subtool-icon">🧮</span>
-        <div class="subtool-title">Promedio Ponderado</div>
-        <div class="subtool-desc">Calculadora de promedios finales con porcentajes por rubro.</div>
+        <div class="subtool-title">Calificación Final</div>
+        <div class="subtool-desc">Agrega rubros con su porcentaje (exámenes 40%, tareas 30%…) y calcula el promedio real.</div>
+      </div>
+      <div class="subtool-card" onclick="openSingleTool('doc-tarea')">
+        <span class="subtool-icon">🖼️</span>
+        <div class="subtool-title">Tarea en Imagen</div>
+        <div class="subtool-desc">Escribe la tarea y genera una imagen lista para compartir por WhatsApp sin complicaciones.</div>
+      </div>
+      <div class="subtool-card" onclick="openSingleTool('doc-timer')">
+        <span class="subtool-icon">⏱️</span>
+        <div class="subtool-title">Temporizador de Clase</div>
+        <div class="subtool-desc">Configura el tiempo de un examen o actividad — proyéctalo en el cañón para que todos vean.</div>
+      </div>
+      <div class="subtool-card" onclick="openSingleTool('doc-abridor')">
+        <span class="subtool-icon">📂</span>
+        <div class="subtool-title">Abridor Inteligente</div>
+        <div class="subtool-desc">Sube tu archivo (.xlsx, .docx, .pdf…) y elige en qué app abrirlo — sin que Windows decida por ti.</div>
+      </div>
+      <div class="subtool-card" onclick="openSingleTool('doc-qr')">
+        <span class="subtool-icon">📱</span>
+        <div class="subtool-title">Compartir por QR</div>
+        <div class="subtool-desc">Escribe un enlace, texto o instrucción y genera un QR para proyectar en clase al instante.</div>
       </div>
     </div>
   </div>
@@ -321,24 +341,106 @@
     <div id="att-preview"></div>
   </div>
 
-  <!-- WORKSPACE 3: PROMEDIO -->
+  <!-- WORKSPACE 3: CALIFICACIÓN FINAL PONDERADA -->
   <div class="single-tool-workspace" id="ws-doc-promedio">
     <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
-    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">🧮 Promedio Ponderado</h3>
-    <div id="prom-rows">
-      <div class="dyn-row">
-        <input type="text" value="Exámenes" style="max-width:160px;">
-        <input type="number" value="40" style="max-width:80px;" oninput="calcPromedio()"> %
-        <input type="number" placeholder="8.5" style="max-width:80px;" oninput="calcPromedio()"> /10
-      </div>
-      <div class="dyn-row">
-        <input type="text" value="Tareas" style="max-width:160px;">
-        <input type="number" value="30" style="max-width:80px;" oninput="calcPromedio()"> %
-        <input type="number" placeholder="9.0" style="max-width:80px;" oninput="calcPromedio()"> /10
-      </div>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">🧮 Calificación Final</h3>
+    <p style="font-size:.875rem; color:var(--text-secondary); margin-bottom:18px;">Agrega todos tus rubros de evaluación. El porcentaje total debe sumar 100. La calificación puede ser sobre 10 o sobre 100.</p>
+
+    <div style="display:grid; grid-template-columns:2fr 1fr 1fr auto; gap:8px; align-items:center; margin-bottom:8px;">
+      <span style="font-size:10px; text-transform:uppercase; letter-spacing:.1em; color:var(--text-secondary); font-family:'Space Grotesk',sans-serif;">Rubro</span>
+      <span style="font-size:10px; text-transform:uppercase; letter-spacing:.1em; color:var(--text-secondary); font-family:'Space Grotesk',sans-serif;">% del total</span>
+      <span style="font-size:10px; text-transform:uppercase; letter-spacing:.1em; color:var(--text-secondary); font-family:'Space Grotesk',sans-serif;">Calificación</span>
+      <span></span>
     </div>
-    <div id="prom-result" class="output-box" style="display:none;">
-      <div>Promedio Final: <span class="result-display" id="prom-val">—</span></div>
+
+    <div id="prom-rows"></div>
+
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="addPromRow()">+ Agregar rubro</button>
+      <button class="btn btn-cyan" onclick="calcPromedio()">Calcular</button>
+    </div>
+
+    <div id="prom-warn" style="display:none; margin-top:12px; padding:10px 14px; background:rgba(255,160,0,0.08); border:1px solid rgba(255,160,0,0.3); border-radius:4px; font-size:.85rem; color:#ffaa00;"></div>
+
+    <div id="prom-result" class="output-box" style="display:none; margin-top:14px;">
+      <div style="margin-bottom:8px; font-size:.85rem; color:var(--text-secondary);" id="prom-breakdown"></div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:.85rem; color:var(--text-secondary); margin-bottom:4px;">Calificación Final</div>
+      <div class="result-display" id="prom-val">—</div>
+      <div id="prom-status" style="margin-top:8px; font-size:.85rem;"></div>
+    </div>
+  </div>
+
+  <!-- WORKSPACE: TAREA EN IMAGEN -->
+  <div class="single-tool-workspace" id="ws-doc-tarea">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">🖼️ Tarea en Imagen para WhatsApp</h3>
+    <p style="font-size:.875rem; color:var(--text-secondary); margin-bottom:18px;">Escribe la tarea y genera una imagen lista para mandar por WhatsApp o proyectar. Sin Word, sin formatos raros.</p>
+    <div class="grid-2">
+      <div><label>Materia</label><input type="text" id="tarea-materia" placeholder="Matemáticas" oninput="previewTarea()"></div>
+      <div><label>Fecha de entrega</label><input type="date" id="tarea-fecha" oninput="previewTarea()"></div>
+    </div>
+    <label>Instrucciones de la tarea</label>
+    <textarea id="tarea-texto" placeholder="Resolver los ejercicios 1 al 10 de la página 45. Traer cuaderno y regla." oninput="previewTarea()" style="min-height:120px;"></textarea>
+    <label>Grupo / Grado</label>
+    <input type="text" id="tarea-grupo" placeholder="3°B — Turno Matutino" oninput="previewTarea()">
+    <div class="btn-row">
+      <button class="btn btn-cyan" onclick="downloadTareaImg()">⬇️ Descargar Imagen</button>
+    </div>
+    <canvas id="tarea-canvas" style="display:none;"></canvas>
+    <div id="tarea-preview" style="margin-top:16px;"></div>
+  </div>
+
+  <!-- WORKSPACE: TEMPORIZADOR -->
+  <div class="single-tool-workspace" id="ws-doc-timer">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">⏱️ Temporizador de Clase</h3>
+    <p style="font-size:.875rem; color:var(--text-secondary); margin-bottom:18px;">Pon el tiempo de la actividad y proyéctalo en el cañón. Cuando termina, suena una alerta.</p>
+    <div class="grid-2">
+      <div><label>Minutos</label><input type="number" id="timer-min" value="20" min="0" max="120"></div>
+      <div><label>Segundos</label><input type="number" id="timer-sec" value="0" min="0" max="59"></div>
+    </div>
+    <label>Nombre de la actividad (opcional)</label>
+    <input type="text" id="timer-label" placeholder="Examen parcial">
+    <div class="btn-row">
+      <button class="btn btn-cyan" id="timer-start-btn" onclick="timerStart()">▶ Iniciar</button>
+      <button class="btn btn-ghost" onclick="timerPause()">⏸ Pausar</button>
+      <button class="btn btn-ghost" onclick="timerReset()">↩ Reiniciar</button>
+    </div>
+    <div id="timer-display" style="text-align:center; margin-top:28px;">
+      <div id="timer-activity" style="font-size:.85rem; color:var(--text-secondary); margin-bottom:8px;"></div>
+      <div id="timer-clock" style="font-family:'Space Grotesk',sans-serif; font-size:5rem; font-weight:700; color:var(--accent-cyan); letter-spacing:.05em;">00:00</div>
+      <div id="timer-status" style="font-size:.85rem; color:var(--text-secondary); margin-top:8px;"></div>
+    </div>
+  </div>
+
+  <!-- WORKSPACE: ABRIDOR INTELIGENTE -->
+  <div class="single-tool-workspace" id="ws-doc-abridor">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">📂 Abridor Inteligente de Archivos</h3>
+    <p style="font-size:.875rem; color:var(--text-secondary); margin-bottom:18px;">Sube tu archivo y elige tú en qué programa abrirlo — sin que Windows abra la app equivocada.</p>
+    <label>Selecciona tu archivo</label>
+    <input type="file" id="file-picker" onchange="detectFile(this)" style="background:var(--bg); border:1px solid var(--border-light); border-radius:3px; color:#fff; padding:10px 14px; width:100%;">
+    <div id="file-result" style="display:none; margin-top:20px;">
+      <div id="file-info" style="margin-bottom:16px; padding:12px 14px; background:rgba(0,229,255,0.04); border:1px solid rgba(0,229,255,0.2); border-radius:4px;"></div>
+      <p style="font-size:.875rem; color:var(--text-secondary); margin-bottom:12px;">¿Dónde quieres abrirlo?</p>
+      <div id="file-options" style="display:flex; flex-wrap:wrap; gap:10px;"></div>
+    </div>
+  </div>
+
+  <!-- WORKSPACE: QR COMPARTIR -->
+  <div class="single-tool-workspace" id="ws-doc-qr">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">📱 Compartir por QR</h3>
+    <p style="font-size:.875rem; color:var(--text-secondary); margin-bottom:18px;">Escribe un enlace, instrucción o texto. Se genera el QR al instante — proyéctalo o imprímelo.</p>
+    <label>Texto o enlace</label>
+    <textarea id="qr-input" placeholder="https://drive.google.com/... ó 'Tarea: Página 45 ejercicios 1-10'" style="min-height:90px;" oninput="generateQR()"></textarea>
+    <div style="text-align:center; margin-top:20px;">
+      <div id="qr-output" style="display:inline-block; background:#fff; padding:16px; border-radius:4px;"></div>
+    </div>
+    <div class="btn-row" style="justify-content:center;">
+      <button class="btn btn-cyan" onclick="downloadQR()">⬇️ Descargar QR</button>
+      <button class="btn btn-ghost" onclick="window.print()">🖨️ Imprimir</button>
     </div>
   </div>
 
@@ -523,7 +625,243 @@ function filterTools() {
 // ── DOCENTES ──
 function cleanList(){ const raw=document.getElementById('lista-input').value; const lines=raw.split('\n').map(l=>l.trim()).filter(Boolean); const cleaned=lines.map(l=>l.replace(/^\d+[\.\)]\s*/,'').replace(/\s+/g,' ').split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()).join(' ')).sort((a,b)=>a.localeCompare(b,'es')); document.getElementById('lista-output').value=cleaned.map((n,i)=>`${i+1}. ${n}`).join('\n'); }
 function generateAttendance(){ const grupo=document.getElementById('att-grupo').value||'Grupo'; const docente=document.getElementById('att-docente').value||'—'; const num=parseInt(document.getElementById('att-num').value)||30; let rows=''; for(let i=1;i<=num;i++) rows+=`<tr><td style="width:30px;text-align:center;">${i}</td><td></td><td style="width:100px;"></td></tr>`; document.getElementById('att-preview').innerHTML=`<div class="print-target" style="margin-top:16px;"><table class="attendance-table"><thead><tr><th colspan="3">${grupo} | Docente: ${docente}</th></tr><tr><th>#</th><th>Nombre</th><th>Firma</th></tr></thead><tbody>${rows}</tbody></table></div>`; }
-function calcPromedio(){ const rows=document.querySelectorAll('#prom-rows .dyn-row'); let totP=0, totProm=0; rows.forEach(r=>{ const i=r.querySelectorAll('input[type=number]'); const p=parseFloat(i[0].value)||0, c=parseFloat(i[1].value); if(!isNaN(c)){ totP+=p; totProm+=c*p; } }); document.getElementById('prom-result').style.display='block'; document.getElementById('prom-val').textContent=totP>0?(totProm/totP).toFixed(2):'—'; }
+
+// ── CALIFICACIÓN PONDERADA ──
+function addPromRow(label='',pct='',cal=''){
+  const container=document.getElementById('prom-rows');
+  const row=document.createElement('div');
+  row.className='dyn-row';
+  row.style.cssText='display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;align-items:center;margin-bottom:8px;';
+  row.innerHTML=`
+    <input type="text" placeholder="Rubro (ej. Exámenes)" value="${label}" style="margin:0;" oninput="calcPromedio()">
+    <input type="number" placeholder="%" value="${pct}" min="0" max="100" style="margin:0;" oninput="calcPromedio()">
+    <input type="number" placeholder="Calif." value="${cal}" min="0" max="100" step="0.1" style="margin:0;" oninput="calcPromedio()">
+    <button class="del-btn" onclick="this.closest('.dyn-row').remove(); calcPromedio();">✕</button>
+  `;
+  container.appendChild(row);
+  calcPromedio();
+}
+
+function calcPromedio(){
+  const rows=document.querySelectorAll('#prom-rows .dyn-row');
+  let totPct=0, weightedSum=0;
+  let breakdown=[];
+  let valid=true;
+  rows.forEach(r=>{
+    const inputs=r.querySelectorAll('input');
+    const label=inputs[0].value.trim()||'Rubro';
+    const pct=parseFloat(inputs[1].value);
+    const cal=parseFloat(inputs[2].value);
+    if(!isNaN(pct)) totPct+=pct;
+    if(!isNaN(pct)&&!isNaN(cal)){
+      const contrib=(cal*(pct/100));
+      weightedSum+=contrib;
+      breakdown.push(`${label}: ${cal} × ${pct}% = ${contrib.toFixed(2)}`);
+    } else { valid=false; }
+  });
+  const warn=document.getElementById('prom-warn');
+  const result=document.getElementById('prom-result');
+  if(rows.length===0){ warn.style.display='none'; result.style.display='none'; return; }
+  if(Math.abs(totPct-100)>0.1){
+    warn.style.display='block';
+    warn.textContent=`⚠️ Los porcentajes suman ${totPct}%. Deben sumar exactamente 100% para que el cálculo sea correcto.`;
+  } else {
+    warn.style.display='none';
+  }
+  if(valid && rows.length>0){
+    result.style.display='block';
+    document.getElementById('prom-breakdown').innerHTML=breakdown.join('<br>');
+    const finalGrade=weightedSum;
+    document.getElementById('prom-val').textContent=finalGrade.toFixed(2);
+    const statusEl=document.getElementById('prom-status');
+    if(finalGrade>=9){ statusEl.innerHTML='<span style="color:var(--accent-neon);">🟢 Excelente</span>'; }
+    else if(finalGrade>=7){ statusEl.innerHTML='<span style="color:#00e5ff;">🔵 Aprobado</span>'; }
+    else if(finalGrade>=6){ statusEl.innerHTML='<span style="color:#ffaa00;">🟡 Suficiente</span>'; }
+    else { statusEl.innerHTML='<span style="color:#ff2a55;">🔴 No acreditado</span>'; }
+  }
+}
+
+// Inicializar con 3 rubros de ejemplo
+document.addEventListener('DOMContentLoaded',()=>{
+  addPromRow('Exámenes','40','');
+  addPromRow('Tareas','30','');
+  addPromRow('Participación','30','');
+});
+
+// ── TAREA EN IMAGEN ──
+function previewTarea(){
+  const materia=document.getElementById('tarea-materia').value||'Materia';
+  const fecha=document.getElementById('tarea-fecha').value;
+  const texto=document.getElementById('tarea-texto').value||'(sin instrucciones)';
+  const grupo=document.getElementById('tarea-grupo').value||'';
+  const fechaStr=fecha?new Date(fecha+'T12:00:00').toLocaleDateString('es-MX',{weekday:'long',day:'numeric',month:'long'}):'—';
+  document.getElementById('tarea-preview').innerHTML=`
+    <div id="tarea-card" style="background:#111;border:1px solid #2a2a2a;border-radius:6px;padding:24px;max-width:480px;font-family:'Inter',sans-serif;">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#00e5ff;margin-bottom:6px;">${grupo}</div>
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;margin-bottom:4px;">${materia}</div>
+      <div style="font-size:.8rem;color:#888;margin-bottom:16px;">Entregar: ${fechaStr}</div>
+      <div style="font-size:.92rem;color:#ddd;line-height:1.7;white-space:pre-wrap;">${texto}</div>
+      <div style="margin-top:16px;font-size:10px;color:#444;font-family:'Space Grotesk',sans-serif;">Batalla Edu · Batalla Group</div>
+    </div>`;
+}
+function downloadTareaImg(){
+  const card=document.getElementById('tarea-card');
+  if(!card){showToast('Primero llena los datos de la tarea'); return;}
+  const materia=document.getElementById('tarea-materia').value||'tarea';
+  const texto=document.getElementById('tarea-texto').value||'';
+  const fecha=document.getElementById('tarea-fecha').value;
+  const grupo=document.getElementById('tarea-grupo').value||'';
+  const fechaStr=fecha?new Date(fecha+'T12:00:00').toLocaleDateString('es-MX',{weekday:'long',day:'numeric',month:'long'}):'—';
+  const canvas=document.getElementById('tarea-canvas');
+  const W=520, padding=28;
+  const lines=texto.split('\n');
+  const textLines=[];
+  lines.forEach(line=>{ const words=line.split(' '); let cur=''; words.forEach(w=>{ if((cur+' '+w).trim().length>52){textLines.push(cur.trim());cur=w;}else{cur=(cur+' '+w).trim();}}); textLines.push(cur.trim()); });
+  const H=padding*2+30+36+24+16+textLines.length*24+40;
+  canvas.width=W; canvas.height=H; canvas.style.display='none';
+  const ctx=canvas.getContext('2d');
+  ctx.fillStyle='#111111'; ctx.fillRect(0,0,W,H);
+  let y=padding;
+  ctx.font='700 11px sans-serif'; ctx.fillStyle='#00e5ff'; ctx.fillText(grupo.toUpperCase(),padding,y+12); y+=26;
+  ctx.font='700 22px sans-serif'; ctx.fillStyle='#ffffff'; ctx.fillText(materia.toUpperCase(),padding,y+22); y+=36;
+  ctx.font='300 13px sans-serif'; ctx.fillStyle='#888'; ctx.fillText('Entregar: '+fechaStr,padding,y+14); y+=30;
+  ctx.strokeStyle='#2a2a2a'; ctx.beginPath(); ctx.moveTo(padding,y); ctx.lineTo(W-padding,y); ctx.stroke(); y+=16;
+  ctx.font='400 14px sans-serif'; ctx.fillStyle='#dddddd';
+  textLines.forEach(line=>{ ctx.fillText(line,padding,y+14); y+=22; });
+  y+=16;
+  ctx.font='400 10px sans-serif'; ctx.fillStyle='#444'; ctx.fillText('Batalla Edu · Batalla Group',padding,y+12);
+  const link=document.createElement('a');
+  link.download=`tarea-${materia.replace(/\s+/g,'-').toLowerCase()}.png`;
+  link.href=canvas.toDataURL('image/png');
+  link.click();
+  showToast('✅ Imagen descargada');
+}
+
+// ── TEMPORIZADOR ──
+let _timerInterval=null, _timerLeft=0, _timerRunning=false;
+function timerStart(){
+  if(_timerRunning) return;
+  if(_timerLeft===0){
+    const m=parseInt(document.getElementById('timer-min').value)||0;
+    const s=parseInt(document.getElementById('timer-sec').value)||0;
+    _timerLeft=m*60+s;
+  }
+  if(_timerLeft<=0) return;
+  const lbl=document.getElementById('timer-label').value;
+  document.getElementById('timer-activity').textContent=lbl||'';
+  _timerRunning=true;
+  _timerInterval=setInterval(()=>{
+    _timerLeft--;
+    updateTimerDisplay();
+    if(_timerLeft<=0){ clearInterval(_timerInterval); _timerRunning=false;
+      document.getElementById('timer-status').textContent='¡Tiempo terminado!';
+      document.getElementById('timer-clock').style.color='#ff2a55';
+      try{ const a=new AudioContext(); const o=a.createOscillator(); const g=a.createGain(); o.connect(g); g.connect(a.destination); o.frequency.value=880; g.gain.setValueAtTime(0.3,a.currentTime); g.gain.exponentialRampToValueAtTime(0.001,a.currentTime+1.2); o.start(); o.stop(a.currentTime+1.2); }catch(e){}
+    }
+  },1000);
+}
+function timerPause(){ clearInterval(_timerInterval); _timerRunning=false; }
+function timerReset(){ clearInterval(_timerInterval); _timerRunning=false; _timerLeft=0;
+  document.getElementById('timer-clock').textContent='00:00';
+  document.getElementById('timer-clock').style.color='var(--accent-cyan)';
+  document.getElementById('timer-status').textContent='';
+}
+function updateTimerDisplay(){
+  const m=Math.floor(_timerLeft/60), s=_timerLeft%60;
+  document.getElementById('timer-clock').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  const pct=100-(_timerLeft/((parseInt(document.getElementById('timer-min').value)||1)*60))*100;
+  if(_timerLeft<=30) document.getElementById('timer-clock').style.color='#ffaa00';
+  document.getElementById('timer-status').textContent=`${m}m ${s}s restantes`;
+}
+
+// ── ABRIDOR DE ARCHIVOS ──
+const FILE_APPS={
+  'xlsx':[
+    {label:'Excel Online',url:'https://office.live.com/start/excel.aspx',icon:'📊'},
+    {label:'Google Sheets',url:'https://sheets.new',icon:'📗'},
+    {label:'LibreOffice Calc',url:'https://www.libreoffice.org/',icon:'📐'}
+  ],
+  'xls':[
+    {label:'Excel Online',url:'https://office.live.com/start/excel.aspx',icon:'📊'},
+    {label:'Google Sheets',url:'https://sheets.new',icon:'📗'}
+  ],
+  'docx':[
+    {label:'Word Online',url:'https://office.live.com/start/word.aspx',icon:'📝'},
+    {label:'Google Docs',url:'https://docs.new',icon:'📄'},
+    {label:'LibreOffice Writer',url:'https://www.libreoffice.org/',icon:'✏️'}
+  ],
+  'doc':[
+    {label:'Word Online',url:'https://office.live.com/start/word.aspx',icon:'📝'},
+    {label:'Google Docs',url:'https://docs.new',icon:'📄'}
+  ],
+  'pptx':[
+    {label:'PowerPoint Online',url:'https://office.live.com/start/powerpoint.aspx',icon:'📊'},
+    {label:'Google Slides',url:'https://slides.new',icon:'🎞️'}
+  ],
+  'pdf':[
+    {label:'Google Drive Viewer',url:'https://drive.google.com',icon:'📑'},
+    {label:'PDF24 Online',url:'https://tools.pdf24.org/es/pdf-viewer',icon:'📋'}
+  ],
+  'jpg':[
+    {label:'Google Fotos',url:'https://photos.google.com',icon:'🖼️'},
+    {label:'Canva',url:'https://canva.com',icon:'🎨'}
+  ],
+  'jpeg':[
+    {label:'Google Fotos',url:'https://photos.google.com',icon:'🖼️'},
+    {label:'Canva',url:'https://canva.com',icon:'🎨'}
+  ],
+  'png':[
+    {label:'Google Fotos',url:'https://photos.google.com',icon:'🖼️'},
+    {label:'Canva',url:'https://canva.com',icon:'🎨'}
+  ],
+  'mp4':[
+    {label:'VLC (descarga)',url:'https://www.videolan.org/vlc/',icon:'🎥'},
+    {label:'YouTube subir',url:'https://studio.youtube.com',icon:'▶️'}
+  ]
+};
+
+function detectFile(input){
+  const file=input.files[0]; if(!file) return;
+  const ext=file.name.split('.').pop().toLowerCase();
+  const size=(file.size/1024<1024)?`${(file.size/1024).toFixed(1)} KB`:`${(file.size/1024/1024).toFixed(1)} MB`;
+  document.getElementById('file-info').innerHTML=`
+    <strong style="color:#fff;">${file.name}</strong>
+    <span style="color:var(--text-secondary); font-size:.8rem; margin-left:10px;">${size} · .${ext.toUpperCase()}</span>`;
+  const apps=FILE_APPS[ext]||[];
+  const optEl=document.getElementById('file-options');
+  document.getElementById('file-result').style.display='block';
+  if(apps.length===0){
+    optEl.innerHTML=`<p style="color:var(--text-secondary);font-size:.85rem;">No hay apps sugeridas para este tipo de archivo. Revisa qué programas tienes instalados.</p>`;
+    return;
+  }
+  optEl.innerHTML=apps.map(a=>`
+    <a href="${a.url}" target="_blank" class="btn btn-ghost" style="font-size:.82rem;">${a.icon} ${a.label} →</a>
+  `).join('');
+}
+
+// ── QR ──
+function generateQR(){
+  const text=document.getElementById('qr-input').value.trim();
+  const out=document.getElementById('qr-output');
+  out.innerHTML='';
+  if(!text) return;
+  if(window.QRCode){
+    new QRCode(out,{text,width:220,height:220,colorDark:'#000',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.H});
+  } else {
+    const src=`https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(text)}`;
+    out.innerHTML=`<img src="${src}" alt="QR" style="display:block;width:220px;height:220px;">`;
+  }
+}
+function downloadQR(){
+  const text=document.getElementById('qr-input').value.trim();
+  if(!text){showToast('Escribe algo primero');return;}
+  const img=document.querySelector('#qr-output img');
+  if(!img){generateQR();return;}
+  const link=document.createElement('a');
+  link.download='qr-batalla-edu.png';
+  link.href=`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(text)}`;
+  link.target='_blank'; link.click();
+}
 
 // ── MÉDICOS ──
 function generateReceta(){ const med=document.getElementById('rx-medico').value||'Dr.'; const ced=document.getElementById('rx-cedula').value||'—'; const pac=document.getElementById('rx-paciente').value||'Paciente'; const diag=document.getElementById('rx-diagnostico').value||'—'; document.getElementById('receta-preview').innerHTML=`<div class="print-target" style="background:#fff;color:#111;padding:24px;border-radius:4px;margin-top:12px;"><strong>${med}</strong> (Céd. ${ced})<br>Paciente: ${pac}<br>Diagnóstico: ${diag}</div>`; }
