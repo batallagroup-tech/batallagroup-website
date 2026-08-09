@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Batalla Group — Tecnología para el México real</title>
   <meta name="description" content="Batalla Group es una empresa tecnológica mexicana que diseña y construye productos digitales para zonas semiurbanas y rurales de México." />
-  <meta name="keywords" content="Batalla Group, tecnología México, productos digitales, desarrollo de software, startup México, Puebla, Juan Galindo, Necaxa, educación online, herramientas profesionales, herramientas digitales, herramientas gratuitas, biometría, autenticación, supabase, webauthn, batallagroup, batalla edu, batalla especialistas, batalla business, herramientas productividad" />
+  <meta name="keywords" content="Batalla Group, tecnología México, productos digitales, startup mexicano, desarrollo de software, Puebla, Necaxa, Juan Galindo, educación digital, herramientas para docentes, herramientas para médicos, herramientas para arquitectos, herramientas para contadores, herramientas para abogados, herramientas gratuitas, herramientas digitales, convertidor de imagen, compresor de imagen, generador de QR, escaner INE, Batalla ID, biometría, WebAuthn, Supabase, autenticación biométrica, Batalla Edu, Batalla Especialistas, Batalla Business, Batalla Tools, comercio local digital, vitrina digital, menú digital, software profesionistas, software PYME, software PyME México, zonas rurales, zonas semiurbanas, tecnología accesible, México real, herramientas online gratis, producción privada, sin servidor, sin nube, 100 privado, Batalla Group S.A.S., batallagroup.com, batallagroup tech, batch tools, SaaS México, SaaS rural, fintech México, edtech México, healthtech México" />
   <meta name="author" content="Batalla Group S.A.S." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://batallagroup.com/" />
@@ -2056,18 +2056,22 @@
           </div>
         </div>
 
-        <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:24px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; padding:12px; background:rgba(255,255,255,0.02); border:1px solid var(--border-light); border-radius:4px;">
-            <span style="color:var(--text-secondary);">Plan de Usuario:</span>
-            <button onclick="openConfigModal()" class="btn btn-cyan" style="justify-content:center; width:100%;">Configuración</button>    <span style="color:var(--text-secondary);">Dispositivo Biométrico:</span>
-            <strong style="color:var(--accent-neon);" id="id-user-bio-status">Registrado / Configurado</strong>
+        <!-- Info de cuenta -->
+        <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; padding:10px 14px; background:rgba(255,255,255,0.02); border:1px solid var(--border-light); border-radius:4px;">
+            <span style="color:var(--text-secondary);">Plan</span>
+            <strong style="color:#fff;">Batalla ID · Gratuito</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; padding:10px 14px; background:rgba(255,255,255,0.02); border:1px solid var(--border-light); border-radius:4px;">
+            <span style="color:var(--text-secondary);">Biometría</span>
+            <strong style="color:var(--accent-neon);" id="id-user-bio-status">Activa</strong>
           </div>
         </div>
 
+        <!-- Acciones -->
         <div style="display:flex; flex-direction:column; gap:10px;">
-
-
-          <button onclick="handleSignOutSubmit()" class="btn btn-ghost" style="justify-content:center; width:100%; color:#ff2a55; border-color:rgba(255,42,85,0.3); margin-top:8px;">🚪 Cerrar Sesión</button>
+          <button onclick="openConfigModal()" class="btn btn-cyan" style="justify-content:center; width:100%;">⚙️ Configuración</button>
+          <button onclick="openSignOutConfirm()" class="btn btn-ghost" style="justify-content:center; width:100%; color:#ff2a55; border-color:rgba(255,42,85,0.3);">🚪 Cerrar Sesión</button>
         </div>
       </div>
 
@@ -2358,20 +2362,33 @@
       }
     }
 
+    function openSignOutConfirm() {
+      closeUiModal('ui-batalla-id-modal');
+      document.getElementById('ui-signout-confirm-modal').classList.add('active');
+    }
+
+    function openConfigModal() {
+      closeUiModal('ui-batalla-id-modal');
+      document.getElementById('ui-config-modal').classList.add('active');
+    }
+
+    function saveConfig() {
+      const notif = document.getElementById('config-notif').checked;
+      localStorage.setItem('batalla_notif', notif ? '1' : '0');
+      closeUiModal('ui-config-modal');
+      showToast('✅ Preferencias guardadas', 'success');
+    }
+
     async function handleSignOutSubmit(){
-      // Aquí podrías llamar a la API de Supabase para cerrar sesión
+      closeUiModal('ui-signout-confirm-modal');
       if(_supabase){
-        _supabase.auth.signOut().then(()=>{
-          showToast('🚪 Sesión cerrada correctamente', 'success');
-          // Opcional: redirigir a la página de inicio
-          location.reload();
-        }).catch(err=>{
-          showToast('Error al cerrar sesión', 'error');
-        });
-      } else {
-        showToast('Sesión cerrada', 'success');
-        location.reload();
+        try {
+          await _supabase.auth.signOut();
+        } catch(e) {}
       }
+      localStorage.removeItem('batalla_id_bio_email');
+      showToast('🚪 Sesión cerrada correctamente', 'success');
+      setTimeout(() => location.reload(), 1200);
     }
 
     // Cargar testimonios y verificar sesión desde Supabase al iniciar
@@ -2409,16 +2426,41 @@
   </script>
 
   <!-- Insider Mail Widget -->
+
+  <!-- ══ MODAL: CONFIGURACIÓN DE NOTIFICACIONES ══ -->
   <div class="batalla-modal-overlay" id="ui-config-modal">
     <div class="batalla-modal-card">
       <button class="batalla-modal-close" onclick="closeUiModal('ui-config-modal')">&times;</button>
-      <span class="badge" style="border-color:var(--accent-cyan); color:var(--accent-cyan); margin-bottom:12px;">Configuración</span>
-      <h3 style="font-family:'Space Grotesk', sans-serif; font-size:1.3rem; font-weight:700; text-transform:uppercase; margin-bottom:8px;">Preferencias de Notificación</h3>
-      <div style="display:flex; align-items:center; gap:8px;">
-        <input type="checkbox" id="config-notif" checked>
-        <label for="config-notif" style="font-size:0.9rem; color:var(--text-secondary);">Recibir notificaciones de lanzamientos</label>
+      <span class="badge" style="border-color:var(--accent-cyan); color:var(--accent-cyan); margin-bottom:14px;">⚙️ Configuración</span>
+      <h3 style="font-family:'Space Grotesk', sans-serif; font-size:1.15rem; font-weight:700; text-transform:uppercase; margin-bottom:18px;">Preferencias de Notificación</h3>
+      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:24px;">
+        <label style="display:flex; align-items:center; gap:10px; cursor:pointer; padding:12px 14px; background:rgba(255,255,255,0.02); border:1px solid var(--border-light); border-radius:4px;">
+          <input type="checkbox" id="config-notif" style="width:16px; height:16px; accent-color:var(--accent-cyan);">
+          <span style="font-size:0.88rem; color:var(--text-secondary);">Notificaciones de lanzamientos y novedades</span>
+        </label>
+        <label style="display:flex; align-items:center; gap:10px; cursor:pointer; padding:12px 14px; background:rgba(255,255,255,0.02); border:1px solid var(--border-light); border-radius:4px;">
+          <input type="checkbox" id="config-notif-ofertas" style="width:16px; height:16px; accent-color:var(--accent-cyan);">
+          <span style="font-size:0.88rem; color:var(--text-secondary);">Ofertas y descuentos exclusivos</span>
+        </label>
+        <label style="display:flex; align-items:center; gap:10px; cursor:pointer; padding:12px 14px; background:rgba(255,255,255,0.02); border:1px solid var(--border-light); border-radius:4px;">
+          <input type="checkbox" id="config-notif-prod" checked style="width:16px; height:16px; accent-color:var(--accent-cyan);">
+          <span style="font-size:0.88rem; color:var(--text-secondary);">Actualizaciones de productos que uso</span>
+        </label>
       </div>
-      <button onclick="saveConfig()" class="btn btn-cyan" style="justify-content:center; width:100%; margin-top:12px;">Guardar</button>
+      <button onclick="saveConfig()" class="btn btn-cyan" style="justify-content:center; width:100%;">Guardar preferencias</button>
+    </div>
+  </div>
+
+  <!-- ══ MODAL: CONFIRMAR CIERRE DE SESIÓN ══ -->
+  <div class="batalla-modal-overlay" id="ui-signout-confirm-modal">
+    <div class="batalla-modal-card" style="text-align:center; max-width:360px;">
+      <div style="width:52px; height:52px; border-radius:50%; background:rgba(255,42,85,0.08); border:1px solid rgba(255,42,85,0.35); display:flex; align-items:center; justify-content:center; margin:0 auto 18px; font-size:1.4rem;">🚪</div>
+      <h3 style="font-family:'Space Grotesk', sans-serif; font-size:1.1rem; font-weight:700; text-transform:uppercase; margin-bottom:10px;">Cerrar Sesión</h3>
+      <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:24px; line-height:1.6;">¿Seguro que deseas cerrar tu sesión de Batalla ID?<br>Tu cuenta seguirá activa en el servidor.</p>
+      <div style="display:flex; gap:10px;">
+        <button onclick="closeUiModal('ui-signout-confirm-modal')" class="btn btn-ghost" style="flex:1; justify-content:center;">Cancelar</button>
+        <button onclick="handleSignOutSubmit()" class="btn" style="flex:1; justify-content:center; background:rgba(255,42,85,0.12); border:1px solid rgba(255,42,85,0.4); color:#ff2a55;">Cerrar Sesión</button>
+      </div>
     </div>
   </div>
   <script src="https://ads.insider-mail.com/static/widget.js" data-customer-id="mch-batallagroup-tech-github-io"></script>
