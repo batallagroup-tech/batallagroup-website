@@ -2010,10 +2010,23 @@
         Inicia sesión sin contraseñas con enlace mágico a tu correo o mediante autenticación biométrica (WebAuthn / Huella Digital).
       </p>
 
+    <div class="batalla-modal-card">
+      <button class="batalla-modal-close" onclick="closeBatallaIdModal()" aria-label="Cerrar">&times;</button>
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <span class="badge" style="border-color:var(--accent-cyan); color:var(--accent-cyan);">Batalla ID</span>
+        <span style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-muted);">Ecosistema Unificado</span>
+      </div>
+      <h3 style="font-family:'Space Grotesk', sans-serif; font-size:1.5rem; font-weight:700; text-transform:uppercase; margin-bottom:12px; line-height:1.1;">
+        Acceso Único al Hub
+      </h3>
+      <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.6; margin-bottom:24px; font-weight:300;">
+        Inicia sesión sin contraseñas con enlace mágico a tu correo o mediante autenticación biométrica (WebAuthn / Huella Digital).
+      </p>
+
       <form id="magic-link-form" onsubmit="handleMagicLinkSubmit(event)" style="display:flex; flex-direction:column; gap:14px; margin-bottom:20px;">
         <div class="form-group">
           <label class="form-label" for="magic-email">Correo Electrónico</label>
-          <input class="form-input" type="email" id="magic-email" placeholder="profesor@escuela.edu.mx" required>
+          <input class="form-input" type="email" id="magic-email" placeholder="profesor@escuela.edu.mx" required style="background:var(--bg); border:1px solid var(--border-light); padding:12px; border-radius:3px; color:#fff; width:100%; outline:none;">
         </div>
         <button type="submit" class="btn btn-primary" style="justify-content:center; width:100%;">
           Enviar Magic Link &rarr;
@@ -2035,6 +2048,71 @@
     </div>
   </div>
 
+  <!-- ══ MODAL PERSONALIZADO: TESTIMONIOS ══ -->
+  <div class="batalla-modal-overlay" id="ui-testimonio-modal">
+    <div class="batalla-modal-card">
+      <button class="batalla-modal-close" onclick="closeUiModal('ui-testimonio-modal')">&times;</button>
+      <span class="badge badge-dot" style="margin-bottom:12px;">Comunidad Batalla</span>
+      <h3 style="font-family:'Space Grotesk', sans-serif; font-size:1.3rem; font-weight:700; text-transform:uppercase; margin-bottom:16px;">
+        Añadir Testimonio u Opinión
+      </h3>
+      <form onsubmit="submitTestimonioCustom(event)" style="display:flex; flex-direction:column; gap:14px;">
+        <div>
+          <label style="font-size:10px; text-transform:uppercase; color:var(--text-secondary); display:block; margin-bottom:4px;">Tu Nombre o Negocio</label>
+          <input type="text" id="t-custom-nombre" placeholder="Ej. Dr. Ramírez / Tacos El Güero" required style="background:var(--bg); border:1px solid var(--border-light); padding:10px 14px; border-radius:3px; color:#fff; width:100%; outline:none;">
+        </div>
+        <div>
+          <label style="font-size:10px; text-transform:uppercase; color:var(--text-secondary); display:block; margin-bottom:4px;">Especialidad, Profesión o Ubicación</label>
+          <input type="text" id="t-custom-rol" placeholder="Ej. Docente · Puebla / Médico General" required style="background:var(--bg); border:1px solid var(--border-light); padding:10px 14px; border-radius:3px; color:#fff; width:100%; outline:none;">
+        </div>
+        <div>
+          <label style="font-size:10px; text-transform:uppercase; color:var(--text-secondary); display:block; margin-bottom:4px;">Tu Opinión o Experiencia Real</label>
+          <textarea id="t-custom-msg" placeholder="Escribe tu mensaje..." required style="background:var(--bg); border:1px solid var(--border-light); padding:10px 14px; border-radius:3px; color:#fff; width:100%; min-height:90px; outline:none;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-cyan" style="justify-content:center; width:100%;">Publicar Testimonio en Vivo &rarr;</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ══ MODAL PERSONALIZADO: NOTIFICACIÓN DE LANZAMIENTOS ══ -->
+  <div class="batalla-modal-overlay" id="ui-notify-modal">
+    <div class="batalla-modal-card">
+      <button class="batalla-modal-close" onclick="closeUiModal('ui-notify-modal')">&times;</button>
+      <span class="badge" style="border-color:var(--accent-cyan); color:var(--accent-cyan); margin-bottom:12px;">Notificación de Lanzamiento</span>
+      <h3 style="font-family:'Space Grotesk', sans-serif; font-size:1.3rem; font-weight:700; text-transform:uppercase; margin-bottom:8px;" id="ui-notify-title">
+        Batalla Enterprise
+      </h3>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:20px; font-weight:300;">Ingresa tu correo para recibir una notificación prioritaria en cuanto este servicio esté disponible.</p>
+      <form onsubmit="submitNotifyCustom(event)" style="display:flex; flex-direction:column; gap:14px;">
+        <input type="hidden" id="ui-notify-service-name" value="General">
+        <div>
+          <label style="font-size:10px; text-transform:uppercase; color:var(--text-secondary); display:block; margin-bottom:4px;">Correo Electrónico</label>
+          <input type="email" id="ui-notify-email" placeholder="tu@empresa.com" required style="background:var(--bg); border:1px solid var(--border-light); padding:10px 14px; border-radius:3px; color:#fff; width:100%; outline:none;">
+        </div>
+        <button type="submit" class="btn btn-cyan" style="justify-content:center; width:100%;">Registrarme para Notificación &rarr;</button>
+      </form>
+      <p id="ui-notify-feedback" style="font-size:11px; color:var(--accent-neon); margin-top:14px; display:none; text-align:center;"></p>
+    </div>
+  </div>
+
+  <!-- ══ MODAL PERSONALIZADO: AVISO WHATSAPP ══ -->
+  <div class="batalla-modal-overlay" id="ui-wa-modal">
+    <div class="batalla-modal-card" style="text-align:center;">
+      <button class="batalla-modal-close" onclick="closeUiModal('ui-wa-modal')">&times;</button>
+      <div style="width:56px; height:56px; border-radius:50%; background:rgba(0,229,255,0.08); border:1px solid var(--accent-cyan); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <h3 style="font-family:'Space Grotesk', sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:10px;">
+        Atención por WhatsApp
+      </h3>
+      <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:24px; font-weight:300; line-height:1.6;">
+        El canal de atención directa por WhatsApp no se encuentra disponible por el momento.<br><br>Para alianzas, proyectos o soporte corporativo, por favor escríbenos directamente a:
+      </p>
+      <a href="mailto:batallagroup@gmail.com" class="btn btn-cyan" style="width:100%; justify-content:center; margin-bottom:12px;">✉️ batallagroup@gmail.com</a>
+      <button onclick="closeUiModal('ui-wa-modal')" class="btn btn-ghost" style="width:100%; justify-content:center;">Cerrar</button>
+    </div>
+  </div>
+
   <script>
     // ── SUPABASE LIVE INTEGRATION ──
     const SUPABASE_URL = 'https://hgdpamqzaywhcmayqnlh.supabase.co';
@@ -2048,51 +2126,64 @@
 
     function openWaNotAvailable(e) {
       if(e) e.preventDefault();
-      alert('💬 Atención por WhatsApp no disponible por el momento.\n\nPor favor contáctanos por email a batallagroup@gmail.com.');
+      document.getElementById('ui-wa-modal').classList.add('active');
     }
 
-    async function openTestimonioModal() {
-      const nombre = prompt('Ingresa tu nombre o negocio:');
-      if(!nombre) return;
-      const rol = prompt('¿A qué te dedicas o cuál es tu especialidad/ubicación?');
-      const mensaje = prompt('Escribe tu testimonio u opinión sobre las herramientas de Batalla Group:');
-      if(mensaje) {
-        // Render local inmediato
-        renderTestimonioUI(nombre, rol || 'Usuario de Batalla Group', mensaje);
-        
-        // Guardado en Supabase en vivo si la tabla existe
-        if (_supabase) {
-          try {
-            await _supabase.from('testimonios').insert([{ nombre, rol: rol || 'Usuario de Batalla Group', mensaje }]);
-          } catch(err) {
-            console.log('Supabase sync info:', err);
-          }
-        }
-        alert('¡Gracias por compartir tu testimonio! Se ha registrado en la plataforma.');
+    function openTestimonioModal() {
+      document.getElementById('ui-testimonio-modal').classList.add('active');
+    }
+
+    function openNotifyModal(featureName) {
+      document.getElementById('ui-notify-title').textContent = featureName || 'Batalla Enterprise';
+      document.getElementById('ui-notify-service-name').value = featureName || 'General';
+      document.getElementById('ui-notify-modal').classList.add('active');
+    }
+
+    function closeUiModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+    }
+
+    async function submitTestimonioCustom(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('t-custom-nombre').value.trim();
+      const rol = document.getElementById('t-custom-rol').value.trim();
+      const mensaje = document.getElementById('t-custom-msg').value.trim();
+      if(!nombre || !mensaje) return;
+
+      renderTestimonioUI(nombre, rol || 'Usuario de Batalla Group', mensaje);
+      closeUiModal('ui-testimonio-modal');
+      
+      // Reset campos
+      document.getElementById('t-custom-nombre').value = '';
+      document.getElementById('t-custom-rol').value = '';
+      document.getElementById('t-custom-msg').value = '';
+
+      if (_supabase) {
+        try {
+          await _supabase.from('testimonios').insert([{ nombre, rol: rol || 'Usuario de Batalla Group', mensaje }]);
+        } catch(err) {}
       }
     }
 
-    function renderTestimonioUI(nombre, rol, mensaje) {
-      const list = document.getElementById('testimonios-list');
-      if(!list) return;
-      const div = document.createElement('div');
-      div.className = 'testimonio reveal active';
-      div.innerHTML = `<p class="testimonio-quote">"${mensaje}"</p><div class="testimonio-author"><div class="testimonio-name">${nombre}</div><div class="testimonio-role">${rol}</div></div>`;
-      list.prepend(div);
-    }
-
-    async function openNotifyModal(featureName) {
-      const email = prompt(`🔔 Notificación de lanzamiento:\n\nIngresa tu correo para avisarte en cuanto ${featureName || 'este servicio'} esté disponible:`, '');
-      if (email && email.includes('@')) {
-        if (_supabase) {
-          try {
-            await _supabase.from('notificaciones_lanzamientos').insert([{ email, servicio: featureName || 'General' }]);
-          } catch(err) {
-            console.log('Lead info saved:', err);
-          }
-        }
-        alert(`¡Gracias! Te avisaremos a ${email} en cuanto lancemos ${featureName || 'este servicio'}.`);
+    async function submitNotifyCustom(e) {
+      e.preventDefault();
+      const email = document.getElementById('ui-notify-email').value.trim();
+      const servicio = document.getElementById('ui-notify-service-name').value;
+      const feedback = document.getElementById('ui-notify-feedback');
+      
+      if (_supabase && email.includes('@')) {
+        try {
+          await _supabase.from('notificaciones_lanzamientos').insert([{ email, servicio }]);
+        } catch(err) {}
       }
+
+      feedback.style.display = 'block';
+      feedback.textContent = '⚡ ¡Gracias! Te avisaremos a ' + email + ' en cuanto el servicio esté listo.';
+      setTimeout(() => {
+        closeUiModal('ui-notify-modal');
+        feedback.style.display = 'none';
+        document.getElementById('ui-notify-email').value = '';
+      }, 2200);
     }
 
     function openBatallaIdModal(e) {
@@ -2136,28 +2227,27 @@
     async function handleWebAuthnSubmit() {
       const emailInput = document.getElementById('magic-email');
       let email = emailInput.value.trim();
-      
+      const feedback = document.getElementById('magic-link-feedback');
+
       if (!email) {
-        email = prompt('👤 Ingrese su correo electrónico para vincular o autenticar la biometría (Huella / FaceID) a su Batalla ID:');
-        if (!email || !email.includes('@')) {
-          alert('Por favor ingrese un correo válido para configurar la biometría.');
-          return;
-        }
-        emailInput.value = email;
+        emailInput.style.borderColor = '#ff2a55';
+        emailInput.focus();
+        feedback.style.display = 'block';
+        feedback.style.color = '#ff2a55';
+        feedback.textContent = '⚠️ Ingresa tu correo primero para asociar la biometría (Huella / FaceID) a tu Batalla ID.';
+        return;
       }
 
-      const feedback = document.getElementById('magic-link-feedback');
+      emailInput.style.borderColor = 'var(--accent-cyan)';
       feedback.style.display = 'block';
       feedback.style.color = '#00e5ff';
       feedback.textContent = '🔒 Escaneando biometría del dispositivo (Huella / FaceID / TouchID)...';
 
       if (window.PublicKeyCredential && await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable()) {
         try {
-          // Solicitud nativa de autenticador biométrico del navegador
           feedback.textContent = '👆 Por favor coloca tu huella o escanea tu rostro en la pantalla de tu dispositivo...';
           feedback.style.color = '#00ffaa';
           
-          // Guardar registro de dispositivo vinculado localmente
           localStorage.setItem('batalla_id_bio_email', email);
           localStorage.setItem('batalla_id_bio_active', 'true');
           
