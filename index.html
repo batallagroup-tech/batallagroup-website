@@ -1270,6 +1270,7 @@
         <nav>
           <a href="#nosotros">Nosotros</a>
           <a href="#productos">Productos</a>
+          <a href="#utilidades">Utilidades</a>
           <a href="#servicios">Servicios</a>
           <a href="#equipo">Equipo</a>
           <a href="#contacto">Contacto</a>
@@ -1284,6 +1285,7 @@
   <div class="mobile-nav" id="mobile-nav">
     <a href="#nosotros" class="mobile-link">Nosotros</a>
     <a href="#productos" class="mobile-link">Productos</a>
+    <a href="#utilidades" class="mobile-link">Utilidades</a>
     <a href="#servicios" class="mobile-link">Servicios</a>
     <a href="#equipo" class="mobile-link">Equipo</a>
     <a href="#contacto" class="mobile-link">Contacto</a>
@@ -1337,6 +1339,16 @@
           <div class="stat-num">+1</div>
           <div class="stat-label">Producto activo</div>
         </div>
+      </div>
+      <!-- Banner de Transparencia de Datos y Arquitectura Local -->
+      <div class="transparencia-banner reveal" style="margin-top: 60px; padding: 28px 36px; background: var(--surface); border: 1px solid var(--border-light); border-radius: 4px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span class="badge-dot" style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--text-primary);"></span>
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-primary);">Infraestructura Transparente &amp; Procesamiento Local</span>
+        </div>
+        <p style="font-size: 0.88rem; font-weight: 300; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+          &ldquo;Nuestras herramientas de uso diario procesan tus archivos 100% dentro de tu navegador. Sin servidores intermediarios ni riesgos de privacidad. Estamos construyendo el ecosistema Batalla ID de forma progresiva e independiente.&rdquo;
+        </p>
       </div>
     </div>
   </section>
@@ -1433,7 +1445,7 @@
   <!-- ══ PRODUCTOS ══ -->
   <section id="productos">
     <div class="container section-pad">
-      <div class="section-label reveal-left">02 — Productos</div>
+      <div class="section-label reveal-left">02 — Productos &amp; Ecosistema</div>
       <div class="productos-grid">
         <div class="product-card product-card-featured reveal reveal-delay-1">
           <span class="badge badge-dot">Disponible ahora</span>
@@ -1457,6 +1469,23 @@
           <p style="font-size:.85rem;color:var(--text-muted);margin-top:20px;line-height:1.6;font-weight:300;">
             Más productos digitales para comunidades mexicanas. Pronto.
           </p>
+        </div>
+      </div>
+
+      <!-- Subsección Utilidades & Herramientas Gratuitas (Batalla Labs / Web Tools) -->
+      <div id="utilidades" style="margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border);">
+        <div class="section-label reveal-left" style="margin-bottom: 24px;">Batalla Labs — Utilidades Web Locales (100% Privadas &amp; Sin Registro)</div>
+        <div class="product-card reveal reveal-delay-1" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <span class="badge" style="border-color: var(--border-light); margin-bottom: 16px;">Herramienta Gratuita · Procesamiento Local</span>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 12px 0; line-height: 1.1;">Batalla Scanner / INE Express</h3>
+            <p class="product-desc" style="max-width: 720px; margin-bottom: 28px;">
+              Permite colocar frente y reverso de la INE en una sola hoja Carta a escala 1:1 lista para imprimir, procesado 100% en el navegador local sin subir fotos a ningún servidor.
+            </p>
+          </div>
+          <div>
+            <a href="herramientas/ine-scanner.html" class="btn btn-primary">Pruébalo gratis &rarr;</a>
+          </div>
         </div>
       </div>
     </div>
@@ -1634,45 +1663,20 @@
           </div>
         </div>
 
-        <!-- Formulario derecha -->
-        <!--
-          FORMSPREE SETUP:
-          1. Ir a formspree.io y crear una cuenta gratuita
-          2. Crear un nuevo form → copiar el endpoint (ej: https://formspree.io/f/xabcdefg)
-          3. Reemplazar YOUR_FORM_ID abajo con ese ID (solo las letras, ej: xabcdefg)
-          4. Verificar el email en Formspree → listo, los mensajes llegan a tu correo
-        -->
+        <!-- Formulario Insider Mail -->
         <div class="reveal reveal-delay-2">
-          <form
-            class="contact-form"
-            id="contact-form"
-            action="https://formspree.io/f/YOUR_FORM_ID"
-            method="POST"
-          >
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="nombre">Nombre</label>
-                <input class="form-input" id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="email">Email</label>
-                <input class="form-input" id="email" name="email" type="email" placeholder="tu@email.com" required />
-              </div>
-            </div>
+          <form action="https://campaigns.insider-mail.com/api/contacts/subscribe" method="POST" class="contact-form">
+            <input type="hidden" name="tenant_id" value="10">
             <div class="form-group">
-              <label class="form-label" for="empresa">Empresa / Organización</label>
-              <input class="form-input" id="empresa" name="empresa" type="text" placeholder="Opcional" />
+              <label class="form-label" for="email">Correo Electrónico</label>
+              <input class="form-input" type="email" name="email" id="email" placeholder="tu@correo.com" required>
             </div>
-            <div class="form-group">
-              <label class="form-label" for="mensaje">Mensaje</label>
-              <textarea class="form-textarea" id="mensaje" name="mensaje" placeholder="Cuéntanos en qué podemos colaborar..." required></textarea>
+            <div class="form-group" style="display: flex; align-items: center; gap: 8px; margin: 8px 0;">
+              <input type="checkbox" name="opt_in" id="opt_in" checked required style="accent-color: var(--text-primary);">
+              <label for="opt_in" style="font-size: 11px; color: var(--text-secondary);">Acepto recibir actualizaciones y ofertas de Batalla Group</label>
             </div>
-            <button type="submit" class="form-submit">Enviar mensaje</button>
-            <p class="form-note">Tu información es confidencial. No enviamos spam ni compartimos tus datos.</p>
+            <button type="submit" class="form-submit">Suscribirme / Unirme a la red</button>
           </form>
-          <div class="form-success" id="form-success">
-            Mensaje enviado. Te responderemos en menos de 24 horas.
-          </div>
         </div>
 
       </div>
