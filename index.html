@@ -1338,10 +1338,11 @@
       <div class="header-inner">
         <a href="#hero" class="logo">Batalla Group</a>
         <nav>
-          <a href="index.html">Inicio</a>
-          <a href="docentes.html">Educación</a>
-          <a href="comercio.html">Comercio Local</a>
-          <a href="utilidades.html">Utilidades Gratis</a>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#ecosistema">Ecosistema</a>
+          <a href="#vision">Software &amp; Hardware</a>
+          <a href="#equipo">Equipo</a>
+          <a href="#contacto">Contacto</a>
           <a href="#batalla-id" onclick="openBatallaIdModal(event)" class="btn-batalla-id">Batalla ID</a>
         </nav>
         <button class="hamburger" id="hamburger" aria-label="Menú">
@@ -1352,62 +1353,69 @@
   </header>
 
   <div class="mobile-nav" id="mobile-nav">
-    <a href="index.html" class="mobile-link">Inicio</a>
-    <a href="docentes.html" class="mobile-link">Educación / Profesionistas</a>
-    <a href="comercio.html" class="mobile-link">Comercio Local</a>
-    <a href="utilidades.html" class="mobile-link">Utilidades Gratis</a>
+    <a href="#nosotros" class="mobile-link">Nosotros</a>
+    <a href="#ecosistema" class="mobile-link">Ecosistema</a>
+    <a href="#vision" class="mobile-link">Software &amp; Hardware</a>
+    <a href="#equipo" class="mobile-link">Equipo</a>
+    <a href="#contacto" class="mobile-link">Contacto</a>
     <a href="#batalla-id" onclick="openBatallaIdModal(event)" class="mobile-link" style="color: #ff2a85; font-weight:700;">Batalla ID — Acceso</a>
   </div>
 
-  <!-- ══ HERO ══ -->
+  <!-- ══ HERO MATRIZ ══ -->
   <section id="hero">
     <div class="container">
       <div class="hero-content">
+        <div class="hero-anim-0" style="margin-bottom: 20px;">
+          <span class="badge" style="border-color: var(--accent-pink, #ff2a85); color: var(--accent-pink, #ff2a85);">
+            Empresa Tecnológica Mexicana · Matriz Corporativa
+          </span>
+        </div>
         <h1 class="hero-title hero-anim-0">
           Batalla<br /><span>Group</span>
         </h1>
         <p class="hero-subtitle hero-anim-1">
-          Tecnología para el México que los grandes ignoran.
+          La matriz tecnológica que simplifica la vida cotidiana, profesional y comercial del México real con soluciones integradas de software y hardware.
         </p>
         <div class="hero-cta hero-anim-2">
-          <a href="#nosotros" class="btn btn-primary">Conocer más</a>
-          <a href="#productos" class="btn btn-ghost">Nuestros productos &nbsp;→</a>
+          <a href="#ecosistema" class="btn btn-primary">Explorar Ecosistema ↓</a>
+          <a href="#nosotros" class="btn btn-ghost">Nuestra Filosofía Corporativa &nbsp;→</a>
         </div>
       </div>
     </div>
     <div class="hero-corner">Puebla · México · 2026</div>
   </section>
 
-  <!-- ══ NOSOTROS ══ -->
+  <!-- ══ NOSOTROS / MANIFIESTO ══ -->
   <section id="nosotros">
     <div class="container section-pad">
-      <div class="section-label reveal-left">01 — Nosotros</div>
+      <div class="section-label reveal-left">01 — Filosofía Corporativa</div>
       <div class="nosotros-grid">
         <div class="reveal reveal-delay-1">
-          <h2 class="nosotros-headline">Construimos el futuro digital de México.</h2>
+          <h2 class="nosotros-headline">La base tecnológica para todo lo que importa.</h2>
         </div>
         <div class="reveal reveal-delay-2">
           <div class="nosotros-body">
-            <p>Batalla Group es una empresa tecnológica mexicana enfocada en construir productos digitales para zonas semiurbanas y rurales de México. Creemos que la tecnología debe llegar a todos, no solo a las grandes ciudades.</p>
-            <p>Desarrollamos plataformas que entienden el contexto real de las comunidades: su infraestructura, sus necesidades y sus ritmos. No copiamos soluciones extranjeras — las construimos desde México, para México.</p>
-            <p>Nacimos con la convicción de que la brecha digital puede cerrarse, y que los negocios locales merecen las mismas herramientas que los grandes corporativos.</p>
+            <p>Batalla Group es la matriz tecnológica mexicana diseñada para abarcar múltiples áreas de la vida diaria: desde facilitar tareas personales cotidianas hasta potenciar el trabajo de profesionistas (docentes, médicos, consultores) y transformar la operación de comercios comunitarios.</p>
+            <p>No creamos herramientas aisladas; construimos un ecosistema unificado donde todo se conecta en un solo lugar de manera sencilla, transparente y sin fricción informática ni comisiones excesivas.</p>
+            <p>Nacimos en Puebla con la convicción de que el México semiurbano y rural merece acceso directo a tecnología de punta construida desde adentro, para todos.</p>
           </div>
         </div>
       </div>
       <div class="nosotros-stats reveal">
         <div class="stat">
           <div class="stat-num">2026</div>
-          <div class="stat-label">Fundación</div>
+          <div class="stat-label">Fundación Corporativa</div>
         </div>
         <div class="stat">
-          <div class="stat-num">MX</div>
-          <div class="stat-label">100% mexicana</div>
+          <div class="stat-num">4</div>
+          <div class="stat-label">Pilares de Solución</div>
         </div>
         <div class="stat">
-          <div class="stat-num">+1</div>
-          <div class="stat-label">Producto activo</div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Independencia &amp; Privacidad</div>
         </div>
       </div>
+
       <!-- Banner de Transparencia de Datos y Arquitectura Local -->
       <div class="transparencia-banner reveal" style="margin-top: 60px; padding: 28px 36px; background: var(--surface); border: 1px solid var(--border-light); border-radius: 4px; display: flex; flex-direction: column; gap: 8px;">
         <div style="display: flex; align-items: center; gap: 10px;">
@@ -1415,118 +1423,46 @@
           <span style="font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-primary);">Infraestructura Transparente &amp; Procesamiento Local</span>
         </div>
         <p style="font-size: 0.88rem; font-weight: 300; color: var(--text-secondary); line-height: 1.7; margin: 0;">
-          &ldquo;Nuestras herramientas de uso diario procesan tus archivos 100% dentro de tu navegador. Sin servidores intermediarios ni riesgos de privacidad. Estamos construyendo el ecosistema Batalla ID de forma progresiva e independiente.&rdquo;
+          &ldquo;Nuestras herramientas cotidianas procesan tus archivos 100% dentro de tu navegador. Sin servidores intermediarios ni riesgos de privacidad. Estamos construyendo el ecosistema Batalla ID de forma progresiva e independiente.&rdquo;
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ══ SHOWCASE: YA VOY APP ══ -->
-  <section id="showcase">
+  <!-- ══ ECOSISTEMA MATRIX (PILARES DE SOLUCIÓN) ══ -->
+  <section id="ecosistema" style="border-bottom: 1px solid var(--border);">
     <div class="container section-pad">
-      <div class="showcase-grid">
-        <div id="showcase-text">
-          <div class="section-label">Nuestra tecnología</div>
-          <h2 class="showcase-headline">Construimos para el México que otros ignoran</h2>
-          <p class="showcase-desc">
-            Desarrollamos productos digitales desde cero, pensados para el contexto
-            real de cada comunidad. Sin copiar soluciones de afuera.
-          </p>
-          <div class="showcase-features">
-            <div class="feature-item">
-              <span class="feature-num">01</span>
-              <div>
-                <div class="feature-title">Enfoque local</div>
-                <p class="feature-desc">Entendemos la infraestructura, los hábitos y las necesidades de cada zona antes de construir.</p>
-              </div>
-            </div>
-            <div class="feature-item">
-              <span class="feature-num">02</span>
-              <div>
-                <div class="feature-title">Desarrollo completo</div>
-                <p class="feature-desc">Del concepto al lanzamiento. Diseño, ingeniería y operación en un solo equipo.</p>
-              </div>
-            </div>
-            <div class="feature-item">
-              <span class="feature-num">03</span>
-              <div>
-                <div class="feature-title">Impacto medible</div>
-                <p class="feature-desc">Cada producto que lanzamos transforma la economía de su comunidad con resultados reales.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Phone mockup CSS -->
-        <div class="phone-wrapper" id="showcase-phone">
-          <div class="phone-frame">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <div class="app-topbar">
-                <span class="app-brand">Ya Voy</span>
-                <span class="app-loc">Juan Galindo, Pue.</span>
-              </div>
-              <div class="app-hero-img">
-                <div class="app-hero-title">¿Qué se te antoja hoy?</div>
-                <div class="app-hero-sub">Entrega en tu zona · Pago en efectivo</div>
-              </div>
-              <div class="app-section-label">Restaurantes cercanos</div>
-              <div class="app-cards">
-                <div class="app-card">
-                  <span class="app-card-name">Hamburguesas El Güero</span>
-                  <span class="app-card-time">~15 min</span>
-                </div>
-                <div class="app-card">
-                  <span class="app-card-name">Tacos La Patrona</span>
-                  <span class="app-card-time">~10 min</span>
-                </div>
-                <div class="app-card">
-                  <span class="app-card-name">Pizzería Don Chuy</span>
-                  <span class="app-card-time">~20 min</span>
-                </div>
-              </div>
-              <div class="app-nav">
-                <div class="app-nav-item active">
-                  <div class="app-nav-dot"></div>
-                  <span>Inicio</span>
-                </div>
-                <div class="app-nav-item">
-                  <div class="app-nav-dot"></div>
-                  <span>Buscar</span>
-                </div>
-                <div class="app-nav-item">
-                  <div class="app-nav-dot"></div>
-                  <span>Pedidos</span>
-                </div>
-                <div class="app-nav-item">
-                  <div class="app-nav-dot"></div>
-                  <span>Perfil</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ PORTAFOLIO / VERTICALES DEL ECOSISTEMA ══ -->
-  <section id="productos">
-    <div class="container section-pad">
-      <div class="section-label reveal-left">02 — Verticales &amp; Soluciones del Ecosistema</div>
-      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 48px; line-height: 1.1;">
-        Categorías de Solución
+      <div class="section-label reveal-left">02 — Arquitectura del Ecosistema</div>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 16px; line-height: 1.1;">
+        Soluciones Multinivel
       </h2>
+      <p style="color: var(--text-secondary); max-width: 720px; font-weight: 300; margin-bottom: 48px; font-size: 1.05rem;">
+        Un solo punto de partida formal que conecta herramientas personales, de profesionales, comercios locales y servicios comunitarios.
+      </p>
 
       <div class="matrix-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
         
-        <!-- 1. Educación & Profesionistas -->
+        <!-- PILAR 1: PERSONAL & COTIDIANO -->
         <div class="product-card reveal reveal-delay-1" style="display:flex; flex-direction:column; justify-content:space-between;">
           <div>
-            <span class="badge" style="border-color: var(--border-light); margin-bottom: 16px;">🎓 Educación &amp; Profesionistas</span>
-            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">Batalla Edu</h3>
+            <span class="badge" style="border-color: var(--border-light); margin-bottom: 16px;">01 · Personal &amp; Cotidiano</span>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">Batalla Tools</h3>
             <p class="product-desc" style="margin-bottom: 28px;">
-              Simplificación tecnológica para profesores y estudiantes. Herramientas intuitivas de &ldquo;Un Solo Clic&rdquo; para procesar listas, convertir formatos y escanear sin cables.
+              Facilitamos la vida cotidiana con utilidades rápidas de un solo clic. Herramientas 100% privadas en navegador como el Escáner de INE 1:1 a hoja Carta, limpiador de listas y convertidores de documentos.
+            </p>
+          </div>
+          <div>
+            <a href="utilidades.html" class="btn btn-primary">Abrir Batalla Tools &rarr;</a>
+          </div>
+        </div>
+
+        <!-- PILAR 2: PROFESIONISTAS & ESPECIALISTAS -->
+        <div class="product-card product-card-featured reveal reveal-delay-2" style="display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <span class="badge badge-dot" style="margin-bottom: 16px;">02 · Profesionistas &amp; Especialistas</span>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">Batalla Pro / Edu</h3>
+            <p class="product-desc" style="margin-bottom: 28px;">
+              Software intuitivo para docentes (procesamiento de listas sin fórmulas, escáner PC-Celular), médicos (consultas y recetas personalizadas simples), consultores y arquitectos. Todo en un solo lugar.
             </p>
           </div>
           <div>
@@ -1534,13 +1470,13 @@
           </div>
         </div>
 
-        <!-- 2. Comercio Local & Servicios -->
-        <div class="product-card product-card-featured reveal reveal-delay-2" style="display:flex; flex-direction:column; justify-content:space-between;">
+        <!-- PILAR 3: NEGOCIOS & COMERCIO LOCAL -->
+        <div class="product-card reveal reveal-delay-1" style="display:flex; flex-direction:column; justify-content:space-between;">
           <div>
-            <span class="badge badge-dot" style="margin-bottom: 16px;">🏪 Comercio Local &amp; Servicios</span>
-            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">YaVoy Web</h3>
+            <span class="badge" style="border-color: var(--border-light); margin-bottom: 16px;">03 · Negocios &amp; Servicios Locales</span>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">YaVoy Business</h3>
             <p class="product-desc" style="margin-bottom: 28px;">
-              Vitrina digital ligera y directorio interactivo para negocios comunitarios. Menús digitales, pedidos por WhatsApp y logística local sin comisiones externas.
+              Vitrina digital ligera para restaurantes, cafeterías, talleres y autolavados. Menús digitales y pedidos por WhatsApp hoy; integración con hardware automatizado mañana.
             </p>
           </div>
           <div>
@@ -1548,27 +1484,13 @@
           </div>
         </div>
 
-        <!-- 3. Utilidades Locales -->
-        <div class="product-card reveal reveal-delay-1" style="display:flex; flex-direction:column; justify-content:space-between;">
-          <div>
-            <span class="badge" style="border-color: var(--border-light); margin-bottom: 16px;">🛠️ Utilidades Locales &amp; Privadas</span>
-            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">Batalla Tools</h3>
-            <p class="product-desc" style="margin-bottom: 28px;">
-              Herramientas 100% privadas y gratuitas de un solo clic. Escáner INE 1:1 a hoja Carta lista para imprimir sin subir fotos a ningún servidor.
-            </p>
-          </div>
-          <div>
-            <a href="utilidades.html" class="btn btn-primary">Usar Herramientas Gratis &rarr;</a>
-          </div>
-        </div>
-
-        <!-- 4. Seguridad & Redes Descentralizadas -->
+        <!-- PILAR 4: PLATAFORMAS & REDES COMUNALES -->
         <div class="product-card reveal reveal-delay-2" style="display:flex; flex-direction:column; justify-content:space-between;">
           <div>
-            <span class="badge" style="border-color: var(--border-light); margin-bottom: 16px;">🔒 Seguridad &amp; Redes</span>
-            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">Mico / BarrioAlerta</h3>
+            <span class="badge" style="border-color: var(--border-light); margin-bottom: 16px;">04 · Redes Comunales &amp; Aplicaciones</span>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em; margin: 16px 0 12px; line-height: 1.1;">YaVoy App &amp; BarrioAlerta</h3>
             <p class="product-desc" style="margin-bottom: 28px;">
-              Soluciones de conectividad y comunicación descentralizada para la seguridad comunitaria y redes de respuesta rápida entre vecinos y comercios.
+              Ecosistemas multi-aplicación descentralizados (repartidor, cliente y restaurante) y redes comunitarias de respuesta rápida para la seguridad en vecindarios.
             </p>
           </div>
           <div>
@@ -1576,6 +1498,53 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HOJA DE RUTA: SOFTWARE + HARDWARE DEL MAÑANA ══ -->
+  <section id="vision" style="border-bottom: 1px solid var(--border); background: var(--surface);">
+    <div class="container section-pad">
+      <div class="section-label reveal-left">03 — Evolución Tecnológica</div>
+      <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center;">
+        <div>
+          <span class="badge" style="border-color: var(--accent-pink, #ff2a85); color: var(--accent-pink, #ff2a85); margin-bottom: 16px;">
+            Innovación Progresiva
+          </span>
+          <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px;">
+            De Software Intuitivo a Hardware Automatizado
+          </h2>
+          <p style="color: var(--text-secondary); font-weight: 300; line-height: 1.8; margin-bottom: 24px;">
+            Nuestra hoja de ruta integra herramientas digitales hoy y hardware dedicado mañana para transformar la experiencia en comercios locales sin intermediarios:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px; font-size: 0.92rem; color: var(--text-secondary);">
+            <li style="display: flex; align-items: flex-start; gap: 12px;">
+              <span style="color: var(--accent-pink, #ff2a85); font-weight: 700;">•</span>
+              <div><strong style="color: var(--text-primary);">Restaurantes &amp; Comensales:</strong> Botones físicos en mesas que envían alertas instantáneas al reloj smartwatch del mesero y a pantallas de cocina.</div>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 12px;">
+              <span style="color: var(--accent-pink, #ff2a85); font-weight: 700;">•</span>
+              <div><strong style="color: var(--text-primary);">Estacionamientos &amp; Autolavados:</strong> Plumas de acceso automatizadas con pago sencillo por código celular sin comisiones bancarias ni boletaje físico.</div>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 12px;">
+              <span style="color: var(--accent-pink, #ff2a85); font-weight: 700;">•</span>
+              <div><strong style="color: var(--text-primary);">Programa de Fidelidad &amp; Referidos:</strong> Modelo Freemium con mes de prueba gratis y recompensas consecutivas de &ldquo;Mes gratis por cada colega o comercio invitado&rdquo;.</div>
+            </li>
+          </ul>
+        </div>
+
+        <div style="background: var(--bg); border: 1px solid var(--border-light); border-radius: 6px; padding: 40px; text-align: center;">
+          <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(255, 42, 133, 0.12); border: 1.5px solid var(--accent-pink, #ff2a85); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 0 30px rgba(255,42,133,0.25);">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-pink, #ff2a85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">
+            Batalla ID — Llave Maestra
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); font-weight: 300; line-height: 1.6; margin-bottom: 24px;">
+            Una sola cuenta biométrica o enlace mágico para acceder a todas las herramientas personales, profesionales y comerciales del ecosistema.
+          </p>
+          <button onclick="openBatallaIdModal(event)" class="btn btn-primary" style="width: 100%; justify-content: center;">Conectar con Batalla ID &rarr;</button>
+        </div>
       </div>
     </div>
   </section>
