@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batalla Tools — Utilidades Locales, Gratuitas y 100% Privadas | Batalla Group</title>
+  <meta name="description" content="Escáner INE Express a Escala 1:1 en hoja Carta. Procesamiento 100% privado dentro de tu navegador sin servidores ni registro." />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --surface-2: #161616;
+      --border: #1e1e1e;
+      --border-light: #2a2a2a;
+      --text-primary: #ffffff;
+      --text-secondary: #888888;
+      --text-muted: #444444;
+      --header-h: 68px;
+      --accent-pink: #ff2a85;
+      --accent-pink-glow: rgba(255, 42, 133, 0.25);
+      --accent-neon: #00ffaa;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* GRID TEXTURE */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+      z-index: 0;
+      animation: gridDrift 40s linear infinite;
+    }
+    @keyframes gridDrift {
+      from { background-position: 0 0; }
+      to   { background-position: 64px 64px; }
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+    .section-pad { padding: 80px 0; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-secondary);
+      border: 1px solid var(--border-light); padding: 5px 12px; border-radius: 2px;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+      padding: 14px 28px; border-radius: 2px; cursor: pointer; transition: all 0.25s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--text-primary); color: var(--bg); border-color: var(--text-primary); }
+    .btn-primary:hover { background: #e8e8e8; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,255,255,0.12); }
+    .btn-ghost { background: transparent; color: var(--text-primary); border-color: var(--border-light); }
+    .btn-ghost:hover { border-color: #666; background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+
+    .btn-batalla-id {
+      font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: #ffffff;
+      background: rgba(255, 42, 133, 0.15); border: 1px solid var(--accent-pink);
+      padding: 7px 16px; border-radius: 2px; box-shadow: 0 0 14px var(--accent-pink-glow);
+      transition: all 0.25s ease; text-decoration: none;
+    }
+    .btn-batalla-id:hover { background: var(--accent-pink); box-shadow: 0 0 24px rgba(255, 42, 133, 0.55); }
+
+    /* HEADER & NAV */
+    header {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: var(--header-h); z-index: 100;
+      background: rgba(10,10,10,0.85); backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+    }
+    .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-primary); text-decoration: none;
+    }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a {
+      font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-secondary);
+      text-decoration: none; transition: color 0.2s;
+    }
+    nav a:hover { color: var(--text-primary); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+    .hamburger span { width: 22px; height: 1.5px; background: var(--text-primary); }
+    .mobile-nav {
+      display: none; position: fixed; top: var(--header-h); left: 0; right: 0;
+      background: rgba(10,10,10,0.97); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); padding: 32px; z-index: 99; flex-direction: column;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-secondary);
+      text-decoration: none; padding: 18px 0; border-bottom: 1px solid var(--border);
+    }
+
+    /* TOOL WORKSPACE */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 40px;
+      align-items: start;
+      margin-top: 40px;
+    }
+
+    .tool-controls {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .upload-box {
+      border: 1.5px dashed var(--border-light);
+      border-radius: 4px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      background: rgba(255,255,255,0.01);
+      transition: border-color 0.2s;
+    }
+    .upload-box:hover { border-color: var(--accent-pink); }
+    .upload-box input { display: none; }
+
+    .canvas-preview-container {
+      background: #1a1a1a;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: auto;
+    }
+
+    /* PRIVACY BANNER */
+    .privacy-banner {
+      background: rgba(0, 255, 170, 0.05);
+      border: 1px solid var(--accent-neon);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* MODAL BATALLA ID */
+    .batalla-modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px);
+      z-index: 1000; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .batalla-modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .batalla-modal-card {
+      background: var(--surface); border: 1px solid var(--border-light);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.8), 0 0 40px rgba(255, 42, 133, 0.2);
+      border-radius: 6px; width: 90%; max-width: 440px; padding: 36px; position: relative;
+    }
+
+    footer { border-top: 1px solid var(--border); padding: 40px 0; font-size: 12px; color: var(--text-muted); }
+
+    /* ESTILOS DE IMPRESIÓN 1:1 REAL EN HOJA CARTA */
+    @media print {
+      body * { visibility: hidden; }
+      #print-sheet-area, #print-sheet-area * { visibility: visible; }
+      #print-sheet-area {
+        position: absolute;
+        left: 0; top: 0;
+        width: 215.9mm;
+        height: 279.4mm;
+        margin: 0;
+        padding: 0;
+        background: #ffffff !important;
+      }
+      canvas { width: 215.9mm !important; height: 279.4mm !important; }
+    }
+
+    @media (max-width: 960px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .tool-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">Batalla Group</a>
+        <nav>
+          <a href="index.html">Inicio</a>
+          <a href="docentes.html">Educación</a>
+          <a href="comercio.html">Comercio Local</a>
+          <a href="utilidades.html" style="color:var(--text-primary); font-weight:600;">Utilidades Gratis</a>
+          <a href="#batalla-id" onclick="openBatallaIdModal(event)" class="btn-batalla-id">Batalla ID</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html" class="mobile-link">Inicio</a>
+    <a href="docentes.html" class="mobile-link">Educación / Profesionistas</a>
+    <a href="comercio.html" class="mobile-link">Comercio Local</a>
+    <a href="utilidades.html" class="mobile-link">Utilidades Gratis</a>
+    <a href="#batalla-id" onclick="openBatallaIdModal(event)" class="mobile-link" style="color:#ff2a85;">Batalla ID — Acceso</a>
+  </div>
+
+  <div class="container" style="padding-top: calc(var(--header-h) + 40px);">
+
+    <!-- BANNER DE PRIVACIDAD TRANSPARENTE -->
+    <div class="privacy-banner">
+      <span style="font-size:24px;">🛡️</span>
+      <div>
+        <div style="font-family:'Space Grotesk', sans-serif; font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent-neon); margin-bottom:2px;">
+          Infraestructura 100% Transparente &amp; Procesamiento Local
+        </div>
+        <p style="font-size:0.85rem; color:var(--text-secondary); margin:0;">
+          &ldquo;Esta herramienta corre 100% dentro de tu navegador. Tus fotos jamás se suben a ningún servidor ni se guardan en internet. Seguridad e independencia Batalla ID.&rdquo;
+        </p>
+      </div>
+    </div>
+
+    <!-- ENCABEZADO -->
+    <span class="badge" style="border-color:var(--accent-pink); color:var(--accent-pink); margin-bottom:16px;">
+      Batalla Tools — INE Express 1:1
+    </span>
+    <h1 style="font-family:'Space Grotesk', sans-serif; font-size:clamp(2rem, 5vw, 3.8rem); font-weight:700; text-transform:uppercase; line-height:1.05; margin-bottom:16px;">
+      Escáner de INE a Hoja Carta (Escala Real 1:1)
+    </h1>
+    <p style="color:var(--text-secondary); max-width:680px; font-weight:300; margin-bottom:32px;">
+      Coloca el frente y reverso de la INE en una sola hoja tamaño Carta con la escala oficial exacta (85.6 mm × 53.98 mm). Lista para imprimir o exportar a PDF en un clic.
+    </p>
+
+    <!-- WORKSPACE DE LA HERRAMIENTA -->
+    <div class="tool-grid">
+
+      <!-- PANEL DE CONTROL -->
+      <div class="tool-controls">
+        <h3 style="font-family:'Space Grotesk', sans-serif; font-size:1.1rem; font-weight:700; text-transform:uppercase;">
+          Cargar Fotografías
+        </h3>
+
+        <!-- FOTO FRENTE -->
+        <div>
+          <label style="font-size:11px; font-family:'Space Grotesk', sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); display:block; margin-bottom:8px;">
+            1. Foto Frente (INE)
+          </label>
+          <div class="upload-box" onclick="document.getElementById('input-frente').click()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent-pink); margin-bottom:6px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <div id="label-frente" style="font-size:12px; color:var(--text-secondary);">Subir Imagen Frente</div>
+            <input type="file" id="input-frente" accept="image/*" onchange="loadINEImage(event, 'frente')">
+          </div>
+        </div>
+
+        <!-- FOTO REVERSO -->
+        <div>
+          <label style="font-size:11px; font-family:'Space Grotesk', sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); display:block; margin-bottom:8px;">
+            2. Foto Reverso (INE)
+          </label>
+          <div class="upload-box" onclick="document.getElementById('input-reverso').click()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent-pink); margin-bottom:6px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <div id="label-reverso" style="font-size:12px; color:var(--text-secondary);">Subir Imagen Reverso</div>
+            <input type="file" id="input-reverso" accept="image/*" onchange="loadINEImage(event, 'reverso')">
+          </div>
+        </div>
+
+        <!-- BOTÓN IMPRIMIR / PDF -->
+        <button onclick="triggerPrintPDF()" class="btn btn-primary" style="justify-content:center; width:100%; margin-top:12px;">
+          🖨️ Imprimir / Exportar PDF 1:1
+        </button>
+
+        <p style="font-size:11px; color:var(--text-muted); line-height:1.5; margin:0;">
+          * En la ventana de impresión, selecciona &ldquo;Guardar como PDF&rdquo; y asegúrate de mantener la escala en 100% (Sin ajustar).
+        </p>
+      </div>
+
+      <!-- ÁREA DE PREVISUALIZACIÓN DE HOJA CARTA EN VIVO -->
+      <div class="canvas-preview-container" id="print-sheet-area">
+        <div style="font-family:'Space Grotesk', sans-serif; font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.15em; margin-bottom:12px;">
+          Previsualización Hoja Carta (215.9mm × 279.4mm)
+        </div>
+        <!-- Canvas de Hoja Carta (816 x 1056 píxeles @ 96 DPI escala 1:1) -->
+        <canvas id="ine-canvas" width="816" height="1056" style="width:100%; max-width:540px; height:auto; background:#ffffff; border-radius:4px; box-shadow:0 12px 36px rgba(0,0,0,0.6);"></canvas>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MODAL BATALLA ID -->
+  <div class="batalla-modal-overlay" id="batalla-id-modal" role="dialog" aria-modal="true">
+    <div class="batalla-modal-card">
+      <button onclick="closeBatallaIdModal()" style="position:absolute; top:16px; right:16px; background:none; border:none; color:var(--text-muted); font-size:20px; cursor:pointer;">&times;</button>
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+        <span class="badge" style="border-color:var(--accent-pink); color:var(--accent-pink);">Batalla ID</span>
+      </div>
+      <h3 style="font-family:'Space Grotesk', sans-serif; font-size:1.5rem; font-weight:700; text-transform:uppercase; margin-bottom:12px;">
+        Acceso Único
+      </h3>
+      <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:24px; font-weight:300;">
+        Ingresa con enlace mágico o autenticación biométrica de tu dispositivo.
+      </p>
+
+      <form onsubmit="handleMagicLinkSubmit(event)" style="display:flex; flex-direction:column; gap:14px; margin-bottom:20px;">
+        <input class="form-input" type="email" placeholder="tu@correo.com" required style="background:var(--surface-2); border:1px solid var(--border); padding:12px; color:#fff; border-radius:2px; outline:none;">
+        <button type="submit" class="btn btn-primary" style="justify-content:center; width:100%;">Enviar Magic Link &rarr;</button>
+      </form>
+      <p id="magic-link-feedback" style="font-size:11px; color:#00ffaa; margin-top:16px; display:none; text-align:center;"></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="margin-top:80px;">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>&copy; 2026 Batalla Group S.A.S. — Batalla Tools</div>
+      <div style="display:flex; gap:24px;">
+        <a href="privacidad.html" style="color:var(--text-muted); text-decoration:none;">Privacidad</a>
+        <a href="terminos.html" style="color:var(--text-muted); text-decoration:none;">Términos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('ine-canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Dimensiones oficiales INE en píxeles @ 96DPI (85.6mm x 53.98mm = 324px x 204px)
+    const CARD_W = 324;
+    const CARD_H = 204;
+
+    let imgFrente = null;
+    let imgReverso = null;
+
+    function renderCanvas() {
+      // Fondo blanco hoja carta
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Encabezado corporativo discreto
+      ctx.fillStyle = '#666666';
+      ctx.font = '12px "Space Grotesk", sans-serif';
+      ctx.fillText('BATALLA GROUP — ESCÁNER INE EXPRESS (ESCALA 1:1 OFICIAL)', 40, 48);
+      ctx.strokeStyle = '#e0e0e0';
+      ctx.beginPath();
+      ctx.moveTo(40, 58);
+      ctx.lineTo(canvas.width - 40, 58);
+      ctx.stroke();
+
+      // Dibujar Frente (Centrado arriba)
+      const posX = (canvas.width - CARD_W) / 2;
+      const posYFrente = 120;
+
+      ctx.strokeStyle = '#cccccc';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(posX - 1, posYFrente - 1, CARD_W + 2, CARD_H + 2);
+
+      if (imgFrente) {
+        ctx.drawImage(imgFrente, posX, posYFrente, CARD_W, CARD_H);
+      } else {
+        ctx.fillStyle = '#f5f5f5';
+        ctx.fillRect(posX, posYFrente, CARD_W, CARD_H);
+        ctx.fillStyle = '#999999';
+        ctx.font = '14px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('[ FRENTE DE LA INE ]', canvas.width / 2, posYFrente + CARD_H / 2);
+        ctx.textAlign = 'left';
+      }
+
+      // Dibujar Reverso (Centrado abajo)
+      const posYReverso = 380;
+      ctx.strokeRect(posX - 1, posYReverso - 1, CARD_W + 2, CARD_H + 2);
+
+      if (imgReverso) {
+        ctx.drawImage(imgReverso, posX, posYReverso, CARD_W, CARD_H);
+      } else {
+        ctx.fillStyle = '#f5f5f5';
+        ctx.fillRect(posX, posYReverso, CARD_W, CARD_H);
+        ctx.fillStyle = '#999999';
+        ctx.font = '14px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('[ REVERSO DE LA INE ]', canvas.width / 2, posYReverso + CARD_H / 2);
+        ctx.textAlign = 'left';
+      }
+
+      // Nota pie de página
+      ctx.fillStyle = '#888888';
+      ctx.font = '11px sans-serif';
+      ctx.fillText('Documento procesado 100% en navegador local. Sin almacenamiento en servidores externos.', 40, canvas.height - 40);
+    }
+
+    function loadINEImage(event, side) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          if (side === 'frente') {
+            imgFrente = img;
+            document.getElementById('label-frente').textContent = '✓ ' + file.name;
+          } else {
+            imgReverso = img;
+            document.getElementById('label-reverso').textContent = '✓ ' + file.name;
+          }
+          renderCanvas();
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function triggerPrintPDF() {
+      window.print();
+    }
+
+    // Inicializar canvas
+    renderCanvas();
+
+    // Responsive nav & modal
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (hamburger) hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+
+    function openBatallaIdModal(e) { if (e) e.preventDefault(); document.getElementById('batalla-id-modal').classList.add('active'); }
+    function closeBatallaIdModal() { document.getElementById('batalla-id-modal').classList.remove('active'); }
+    function handleMagicLinkSubmit(e) {
+      e.preventDefault();
+      const feedback = document.getElementById('magic-link-feedback');
+      feedback.style.display = 'block';
+      feedback.textContent = '⚡ Enlace Mágico enviado a tu correo.';
+    }
+  </script>
+</body>
+</html>
