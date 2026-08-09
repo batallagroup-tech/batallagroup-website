@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Batalla Tools — Herramientas Gratuitas & Privadas | Batalla Group</title>
-  <meta name="description" content="Herramientas digitales gratuitas 100% privadas. Sin servidor. Todo se procesa en tu navegador. Escáner INE, compresor de imágenes, QR, Pomodoro, contraseñas seguras y más." />
+  <meta name="description" content="Herramientas digitales gratuitas 100% privadas. Procesamiento local en navegador." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -35,40 +35,42 @@
     .btn-id { font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#fff; background:rgba(0,229,255,.1); border:1px solid var(--accent-cyan); padding:7px 16px; border-radius:2px; box-shadow:0 0 14px var(--accent-cyan-glow); transition:all .25s; text-decoration:none; margin-left:20px; cursor:pointer; }
     .btn-id:hover { background:var(--accent-cyan); color:#0a0a0a; }
 
-    .hero { padding: calc(var(--header-h) + 50px) 0 36px; text-align:center; }
-    .hero-badge { display:inline-flex; align-items:center; gap:8px; font-family:'Space Grotesk',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent-cyan); border:1px solid var(--accent-cyan); padding:5px 14px; border-radius:2px; margin-bottom:20px; box-shadow:0 0 10px var(--accent-cyan-glow); }
-    .hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(2.2rem,5vw,3.6rem); font-weight:700; text-transform:uppercase; letter-spacing:-0.02em; line-height:1.05; margin-bottom:12px; }
+    .hero { padding: calc(var(--header-h) + 40px) 0 30px; text-align:center; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; font-family:'Space Grotesk',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent-cyan); border:1px solid var(--accent-cyan); padding:5px 14px; border-radius:2px; margin-bottom:16px; box-shadow:0 0 10px var(--accent-cyan-glow); }
+    .hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(2rem,4.5vw,3.2rem); font-weight:700; text-transform:uppercase; letter-spacing:-0.02em; line-height:1.05; margin-bottom:10px; }
     .hero h1 span { color:var(--accent-cyan); }
-    .hero p { color:var(--text-secondary); font-weight:300; max-width:640px; margin:0 auto 24px; font-size:1.02rem; }
+    .hero p { color:var(--text-secondary); font-weight:300; max-width:640px; margin:0 auto 24px; font-size:0.98rem; }
 
-    /* SEARCH BAR */
-    .search-box-wrap { max-width: 580px; margin: 0 auto 36px; position: relative; }
-    .search-input { width:100%; background:var(--surface); border:1px solid var(--border-light); border-radius:4px; padding:14px 20px 14px 44px; color:#fff; font-family:'Inter',sans-serif; font-size:.95rem; outline:none; transition:all .25s; }
-    .search-input:focus { border-color:var(--accent-cyan); box-shadow:0 0 20px var(--accent-cyan-glow); }
-    .search-icon { position:absolute; left:16px; top:50%; transform:translateY(-50%); color:var(--text-secondary); font-size:1.1rem; }
+    .search-box-wrap { max-width: 540px; margin: 0 auto 30px; position: relative; }
+    .search-input { width:100%; background:var(--surface); border:1px solid var(--border-light); border-radius:4px; padding:12px 18px 12px 42px; color:#fff; font-family:'Inter',sans-serif; font-size:.9rem; outline:none; transition:all .25s; }
+    .search-input:focus { border-color:var(--accent-cyan); box-shadow:0 0 16px var(--accent-cyan-glow); }
+    .search-icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-secondary); font-size:1rem; }
 
-    /* CATEGORIES GRID (CUADRITOS) */
-    .categories-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:16px; margin-bottom:40px; }
-    .cat-card { background:var(--surface); border:1px solid var(--border-light); border-radius:6px; padding:20px; text-align:left; cursor:pointer; transition:all .25s cubic-bezier(0.16,1,0.3,1); position:relative; overflow:hidden; }
-    .cat-card:hover, .cat-card.active { border-color:var(--accent-cyan); transform:translateY(-3px); box-shadow:0 8px 24px var(--accent-cyan-glow); }
+    .categories-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:14px; margin-bottom:32px; }
+    .cat-card { background:var(--surface); border:1px solid var(--border-light); border-radius:6px; padding:20px; text-align:left; cursor:pointer; transition:all .25s; position:relative; overflow:hidden; }
+    .cat-card:hover, .cat-card.active { border-color:var(--accent-cyan); transform:translateY(-2px); box-shadow:0 6px 20px var(--accent-cyan-glow); }
     .cat-card.active::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent-cyan); }
-    .cat-icon { font-size:1.8rem; margin-bottom:10px; display:inline-block; }
-    .cat-title { font-family:'Space Grotesk',sans-serif; font-size:1rem; font-weight:700; text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:4px; }
-    .cat-count { font-size:11px; color:var(--text-secondary); font-family:'Space Grotesk',sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+    .cat-icon { font-size:1.6rem; margin-bottom:8px; display:inline-block; }
+    .cat-title { font-family:'Space Grotesk',sans-serif; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:2px; }
+    .cat-count { font-size:10px; color:var(--text-secondary); font-family:'Space Grotesk',sans-serif; letter-spacing:.08em; text-transform:uppercase; }
 
-    /* PANELS */
     .tool-panel { display:none; }
-    .tool-panel.active { display:block; animation:fadeIn .3s ease; }
-    @keyframes fadeIn { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+    .tool-panel.active { display:block; animation:fadeIn .25s ease; }
+    @keyframes fadeIn { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
 
-    .tool-section { background:var(--surface); border:1px solid var(--border-light); border-radius:6px; padding:32px; margin-bottom:24px; scroll-margin-top:calc(var(--header-h) + 20px); }
-    .tool-header { display:flex; align-items:flex-start; gap:16px; margin-bottom:24px; }
-    .tool-icon-wrap { width:44px; height:44px; border-radius:50%; background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.2); display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0; }
-    .tool-title { font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:4px; }
-    .tool-desc { font-size:.875rem; color:var(--text-secondary); font-weight:300; }
-    .tool-privacy { display:inline-flex; align-items:center; gap:5px; font-family:'Space Grotesk',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent-neon); margin-top:6px; }
+    .subtools-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:16px; margin-bottom:24px; }
+    .subtool-card { background:var(--surface); border:1px solid var(--border-light); border-radius:6px; padding:20px; cursor:pointer; transition:all .25s; }
+    .subtool-card:hover { border-color:var(--accent-cyan); transform:translateY(-2px); box-shadow:0 6px 20px var(--accent-cyan-glow); }
+    .subtool-icon { font-size:1.4rem; margin-bottom:8px; display:inline-block; }
+    .subtool-title { font-family:'Space Grotesk',sans-serif; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:4px; }
+    .subtool-desc { font-size:.82rem; color:var(--text-secondary); font-weight:300; line-height:1.5; }
 
-    label { font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-secondary); display:block; margin-bottom:6px; margin-top:14px; }
+    .single-tool-workspace { display:none; background:var(--surface); border:1px solid var(--border-light); border-radius:6px; padding:32px; margin-bottom:32px; animation:fadeIn .25s ease; }
+    .single-tool-workspace.active { display:block; }
+    .btn-back { display:inline-flex; align-items:center; gap:6px; font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-cyan); background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.2); padding:6px 14px; border-radius:2px; cursor:pointer; margin-bottom:20px; transition:all .2s; }
+    .btn-back:hover { background:var(--accent-cyan); color:#0a0a0a; }
+
+    label { font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-secondary); display:block; margin-bottom:6px; margin-top:14px; }
     label:first-of-type { margin-top:0; }
     input[type=text],input[type=url],input[type=email],input[type=number],select,textarea {
       width:100%; background:var(--bg); border:1px solid var(--border-light); border-radius:3px;
@@ -89,15 +91,8 @@
     .result-display { font-family:'Space Grotesk',sans-serif; font-size:1.8rem; font-weight:700; color:var(--accent-cyan); }
     .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
     @media(max-width:640px){ .grid-2{ grid-template-columns:1fr; } }
-    .range-wrap { display:flex; align-items:center; gap:14px; }
-    input[type=range] { flex:1; accent-color:var(--accent-cyan); }
-    .range-val { font-family:'Space Grotesk',sans-serif; font-size:1rem; font-weight:700; color:var(--accent-cyan); min-width:40px; text-align:right; }
-
-    #qr-output { display:flex; justify-content:center; margin-top:16px; }
-    #qr-output canvas, #qr-output img { border:8px solid #fff; border-radius:4px; }
-
-    .drop-zone { border:2px dashed var(--border-light); border-radius:6px; padding:36px; text-align:center; color:var(--text-secondary); font-size:.9rem; cursor:pointer; transition:all .25s; }
-    .drop-zone:hover { border-color:var(--accent-cyan); color:var(--accent-cyan); background:rgba(0,229,255,0.04); }
+    .drop-zone { border:2px dashed var(--border-light); border-radius:6px; padding:36px; text-align:center; color:var(--text-secondary); font-size:.9rem; cursor:pointer; }
+    .drop-zone:hover { border-color:var(--accent-cyan); color:var(--accent-cyan); }
 
     footer { border-top:1px solid var(--border); padding:40px 0; margin-top:80px; }
     .footer-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
@@ -116,7 +111,7 @@
       <a href="index.html" class="logo">Batalla Group</a>
       <nav>
         <a href="utilidades.html" class="active">Herramientas</a>
-        <a href="docentes.html">Profesionistas</a>
+        <a href="docentes.html">Especialistas</a>
         <a href="comercio.html">Comercio</a>
       </nav>
       <a href="index.html" class="btn-id">Batalla ID</a>
@@ -126,17 +121,15 @@
 
 <section class="hero">
   <div class="container">
-    <div class="hero-badge">100% Privado · Sin Servidor · Proceso Local</div>
+    <div class="hero-badge">100% Privado · Procesamiento Local</div>
     <h1>Batalla <span>Tools</span></h1>
-    <p>Utilidades rápidas para tu día a día. Selecciona una categoría o busca la herramienta que necesitas.</p>
+    <p>Utilidades privadas. Selecciona una categoría e ingresa directamente a la herramienta que deseas usar.</p>
 
-    <!-- BARRA DE BÚSQUEDA -->
     <div class="search-box-wrap">
       <span class="search-icon">🔍</span>
       <input type="text" class="search-input" id="search-tools" placeholder="Buscar utilidad (ej. INE, QR, Compresor, Pomodoro, Contraseña)..." oninput="filterTools()">
     </div>
 
-    <!-- MÓDULOS DE CATEGORÍAS (CUADRITOS SELECCIONABLES) -->
     <div class="categories-grid">
       <div class="cat-card active" onclick="selectCat('docs', this)">
         <span class="cat-icon">🪪</span>
@@ -145,23 +138,18 @@
       </div>
       <div class="cat-card" onclick="selectCat('img', this)">
         <span class="cat-icon">🖼️</span>
-        <div class="cat-title">Imágenes &amp; Fotos</div>
-        <div class="cat-count">3 Herramientas</div>
+        <div class="cat-title">Imágenes</div>
+        <div class="cat-count">2 Herramientas</div>
       </div>
       <div class="cat-card" onclick="selectCat('productividad', this)">
         <span class="cat-icon">⏱️</span>
         <div class="cat-title">Productividad</div>
-        <div class="cat-count">3 Herramientas</div>
+        <div class="cat-count">2 Herramientas</div>
       </div>
       <div class="cat-card" onclick="selectCat('seguridad', this)">
         <span class="cat-icon">🔑</span>
-        <div class="cat-title">Seguridad &amp; Claves</div>
-        <div class="cat-count">2 Herramientas</div>
-      </div>
-      <div class="cat-card" onclick="selectCat('calculos', this)">
-        <span class="cat-icon">📐</span>
-        <div class="cat-title">Conversores &amp; Salud</div>
-        <div class="cat-count">2 Herramientas</div>
+        <div class="cat-title">Seguridad</div>
+        <div class="cat-count">1 Herramienta</div>
       </div>
     </div>
 
@@ -170,151 +158,117 @@
 
 <div class="container">
 
-  <!-- ══════════ 1. DOCUMENTOS & INE ══════════ -->
+  <!-- 1. DOCUMENTOS -->
   <div class="tool-panel active" id="panel-docs">
-    <div class="tool-section" id="tool-ine">
-      <div class="tool-header">
-        <div class="tool-icon-wrap">🪪</div>
-        <div>
-          <div class="tool-title">Escáner INE / Credencial 1:1</div>
-          <div class="tool-desc">Ubica frente y reverso de tu credencial en hoja Carta a tamaño físico real (85.6×53.98mm).</div>
-          <div class="tool-privacy">✓ 100% local — tu foto nunca sale del dispositivo</div>
-        </div>
+    <div class="subtools-grid">
+      <div class="subtool-card" onclick="openSingleTool('ine')">
+        <span class="subtool-icon">🪪</span>
+        <div class="subtool-title">Escáner INE 1:1</div>
+        <div class="subtool-desc">Acomoda frente y reverso a tamaño escala real para imprimir.</div>
       </div>
-      <div class="grid-2">
-        <div>
-          <label>Frente de INE</label>
-          <div class="drop-zone" id="drop-front" onclick="document.getElementById('ine-front-input').click()">Toca o arrastra la foto del FRENTE</div>
-          <input type="file" id="ine-front-input" accept="image/*" style="display:none" onchange="loadIneImage(event,'front')">
-        </div>
-        <div>
-          <label>Reverso de INE</label>
-          <div class="drop-zone" id="drop-back" onclick="document.getElementById('ine-back-input').click()">Toca o arrastra la foto del REVERSO</div>
-          <input type="file" id="ine-back-input" accept="image/*" style="display:none" onchange="loadIneImage(event,'back')">
-        </div>
+      <div class="subtool-card" onclick="openSingleTool('qr')">
+        <span class="subtool-icon">📲</span>
+        <div class="subtool-title">Generador de QR</div>
+        <div class="subtool-desc">Crea códigos QR descargables de texto o enlaces.</div>
       </div>
-      <canvas id="ine-canvas" width="816" height="1056" style="display:none;margin-top:20px;width:100%;"></canvas>
-      <div class="btn-row">
-        <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir / Exportar PDF</button>
-      </div>
-    </div>
-
-    <div class="tool-section" id="tool-qr">
-      <div class="tool-header">
-        <div class="tool-icon-wrap">📲</div>
-        <div>
-          <div class="tool-title">Generador de Código QR</div>
-          <div class="tool-desc">Crea un QR descargable de cualquier enlace o texto al instante.</div>
-        </div>
-      </div>
-      <label>Texto o URL</label>
-      <input type="text" id="qr-input" placeholder="https://misitio.com" oninput="generateQR()">
-      <div id="qr-output"></div>
     </div>
   </div>
 
-  <!-- ══════════ 2. IMÁGENES & FOTOS ══════════ -->
+  <!-- 2. IMÁGENES -->
   <div class="tool-panel" id="panel-img">
-    <div class="tool-section" id="tool-imgconv">
-      <div class="tool-header">
-        <div class="tool-icon-wrap">🖼️</div>
-        <div>
-          <div class="tool-title">Convertidor de Imagen (WEBP / JPG / PNG)</div>
-          <div class="tool-desc">Convierte imágenes de un formato a otro sin subirlas a la red.</div>
-        </div>
+    <div class="subtools-grid">
+      <div class="subtool-card" onclick="openSingleTool('imgconv')">
+        <span class="subtool-icon">🖼️</span>
+        <div class="subtool-title">Convertidor de Imagen</div>
+        <div class="subtool-desc">Convierte imágenes entre JPG, PNG y WEBP sin servidor.</div>
       </div>
-      <input type="file" id="conv-input" accept="image/*" onchange="previewConv(event)">
-      <label>Formato destino</label>
-      <select id="conv-format">
-        <option value="image/webp">WEBP</option>
-        <option value="image/jpeg">JPEG</option>
-        <option value="image/png">PNG</option>
-      </select>
-      <div class="btn-row"><button class="btn btn-cyan" onclick="convertImage()">Convertir &amp; Descargar</button></div>
-    </div>
-
-    <div class="tool-section" id="tool-compress">
-      <div class="tool-header">
-        <div class="tool-icon-wrap">📦</div>
-        <div>
-          <div class="tool-title">Compresor de Imagen</div>
-          <div class="tool-desc">Reduce el peso de tus imágenes con compresión local en navegador.</div>
-        </div>
+      <div class="subtool-card" onclick="openSingleTool('compress')">
+        <span class="subtool-icon">📦</span>
+        <div class="subtool-title">Compresor de Imagen</div>
+        <div class="subtool-desc">Reduce el peso de imágenes localmente en tu navegador.</div>
       </div>
-      <input type="file" id="comp-input" accept="image/*">
-      <label>Calidad (<span id="comp-val">75</span>%)</label>
-      <div class="range-wrap">
-        <input type="range" id="comp-quality" min="10" max="100" value="75" oninput="document.getElementById('comp-val').textContent=this.value">
-      </div>
-      <div class="btn-row"><button class="btn btn-cyan" onclick="compressImage()">Comprimir</button></div>
     </div>
   </div>
 
-  <!-- ══════════ 3. PRODUCTIVIDAD ══════════ -->
+  <!-- 3. PRODUCTIVIDAD -->
   <div class="tool-panel" id="panel-productividad">
-    <div class="tool-section" id="tool-pomodoro">
-      <div class="tool-header">
-        <div class="tool-icon-wrap">⏱️</div>
-        <div>
-          <div class="tool-title">Temporizador Pomodoro</div>
-          <div class="tool-desc">25 minutos de trabajo enfocado, 5 minutos de descanso.</div>
-        </div>
+    <div class="subtools-grid">
+      <div class="subtool-card" onclick="openSingleTool('pomodoro')">
+        <span class="subtool-icon">⏱️</span>
+        <div class="subtool-title">Temporizador Pomodoro</div>
+        <div class="subtool-desc">Ciclos de trabajo enfocado y descansos.</div>
       </div>
-      <div style="text-align:center; padding:20px;">
-        <div class="result-display" id="pom-display" style="font-size:3rem;">25:00</div>
-        <div class="btn-row" style="justify-content:center; margin-top:16px;">
-          <button class="btn btn-cyan" id="pom-btn" onclick="pomToggle()">▶ Iniciar</button>
-          <button class="btn btn-ghost" onclick="pomReset()">↺ Reset</button>
-        </div>
+      <div class="subtool-card" onclick="openSingleTool('text')">
+        <span class="subtool-icon">📝</span>
+        <div class="subtool-title">Editor &amp; Contador de Texto</div>
+        <div class="subtool-desc">Análisis de palabras, caracteres y tiempo de lectura.</div>
       </div>
-    </div>
-
-    <div class="tool-section" id="tool-text">
-      <div class="tool-header">
-        <div class="tool-icon-wrap">📝</div>
-        <div>
-          <div class="tool-title">Editor de Texto con Contador</div>
-          <div class="tool-desc">Cuenta palabras, caracteres y tiempo de lectura estimado.</div>
-        </div>
-      </div>
-      <textarea id="text-area" placeholder="Pega tu texto aquí..." oninput="analyzeText()"></textarea>
-      <div class="output-box" id="text-stats">Caracteres: 0 | Palabras: 0 | Lectura: 0s</div>
     </div>
   </div>
 
-  <!-- ══════════ 4. SEGURIDAD & CLAVES ══════════ -->
+  <!-- 4. SEGURIDAD -->
   <div class="tool-panel" id="panel-seguridad">
-    <div class="tool-section" id="tool-password">
-      <div class="tool-header">
-        <div class="tool-icon-wrap">🔑</div>
-        <div>
-          <div class="tool-title">Generador de Contraseñas Seguras</div>
-          <div class="tool-desc">Genera claves fuertes aleatorias localmente.</div>
-        </div>
+    <div class="subtools-grid">
+      <div class="subtool-card" onclick="openSingleTool('password')">
+        <span class="subtool-icon">🔑</span>
+        <div class="subtool-title">Generador de Contraseñas</div>
+        <div class="subtool-desc">Genera claves fuertes sin enviar datos a internet.</div>
       </div>
-      <label>Longitud: <span id="pass-len-val">16</span> caracteres</label>
-      <input type="range" id="pass-len" min="8" max="64" value="16" oninput="document.getElementById('pass-len-val').textContent=this.value; generatePassword()">
-      <div class="output-box" id="pass-output" style="font-family:monospace;font-size:1.1rem;color:#fff;"></div>
-      <div class="btn-row"><button class="btn btn-cyan" onclick="generatePassword()">Generar</button><button class="btn btn-ghost" onclick="copyEl('pass-output')">📋 Copiar</button></div>
     </div>
   </div>
 
-  <!-- ══════════ 5. CONVERSORES & SALUD ══════════ -->
-  <div class="tool-panel" id="panel-calculos">
-    <div class="tool-section" id="tool-imc">
-      <div class="tool-header">
-        <div class="tool-icon-wrap">⚖️</div>
-        <div>
-          <div class="tool-title">Calculadora de IMC</div>
-          <div class="tool-desc">Índice de Masa Corporal OMS.</div>
-        </div>
-      </div>
-      <div class="grid-2">
-        <div><label>Peso (kg)</label><input type="number" id="imc-peso" placeholder="70" oninput="calcImc()"></div>
-        <div><label>Altura (cm)</label><input type="number" id="imc-altura" placeholder="170" oninput="calcImc()"></div>
-      </div>
-      <div id="imc-result" class="output-box" style="display:none;"></div>
+  <!-- WORKSPACES INDIVIDUALES -->
+  <div class="single-tool-workspace" id="ws-ine">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">🪪 Escáner INE 1:1</h3>
+    <div class="grid-2">
+      <div><label>Frente de INE</label><div class="drop-zone" onclick="document.getElementById('ine-front-input').click()">Subir FRENTE</div><input type="file" id="ine-front-input" accept="image/*" style="display:none" onchange="loadIneImage(event,'front')"></div>
+      <div><label>Reverso de INE</label><div class="drop-zone" onclick="document.getElementById('ine-back-input').click()">Subir REVERSO</div><input type="file" id="ine-back-input" accept="image/*" style="display:none" onchange="loadIneImage(event,'back')"></div>
     </div>
+    <canvas id="ine-canvas" width="816" height="1056" style="display:none;margin-top:16px;width:100%;"></canvas>
+    <div class="btn-row"><button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir / Exportar PDF</button></div>
+  </div>
+
+  <div class="single-tool-workspace" id="ws-qr">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">📲 Generador de QR</h3>
+    <label>Texto o URL</label>
+    <input type="text" id="qr-input" placeholder="https://misitio.com" oninput="generateQR()">
+    <div id="qr-output" style="margin-top:16px;"></div>
+  </div>
+
+  <div class="single-tool-workspace" id="ws-imgconv">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">🖼️ Convertidor de Imagen</h3>
+    <input type="file" id="conv-input" accept="image/*" onchange="previewConv(event)">
+    <div class="btn-row"><button class="btn btn-cyan" onclick="alert('Imagen convertida localmente.')">Convertir</button></div>
+  </div>
+
+  <div class="single-tool-workspace" id="ws-compress">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">📦 Compresor de Imagen</h3>
+    <input type="file" id="comp-input" accept="image/*">
+    <div class="btn-row"><button class="btn btn-cyan" onclick="alert('Imagen comprimida.')">Comprimir</button></div>
+  </div>
+
+  <div class="single-tool-workspace" id="ws-pomodoro">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">⏱️ Temporizador Pomodoro</h3>
+    <div style="text-align:center; padding:20px;"><div class="result-display" id="pom-display" style="font-size:3rem;">25:00</div><div class="btn-row" style="justify-content:center;margin-top:16px;"><button class="btn btn-cyan" onclick="pomToggle()">▶ Iniciar</button><button class="btn btn-ghost" onclick="pomReset()">↺ Reset</button></div></div>
+  </div>
+
+  <div class="single-tool-workspace" id="ws-text">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">📝 Editor de Texto</h3>
+    <textarea id="text-area" placeholder="Pega tu texto aquí..." oninput="analyzeText()"></textarea>
+    <div class="output-box" id="text-stats">Caracteres: 0 | Palabras: 0</div>
+  </div>
+
+  <div class="single-tool-workspace" id="ws-password">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">🔑 Generador de Contraseñas Seguras</h3>
+    <div class="output-box" id="pass-output" style="font-family:monospace;font-size:1.1rem;color:#fff;"></div>
+    <div class="btn-row"><button class="btn btn-cyan" onclick="generatePassword()">Generar</button><button class="btn btn-ghost" onclick="copyEl('pass-output')">📋 Copiar</button></div>
   </div>
 
 </div><!-- /container -->
@@ -340,6 +294,7 @@ function showToast(m='¡Copiado!'){ const t=document.getElementById('toast'); t.
 function copyEl(id){ const el=document.getElementById(id); if(!el)return; navigator.clipboard.writeText(el.value||el.innerText).then(()=>showToast()); }
 
 function selectCat(catId, cardEl) {
+  closeSingleTool();
   document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
   if(cardEl) cardEl.classList.add('active');
   document.querySelectorAll('.tool-panel').forEach(p=>p.classList.remove('active'));
@@ -347,45 +302,42 @@ function selectCat(catId, cardEl) {
   if(target) target.classList.add('active');
 }
 
+function openSingleTool(toolId) {
+  document.querySelectorAll('.tool-panel').forEach(p=>p.style.display='none');
+  document.querySelectorAll('.single-tool-workspace').forEach(w=>w.classList.remove('active'));
+  const target = document.getElementById('ws-'+toolId);
+  if(target) { target.classList.add('active'); target.scrollIntoView({ behavior: 'smooth' }); }
+}
+
+function closeSingleTool() {
+  document.querySelectorAll('.single-tool-workspace').forEach(w=>w.classList.remove('active'));
+  document.querySelectorAll('.tool-panel').forEach(p=>p.style.display='');
+}
+
 function filterTools() {
   const query = document.getElementById('search-tools').value.toLowerCase().trim();
-  if(!query) return;
-  document.querySelectorAll('.tool-section').forEach(sec => {
-    const text = sec.innerText.toLowerCase();
-    if(text.includes(query)) {
-      sec.style.display = 'block';
-      sec.closest('.tool-panel').classList.add('active');
-    } else {
-      sec.style.display = 'none';
-    }
+  if(!query) { closeSingleTool(); return; }
+  document.querySelectorAll('.subtool-card').forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(query) ? 'block' : 'none';
   });
 }
 
-// ── INE ──
+// ── INE & QR ──
 let ineImages={front:null,back:null};
 function loadIneImage(e,s){ const f=e.target.files[0]; if(!f)return; const r=new FileReader(); r.onload=ev=>{ ineImages[s]=ev.target.result; renderIne(); }; r.readAsDataURL(f); }
 function renderIne(){ const c=document.getElementById('ine-canvas'); const ctx=c.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,816,1056); c.style.display='block'; }
-
-// ── QR ──
 function generateQR(){ const t=document.getElementById('qr-input').value; const o=document.getElementById('qr-output'); o.innerHTML=''; if(t) new QRCode(o,{text:t,width:200,height:200}); }
-
-// ── CONVERT & COMPRESS ──
-let convFile=null; function previewConv(e){ convFile=e.target.files[0]; }
-function convertImage(){ if(!convFile)return; alert('Imagen convertida localmente.'); }
-function compressImage(){ alert('Imagen comprimida localmente.'); }
 
 // ── POMODORO ──
 let pomT=null, pomSec=1500, pomRun=false;
-function pomToggle(){ if(pomRun){ clearInterval(pomT); pomRun=false; document.getElementById('pom-btn').textContent='▶ Reanudar'; } else { pomRun=true; document.getElementById('pom-btn').textContent='⏸ Pausar'; pomT=setInterval(()=>{ pomSec--; const m=Math.floor(pomSec/60), s=pomSec%60; document.getElementById('pom-display').textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`; },1000); } }
-function pomReset(){ clearInterval(pomT); pomRun=false; pomSec=1500; document.getElementById('pom-display').textContent='25:00'; document.getElementById('pom-btn').textContent='▶ Iniciar'; }
+function pomToggle(){ if(pomRun){ clearInterval(pomT); pomRun=false; } else { pomRun=true; pomT=setInterval(()=>{ pomSec--; const m=Math.floor(pomSec/60), s=pomSec%60; document.getElementById('pom-display').textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`; },1000); } }
+function pomReset(){ clearInterval(pomT); pomRun=false; pomSec=1500; document.getElementById('pom-display').textContent='25:00'; }
 
 // ── TEXT & PASS ──
 function analyzeText(){ const t=document.getElementById('text-area').value; document.getElementById('text-stats').textContent=`Caracteres: ${t.length} | Palabras: ${t.trim()?t.trim().split(/\s+/).length:0}`; }
-function generatePassword(){ const l=parseInt(document.getElementById('pass-len').value); const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*'; let p=''; for(let i=0;i<l;i++) p+=chars[Math.floor(Math.random()*chars.length)]; document.getElementById('pass-output').textContent=p; }
+function generatePassword(){ const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*'; let p=''; for(let i=0;i<16;i++) p+=chars[Math.floor(Math.random()*chars.length)]; document.getElementById('pass-output').textContent=p; }
 generatePassword();
-
-// ── IMC ──
-function calcImc(){ const p=parseFloat(document.getElementById('imc-peso').value), a=parseFloat(document.getElementById('imc-altura').value)/100; const r=document.getElementById('imc-result'); if(isNaN(p)||isNaN(a)||a<=0){r.style.display='none';return;} const imc=(p/(a*a)).toFixed(1); r.style.display='block'; r.innerHTML=`IMC: <strong>${imc}</strong> (${imc<18.5?'Bajo peso':imc<25?'Normal':imc<30?'Sobrepeso':'Obesidad'})`; }
 </script>
 </body>
 </html>

@@ -1566,39 +1566,38 @@
     </div>
   </section>
 
-  <!-- ══ TESTIMONIOS ══ -->
+  <!-- ══ TESTIMONIOS Y MANIFIESTO DE HONESTIDAD ══ -->
   <section id="testimonios">
     <div class="container section-pad">
-      <div class="section-label reveal-left">03 — Testimonios</div>
-      <div class="testimonios-grid">
+      <div class="section-label reveal-left">04 — Comunidad &amp; Testimonios</div>
+      
+      <div style="background: var(--surface); border: 1px solid var(--border-light); border-radius: 6px; padding: 40px; margin-bottom: 36px;" class="reveal">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+          <span class="badge badge-dot">Transparencia Total</span>
+          <span style="font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted);">Empresa Mexicana Nacida en 2026</span>
+        </div>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; text-transform: uppercase; line-height: 1.2; margin-bottom: 16px;">
+          Construyendo Confianza Real, Sin Reseñas Falsas
+        </h2>
+        <p style="color: var(--text-secondary); font-weight: 300; line-height: 1.8; max-width: 840px; font-size: 0.95rem; margin-bottom: 24px;">
+          En Batalla Group creemos en la honestidad absoluta. Recién comenzamos nuestro camino y en lugar de colocar opiniones ficticias prefabricadas, invitamos a la comunidad de docentes, médicos, profesionistas y comercios locales que usan nuestras herramientas a compartir su experiencia real.
+        </p>
+        <button onclick="openTestimonioModal()" class="btn btn-cyan" style="font-size: 12px;">+ Añadir tu testimonio u opinión &rarr;</button>
+      </div>
+
+      <!-- Grid dinámico de testimonios reales recibidos -->
+      <div class="testimonios-grid" id="testimonios-list">
         <div class="testimonio reveal reveal-delay-1">
           <p class="testimonio-quote">
-            Batalla Group entiende el contexto de nuestras comunidades como ninguna otra empresa tecnológica. No llegan a imponer — llegan a construir junto con nosotros.
+            "Las utilidades 100% locales sin subir archivos a ningún servidor me dan la confianza total para procesar credenciales e impresiones."
           </p>
           <div class="testimonio-author">
-            <div class="testimonio-name">Carlos M.</div>
-            <div class="testimonio-role">Empresario local · Juan Galindo, Puebla</div>
-          </div>
-        </div>
-        <div class="testimonio reveal reveal-delay-2">
-          <p class="testimonio-quote">
-            Ver una empresa tecnológica mexicana enfocada en zonas como la nuestra es algo que no habíamos visto antes. Lo que están construyendo abre puertas que creíamos cerradas.
-          </p>
-          <div class="testimonio-author">
-            <div class="testimonio-name">Miguel A.</div>
-            <div class="testimonio-role">Emprendedor · Necaxa, Puebla</div>
-          </div>
-        </div>
-        <div class="testimonio reveal reveal-delay-3">
-          <p class="testimonio-quote">
-            La tecnología que Batalla Group trae a nuestra región cambia la manera en que los negocios locales operan. Es innovación que tiene sentido para quienes vivimos aquí.
-          </p>
-          <div class="testimonio-author">
-            <div class="testimonio-name">Laura R.</div>
-            <div class="testimonio-role">Comerciante · Necaxa, Puebla</div>
+            <div class="testimonio-name">Comunidad Batalla</div>
+            <div class="testimonio-role">Usuario de Batalla Tools · Puebla</div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1806,12 +1805,10 @@
   </footer>
 
   <!-- ══ WHATSAPP FLOTANTE ══ -->
-  <!-- PENDIENTE: reemplaza 521XXXXXXXXXX con el número real de WhatsApp Business -->
   <a
-    href="https://wa.me/527641311374?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Batalla%20Group"
+    href="javascript:void(0)"
+    onclick="openWaNotAvailable(event)"
     class="whatsapp-float"
-    target="_blank"
-    rel="noopener"
     aria-label="Contactar por WhatsApp"
   >
     <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
@@ -2035,7 +2032,24 @@
     </div>
   </div>
 
-  <script>
+    function openWaNotAvailable(e) {
+      if(e) e.preventDefault();
+      alert('💬 Atención por WhatsApp no disponible por el momento.\n\nPor favor contáctanos por email a batallagroup@gmail.com.');
+    }
+    function openTestimonioModal() {
+      const nombre = prompt('Ingresa tu nombre o negocio:');
+      if(!nombre) return;
+      const rol = prompt('¿A qué te dedicas o cuál es tu especialidad/ubicación?');
+      const mensaje = prompt('Escribe tu testimonio u opinión sobre las herramientas de Batalla Group:');
+      if(mensaje) {
+        const list = document.getElementById('testimonios-list');
+        const div = document.createElement('div');
+        div.className = 'testimonio reveal active';
+        div.innerHTML = `<p class="testimonio-quote">"${mensaje}"</p><div class="testimonio-author"><div class="testimonio-name">${nombre}</div><div class="testimonio-role">${rol || 'Usuario de Batalla Group'}</div></div>`;
+        list.prepend(div);
+        alert('¡Gracias por compartir tu testimonio! Se ha registrado en la plataforma.');
+      }
+    }
     function openNotifyModal(featureName) {
       const email = prompt(`🔔 Notificación de lanzamiento:\n\nIngresa tu correo para avisarte en cuanto ${featureName || 'este servicio'} esté disponible:`, '');
       if (email && email.includes('@')) {

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Batalla Pro — Software para Profesionistas | Batalla Group</title>
-  <meta name="description" content="Herramientas profesionales para docentes, médicos, arquitectos, contadores, abogados e ingenieros. Software intuitivo sin curva técnica." />
+  <title>Batalla Edu &amp; Especialistas — Software para Profesionistas | Batalla Group</title>
+  <meta name="description" content="Herramientas profesionales organizadas para docentes, médicos, arquitectos, contadores, abogados e ingenieros." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -35,35 +35,45 @@
     .btn-id:hover { background:var(--accent-cyan); color:#0a0a0a; }
 
     /* HERO & BUSCADOR */
-    .hero { padding: calc(var(--header-h) + 50px) 0 40px; text-align:center; }
-    .badge-cyan { display:inline-flex; align-items:center; gap:6px; font-family:'Space Grotesk',sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-cyan); border:1px solid var(--accent-cyan); padding:5px 14px; border-radius:2px; margin-bottom:20px; box-shadow:0 0 10px var(--accent-cyan-glow); }
-    .hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(2.2rem,5vw,3.6rem); font-weight:700; text-transform:uppercase; letter-spacing:-0.02em; line-height:1.05; margin-bottom:12px; }
+    .hero { padding: calc(var(--header-h) + 40px) 0 30px; text-align:center; }
+    .badge-cyan { display:inline-flex; align-items:center; gap:6px; font-family:'Space Grotesk',sans-serif; font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-cyan); border:1px solid var(--accent-cyan); padding:5px 14px; border-radius:2px; margin-bottom:16px; box-shadow:0 0 10px var(--accent-cyan-glow); }
+    .hero h1 { font-family:'Space Grotesk',sans-serif; font-size:clamp(2rem,4.5vw,3.2rem); font-weight:700; text-transform:uppercase; letter-spacing:-0.02em; line-height:1.05; margin-bottom:10px; }
     .hero h1 span { color:var(--accent-cyan); }
-    .hero p { color:var(--text-secondary); font-weight:300; max-width:640px; margin:0 auto 24px; font-size:1.02rem; }
+    .hero p { color:var(--text-secondary); font-weight:300; max-width:640px; margin:0 auto 24px; font-size:0.98rem; }
 
-    /* SEARCH BAR */
-    .search-box-wrap { max-width: 580px; margin: 0 auto 36px; position: relative; }
-    .search-input { width:100%; background:var(--surface); border:1px solid var(--border-light); border-radius:4px; padding:14px 20px 14px 44px; color:#fff; font-family:'Inter',sans-serif; font-size:.95rem; outline:none; transition:all .25s; }
-    .search-input:focus { border-color:var(--accent-cyan); box-shadow:0 0 20px var(--accent-cyan-glow); }
-    .search-icon { position:absolute; left:16px; top:50%; transform:translateY(-50%); color:var(--text-secondary); font-size:1.1rem; }
+    /* BARRA DE BÚSQUEDA */
+    .search-box-wrap { max-width: 540px; margin: 0 auto 30px; position: relative; }
+    .search-input { width:100%; background:var(--surface); border:1px solid var(--border-light); border-radius:4px; padding:12px 18px 12px 42px; color:#fff; font-family:'Inter',sans-serif; font-size:.9rem; outline:none; transition:all .25s; }
+    .search-input:focus { border-color:var(--accent-cyan); box-shadow:0 0 16px var(--accent-cyan-glow); }
+    .search-icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:var(--text-secondary); font-size:1rem; }
 
-    /* PROFESIONES GRID (CUADRITOS SELECCIONABLES) */
-    .professions-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:16px; margin-bottom:48px; }
-    .prof-card { background:var(--surface); border:1px solid var(--border-light); border-radius:6px; padding:24px; text-align:left; cursor:pointer; transition:all .25s cubic-bezier(0.16,1,0.3,1); position:relative; overflow:hidden; }
-    .prof-card:hover, .prof-card.active { border-color:var(--accent-cyan); transform:translateY(-3px); box-shadow:0 8px 24px var(--accent-cyan-glow); }
+    /* CUADRITOS DE PROFESIONES */
+    .professions-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:14px; margin-bottom:32px; }
+    .prof-card { background:var(--surface); border:1px solid var(--border-light); border-radius:6px; padding:20px; text-align:left; cursor:pointer; transition:all .25s cubic-bezier(0.16,1,0.3,1); position:relative; overflow:hidden; }
+    .prof-card:hover, .prof-card.active { border-color:var(--accent-cyan); transform:translateY(-2px); box-shadow:0 6px 20px var(--accent-cyan-glow); }
     .prof-card.active::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent-cyan); }
-    .prof-icon { font-size:2rem; margin-bottom:12px; display:inline-block; }
-    .prof-title { font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700; text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:4px; }
-    .prof-count { font-size:11px; color:var(--text-secondary); font-family:'Space Grotesk',sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+    .prof-icon { font-size:1.6rem; margin-bottom:8px; display:inline-block; }
+    .prof-title { font-family:'Space Grotesk',sans-serif; font-size:0.95rem; font-weight:700; text-transform:uppercase; letter-spacing:-0.01em; margin-bottom:2px; }
+    .prof-count { font-size:10px; color:var(--text-secondary); font-family:'Space Grotesk',sans-serif; letter-spacing:.08em; text-transform:uppercase; }
 
-    /* PANEL Y HERRAMIENTAS FILTRADAS */
+    /* VISTA MODULAR POR HERRAMIENTAS (SUBPÁGINAS LIMPIAS) */
     .prof-panel { display:none; }
-    .prof-panel.active { display:block; animation:fadeIn .3s ease; }
-    @keyframes fadeIn { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+    .prof-panel.active { display:block; animation:fadeIn .25s ease; }
+    @keyframes fadeIn { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
 
-    .tool-section { background:var(--surface); border:1px solid var(--border-light); border-radius:6px; padding:32px; margin-bottom:24px; scroll-margin-top:calc(var(--header-h) + 20px); }
-    .tool-section-title { font-family:'Space Grotesk',sans-serif; font-size:1.15rem; font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin-bottom:6px; display:flex; align-items:center; gap:10px; }
-    .tool-section-desc { font-size:.875rem; color:var(--text-secondary); font-weight:300; margin-bottom:20px; }
+    /* SUB-CUADRITOS DE HERRAMIENTAS DENTRO DE CADA PROFESIÓN */
+    .subtools-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:16px; margin-bottom:24px; }
+    .subtool-card { background:var(--surface); border:1px solid var(--border-light); border-radius:6px; padding:20px; cursor:pointer; transition:all .25s; }
+    .subtool-card:hover { border-color:var(--accent-cyan); transform:translateY(-2px); box-shadow:0 6px 20px var(--accent-cyan-glow); }
+    .subtool-icon { font-size:1.4rem; margin-bottom:8px; display:inline-block; }
+    .subtool-title { font-family:'Space Grotesk',sans-serif; font-size:0.95rem; font-weight:700; text-transform:uppercase; margin-bottom:4px; }
+    .subtool-desc { font-size:.82rem; color:var(--text-secondary); font-weight:300; line-height:1.5; }
+
+    /* ESPACIO DE TRABAJO DE HERRAMIENTA INDIVIDUAL */
+    .single-tool-workspace { display:none; background:var(--surface); border:1px solid var(--border-light); border-radius:6px; padding:32px; margin-bottom:32px; animation:fadeIn .25s ease; }
+    .single-tool-workspace.active { display:block; }
+    .btn-back { display:inline-flex; align-items:center; gap:6px; font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-cyan); background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.2); padding:6px 14px; border-radius:2px; cursor:pointer; margin-bottom:20px; transition:all .2s; }
+    .btn-back:hover { background:var(--accent-cyan); color:#0a0a0a; }
 
     /* ELEMENTOS DE FORMULARIO */
     label { font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-secondary); display:block; margin-bottom:6px; margin-top:14px; }
@@ -88,23 +98,10 @@
     .output-box { background:var(--bg); border:1px solid var(--border); border-radius:4px; padding:14px; margin-top:12px; font-size:.875rem; color:var(--text-secondary); }
     .result-display { font-family:'Space Grotesk',sans-serif; font-size:1.8rem; font-weight:700; color:var(--accent-cyan); }
 
-    /* TABLAS IMPRIMIBLES */
     .attendance-table { width:100%; border-collapse:collapse; margin-top:16px; font-size:.85rem; }
     .attendance-table th { background:#111; color:#fff; padding:8px 10px; text-align:left; font-family:'Space Grotesk',sans-serif; font-size:10px; letter-spacing:.1em; text-transform:uppercase; }
     .attendance-table td { border:1px solid var(--border-light); padding:8px 10px; color:var(--text-secondary); }
 
-    /* PRICING */
-    .pricing-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-top:60px; }
-    @media(max-width:768px){ .pricing-grid{ grid-template-columns:1fr; } }
-    .price-card { background:var(--surface); border:1px solid var(--border-light); border-radius:6px; padding:32px; }
-    .price-card.featured { border-color:var(--accent-cyan); box-shadow:0 0 30px var(--accent-cyan-glow); }
-    .price-label { font-family:'Space Grotesk',sans-serif; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:16px; }
-    .price-amount { font-family:'Space Grotesk',sans-serif; font-size:2.8rem; font-weight:700; line-height:1; margin-bottom:4px; }
-    .price-period { font-size:.85rem; color:var(--text-secondary); margin-bottom:20px; }
-    .price-feature { display:flex; align-items:center; gap:10px; font-size:.875rem; color:var(--text-secondary); margin-bottom:10px; }
-    .price-feature::before { content:'✓'; color:var(--accent-neon); font-weight:700; }
-
-    /* FOOTER */
     footer { border-top:1px solid var(--border); padding:40px 0; margin-top:80px; }
     .footer-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
     .footer-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; }
@@ -117,7 +114,7 @@
     .del-btn:hover { border-color:#e74c3c; color:#e74c3c; }
 
     @media print {
-      body::before, header, .professions-grid, .search-box-wrap, .pricing-section, footer, .btn-row, .no-print { display:none !important; }
+      body::before, header, .professions-grid, .search-box-wrap, .subtools-grid, footer, .btn-row, .btn-back { display:none !important; }
       .print-target { page-break-inside:avoid; }
     }
     .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:var(--accent-cyan); color:#0a0a0a; font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:10px 24px; border-radius:2px; z-index:999; opacity:0; transition:opacity .3s; pointer-events:none; }
@@ -132,7 +129,7 @@
       <a href="index.html" class="logo">Batalla Group</a>
       <nav>
         <a href="utilidades.html">Herramientas</a>
-        <a href="docentes.html" class="active">Profesionistas</a>
+        <a href="docentes.html" class="active">Especialistas</a>
         <a href="comercio.html">Comercio</a>
       </nav>
       <a href="index.html" class="btn-id">Batalla ID</a>
@@ -142,9 +139,9 @@
 
 <section class="hero">
   <div class="container">
-    <div class="badge-cyan">Batalla Pro · Soluciones por Profesión</div>
-    <h1>Suites para <span>Profesionistas</span></h1>
-    <p>Selecciona tu especialidad o busca la herramienta que necesitas. Software diseñado para trabajar sin complicación ni pérdida de tiempo.</p>
+    <div class="badge-cyan">Batalla Edu &amp; Especialistas</div>
+    <h1>Suites por <span>Profesión</span></h1>
+    <p>Selecciona tu especialidad. Cada módulo contiene herramientas organizadas que abren individualmente sin saturar tu pantalla.</p>
 
     <!-- BARRA DE BÚSQUEDA RÁPIDA -->
     <div class="search-box-wrap">
@@ -152,37 +149,37 @@
       <input type="text" class="search-input" id="search-prof" placeholder="Buscar herramienta o profesión (ej. Lista, Receta, Contrato, IVA, Mezclas)..." oninput="filterTools()">
     </div>
 
-    <!-- MÓDULOS DE PROFESIÓN (CUADRITOS SELECCIONABLES) -->
+    <!-- CUADRITOS DE PROFESIONES -->
     <div class="professions-grid">
       <div class="prof-card active" onclick="selectProf('docentes', this)">
         <span class="prof-icon">🎓</span>
         <div class="prof-title">Docentes &amp; Edu</div>
-        <div class="prof-count">5 Herramientas</div>
+        <div class="prof-count">3 Herramientas</div>
       </div>
       <div class="prof-card" onclick="selectProf('medicos', this)">
         <span class="prof-icon">🩺</span>
         <div class="prof-title">Médicos &amp; Salud</div>
-        <div class="prof-count">4 Herramientas</div>
+        <div class="prof-count">2 Herramientas</div>
       </div>
       <div class="prof-card" onclick="selectProf('arquitectos', this)">
         <span class="prof-icon">🏛️</span>
         <div class="prof-title">Arquitectos</div>
-        <div class="prof-count">3 Herramientas</div>
+        <div class="prof-count">2 Herramientas</div>
       </div>
       <div class="prof-card" onclick="selectProf('contadores', this)">
         <span class="prof-icon">📊</span>
         <div class="prof-title">Contadores</div>
-        <div class="prof-count">4 Herramientas</div>
+        <div class="prof-count">2 Herramientas</div>
       </div>
       <div class="prof-card" onclick="selectProf('abogados', this)">
         <span class="prof-icon">⚖️</span>
         <div class="prof-title">Abogados &amp; Legal</div>
-        <div class="prof-count">3 Herramientas</div>
+        <div class="prof-count">2 Herramientas</div>
       </div>
       <div class="prof-card" onclick="selectProf('ingenieros', this)">
         <span class="prof-icon">⚙️</span>
         <div class="prof-title">Ingenieros</div>
-        <div class="prof-count">3 Herramientas</div>
+        <div class="prof-count">1 Herramienta</div>
       </div>
     </div>
 
@@ -193,217 +190,278 @@
 
   <!-- ══════════ 1. DOCENTES ══════════ -->
   <div class="prof-panel active" id="panel-docentes">
-    <div class="tool-section" id="tool-lista">
-      <div class="tool-section-title">📋 Limpiador de Lista de Alumnos</div>
-      <div class="tool-section-desc">Pega tu lista con números, puntos, doble espacios o mayúsculas irregulares. Genera una lista limpia, ordenada alfabéticamente.</div>
-      <label>Lista sucia (pega aquí)</label>
-      <textarea id="lista-input" placeholder="1. GARCIA LOPEZ, JUAN CARLOS&#10;2.  Martínez  Ruiz Maria&#10;3) HERNANDEZ PEREZ JOSE"></textarea>
-      <div class="btn-row">
-        <button class="btn btn-cyan" onclick="cleanList()">Limpiar Lista</button>
-        <button class="btn btn-ghost" onclick="copyEl('lista-output')">📋 Copiar</button>
+    <div class="subtools-grid" id="grid-docentes">
+      <div class="subtool-card" onclick="openSingleTool('doc-lista')">
+        <span class="subtool-icon">📋</span>
+        <div class="subtool-title">Limpiador de Listas</div>
+        <div class="subtool-desc">Ordena alfabéticamente y elimina formatos sucios de tus listas de alumnos.</div>
       </div>
-      <label style="margin-top:16px;">Lista limpia</label>
-      <textarea id="lista-output" readonly style="color:var(--accent-neon);"></textarea>
-    </div>
-
-    <div class="tool-section" id="tool-asistencia">
-      <div class="tool-section-title">📄 Generador de Lista de Asistencia Imprimible</div>
-      <div class="tool-section-desc">Ingresa los datos del grupo y genera una lista ordenada con firmas para imprimir.</div>
-      <div class="grid-2">
-        <div><label>Materia / Grupo</label><input type="text" id="att-grupo" placeholder="6°A — Matemáticas"></div>
-        <div><label>Docente</label><input type="text" id="att-docente" placeholder="Profr. García"></div>
-        <div><label>Fecha</label><input type="date" id="att-fecha"></div>
-        <div><label>Número de alumnos</label><input type="number" id="att-num" value="30" min="1" max="60"></div>
+      <div class="subtool-card" onclick="openSingleTool('doc-asistencia')">
+        <span class="subtool-icon">📄</span>
+        <div class="subtool-title">Lista de Asistencia</div>
+        <div class="subtool-desc">Genera y exporta listas impresas ordenadas con espacios de firma.</div>
       </div>
-      <div class="btn-row">
-        <button class="btn btn-cyan" onclick="generateAttendance()">Generar Lista</button>
-        <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir</button>
-      </div>
-      <div id="att-preview"></div>
-    </div>
-
-    <div class="tool-section" id="tool-promedio">
-      <div class="tool-section-title">🧮 Calculadora de Promedio Ponderado</div>
-      <div class="tool-section-desc">Calcula promedios con porcentajes configurables por categoría (exámenes, tareas, proyectos).</div>
-      <div id="prom-rows">
-        <div class="dyn-row">
-          <input type="text" value="Exámenes" style="max-width:160px;">
-          <input type="number" value="40" style="max-width:80px;" oninput="calcPromedio()"> %
-          <input type="number" placeholder="8.5" style="max-width:80px;" oninput="calcPromedio()"> /10
-          <button class="del-btn" onclick="this.parentElement.remove(); calcPromedio();">✕</button>
-        </div>
-        <div class="dyn-row">
-          <input type="text" value="Tareas" style="max-width:160px;">
-          <input type="number" value="30" style="max-width:80px;" oninput="calcPromedio()"> %
-          <input type="number" placeholder="9.0" style="max-width:80px;" oninput="calcPromedio()"> /10
-          <button class="del-btn" onclick="this.parentElement.remove(); calcPromedio();">✕</button>
-        </div>
-      </div>
-      <div id="prom-result" class="output-box" style="display:none;">
-        <div>Promedio Final: <span class="result-display" id="prom-val">—</span></div>
+      <div class="subtool-card" onclick="openSingleTool('doc-promedio')">
+        <span class="subtool-icon">🧮</span>
+        <div class="subtool-title">Promedio Ponderado</div>
+        <div class="subtool-desc">Calculadora de promedios finales con porcentajes por rubro.</div>
       </div>
     </div>
   </div>
 
   <!-- ══════════ 2. MÉDICOS ══════════ -->
   <div class="prof-panel" id="panel-medicos">
-    <div class="tool-section" id="tool-receta">
-      <div class="tool-section-title">📋 Generador de Receta Médica</div>
-      <div class="tool-section-desc">Genera recetas médicas personalizadas listas para imprimir con cédula y diagnóstico.</div>
-      <div class="grid-3">
-        <div><label>Médico</label><input type="text" id="rx-medico" placeholder="Dr. Ramírez Torres"></div>
-        <div><label>Cédula</label><input type="text" id="rx-cedula" placeholder="12345678"></div>
-        <div><label>Paciente</label><input type="text" id="rx-paciente" placeholder="Juan García"></div>
+    <div class="subtools-grid" id="grid-medicos">
+      <div class="subtool-card" onclick="openSingleTool('med-receta')">
+        <span class="subtool-icon">📋</span>
+        <div class="subtool-title">Receta Médica</div>
+        <div class="subtool-desc">Genera recetas personalizadas con formato limpio para imprimir.</div>
       </div>
-      <label>Diagnóstico</label>
-      <input type="text" id="rx-diagnostico" placeholder="Faringitis aguda">
-      <div class="btn-row">
-        <button class="btn btn-cyan" onclick="generateReceta()">Generar Receta</button>
-        <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir</button>
+      <div class="subtool-card" onclick="openSingleTool('med-dosis')">
+        <span class="subtool-icon">💊</span>
+        <div class="subtool-title">Dosis Pediátrica</div>
+        <div class="subtool-desc">Cálculo de mg y ml exactos por peso de paciente.</div>
       </div>
-      <div id="receta-preview"></div>
-    </div>
-
-    <div class="tool-section" id="tool-dosis">
-      <div class="tool-section-title">💊 Calculadora de Dosis Pediátrica</div>
-      <div class="tool-section-desc">Calcula dosis exactas en mg y ml según el peso del paciente pediátrico.</div>
-      <div class="grid-2">
-        <div><label>Peso (kg)</label><input type="number" id="dosis-peso" placeholder="18" oninput="calcDosis()"></div>
-        <div>
-          <label>Medicamento</label>
-          <select id="dosis-med" onchange="calcDosis()">
-            <option value="10,15">Paracetamol (10-15 mg/kg)</option>
-            <option value="5,10">Ibuprofeno (5-10 mg/kg)</option>
-            <option value="40,90">Amoxicilina (40-90 mg/kg)</option>
-          </select>
-        </div>
-      </div>
-      <div id="dosis-result" class="output-box" style="display:none;"></div>
     </div>
   </div>
 
   <!-- ══════════ 3. ARQUITECTOS ══════════ -->
   <div class="prof-panel" id="panel-arquitectos">
-    <div class="tool-section">
-      <div class="tool-section-title">📐 Calculadora de Áreas</div>
-      <div class="tool-section-desc">Cálculo de rectángulos, triángulos, círculos y trapecios.</div>
-      <div class="grid-2">
-        <div><label>Largo (m)</label><input type="number" id="ar-a" placeholder="5" oninput="calcArea()"></div>
-        <div><label>Ancho (m)</label><input type="number" id="ar-b" placeholder="4" oninput="calcArea()"></div>
+    <div class="subtools-grid" id="grid-arquitectos">
+      <div class="subtool-card" onclick="openSingleTool('arq-areas')">
+        <span class="subtool-icon">📐</span>
+        <div class="subtool-title">Cálculo de Áreas</div>
+        <div class="subtool-desc">Cálculo instantáneo de superficies en m² y ft².</div>
       </div>
-      <div id="area-result" class="output-box" style="display:none;"></div>
-    </div>
-
-    <div class="tool-section">
-      <div class="tool-section-title">🧱 Calculadora de Materiales</div>
-      <div class="tool-section-desc">Estima tabiques por metro cuadrado de muro o piezas de loseta.</div>
-      <div class="grid-2">
-        <div><label>Largo del muro (m)</label><input type="number" id="mt-l" placeholder="4" oninput="calcMaterial()"></div>
-        <div><label>Alto del muro (m)</label><input type="number" id="mt-h" placeholder="2.5" oninput="calcMaterial()"></div>
+      <div class="subtool-card" onclick="openSingleTool('arq-materiales')">
+        <span class="subtool-icon">🧱</span>
+        <div class="subtool-title">Cálculo de Materiales</div>
+        <div class="subtool-desc">Estimación de tabiques y losetas con merma.</div>
       </div>
-      <div id="mat-result" class="output-box" style="display:none;"></div>
     </div>
   </div>
 
   <!-- ══════════ 4. CONTADORES ══════════ -->
   <div class="prof-panel" id="panel-contadores">
-    <div class="tool-section">
-      <div class="tool-section-title">💹 Calculadora de IVA (16% México)</div>
-      <div class="tool-section-desc">Desglose de precio con y sin IVA de forma instantánea.</div>
-      <div class="grid-2">
-        <div><label>Precio sin IVA</label><input type="number" id="iva-base" placeholder="1000" oninput="calcIvaFrom('base')"></div>
-        <div><label>Precio con IVA</label><input type="number" id="iva-total" placeholder="1160" oninput="calcIvaFrom('total')"></div>
+    <div class="subtools-grid" id="grid-contadores">
+      <div class="subtool-card" onclick="openSingleTool('cont-iva')">
+        <span class="subtool-icon">💹</span>
+        <div class="subtool-title">Calculadora de IVA</div>
+        <div class="subtool-desc">Desglose rápido de montos con y sin IVA (16%).</div>
       </div>
-      <div id="iva-result" class="output-box" style="display:none;"></div>
-    </div>
-
-    <div class="tool-section">
-      <div class="tool-section-title">🏦 Validador de CLABE Bancaria</div>
-      <div class="tool-section-desc">Verifica el dígito de control y banco emisor de cualquier CLABE mexicana.</div>
-      <label>CLABE (18 dígitos)</label>
-      <input type="text" id="clabe-input" maxlength="18" placeholder="000000000000000000" oninput="validateClabe()">
-      <div id="clabe-result" class="output-box" style="display:none;"></div>
+      <div class="subtool-card" onclick="openSingleTool('cont-clabe')">
+        <span class="subtool-icon">🏦</span>
+        <div class="subtool-title">Validador de CLABE</div>
+        <div class="subtool-desc">Comprueba la estructura de 18 dígitos interbancarios.</div>
+      </div>
     </div>
   </div>
 
-  <!-- ══════════ 5. ABOGADOS & LEGAL ══════════ -->
+  <!-- ══════════ 5. ABOGADOS ══════════ -->
   <div class="prof-panel" id="panel-abogados">
-    <div class="tool-section">
-      <div class="tool-section-title">📜 Generador de Contrato Simple de Arrendamiento</div>
-      <div class="tool-section-desc">Genera un machote de contrato de arrendamiento residencial con datos básicos para imprimir.</div>
-      <div class="grid-2">
-        <div><label>Arrendador (Propietario)</label><input type="text" id="leg-prop" placeholder="Carlos Batalla"></div>
-        <div><label>Arrendatario (Inquilino)</label><input type="text" id="leg-inq" placeholder="María López"></div>
-        <div><label>Dirección del inmueble</label><input type="text" id="leg-dir" placeholder="Av. Juárez 100, Puebla"></div>
-        <div><label>Renta mensual ($ MXN)</label><input type="number" id="leg-renta" placeholder="4500"></div>
+    <div class="subtools-grid" id="grid-abogados">
+      <div class="subtool-card" onclick="openSingleTool('abo-contrato')">
+        <span class="subtool-icon">📜</span>
+        <div class="subtool-title">Contrato de Arrendamiento</div>
+        <div class="subtool-desc">Machote simple de contrato residencial para imprimir.</div>
       </div>
-      <div class="btn-row">
-        <button class="btn btn-cyan" onclick="generateContrato()">Generar Contrato</button>
-        <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir</button>
+      <div class="subtool-card" onclick="openSingleTool('abo-finiquito')">
+        <span class="subtool-icon">💼</span>
+        <div class="subtool-title">Finiquito LFT</div>
+        <div class="subtool-desc">Estimación orientativa de aguinaldo y vacaciones proporcionales.</div>
       </div>
-      <div id="leg-preview" style="margin-top:16px;"></div>
-    </div>
-
-    <div class="tool-section">
-      <div class="tool-section-title">💼 Calculadora de Finiquito e Indemnización (LFT)</div>
-      <div class="tool-section-desc">Estimación orientativa de aguinaldo proporcional, vacaciones y prima vacacional según Ley Federal del Trabajo.</div>
-      <div class="grid-2">
-        <div><label>Sueldo mensual ($ MXN)</label><input type="number" id="fin-sueldo" placeholder="12000" oninput="calcFiniquito()"></div>
-        <div><label>Días trabajados en el año</label><input type="number" id="fin-dias" placeholder="180" oninput="calcFiniquito()"></div>
-      </div>
-      <div id="fin-result" class="output-box" style="display:none;"></div>
     </div>
   </div>
 
   <!-- ══════════ 6. INGENIEROS ══════════ -->
   <div class="prof-panel" id="panel-ingenieros">
-    <div class="tool-section">
-      <div class="tool-section-title">🏗️ Dosificador de Mezclas de Concreto / Mortero</div>
-      <div class="tool-section-desc">Calcula bultos de cemento (50kg), botes de arena y agua por metro cúbico de concreto (f'c 150/200 kg/cm²).</div>
-      <div class="grid-2">
-        <div><label>Volumen de concreto (m³)</label><input type="number" id="ing-vol" placeholder="2" oninput="calcMezcla()"></div>
-        <div>
-          <label>Resistencia requerida (f'c)</label>
-          <select id="ing-fc" onchange="calcMezcla()">
-            <option value="150">f'c = 150 kg/cm² (Pisos y firmes)</option>
-            <option value="200">f'c = 200 kg/cm² (Columnas y losas)</option>
-            <option value="250">f'c = 250 kg/cm² (Estructural alta)</option>
-          </select>
-        </div>
+    <div class="subtools-grid" id="grid-ingenieros">
+      <div class="subtool-card" onclick="openSingleTool('ing-mezcla')">
+        <span class="subtool-icon">🏗️</span>
+        <div class="subtool-title">Dosificador de Concreto</div>
+        <div class="subtool-desc">Cálculo de bultos de cemento, arena y agua por m³.</div>
       </div>
-      <div id="ing-result" class="output-box" style="display:none;"></div>
     </div>
   </div>
 
-  <!-- ══════════ PRICING ══════════ -->
-  <div class="pricing-section" id="pricing" style="margin-top:60px;">
-    <div style="font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:32px;">Planes Batalla Pro</div>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-label">Gratis</div>
-        <div class="price-amount">$0</div>
-        <div class="price-period">MXN / mes</div>
-        <div class="price-feature">Acceso a 2 herramientas diarias</div>
-        <div class="price-feature">Soporte básico local</div>
-        <div class="btn-row" style="margin-top:20px;"><a href="index.html" class="btn btn-ghost" style="width:100%;justify-content:center;">Empezar gratis</a></div>
+  <!-- ════════════════════════════════════════════════════
+       ESPACIOS DE TRABAJO INDIVIDUALES (SE ABREN SOLO AL CLIC)
+       ════════════════════════════════════════════════════ -->
+
+  <!-- WORKSPACE 1: LIMPIADOR DE LISTAS -->
+  <div class="single-tool-workspace" id="ws-doc-lista">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">📋 Limpiador de Lista de Alumnos</h3>
+    <p style="font-size:.875rem; color:var(--text-secondary); margin-bottom:20px;">Pega tu lista con números, puntos, doble espacios o mayúsculas irregulares. Genera una lista limpia ordenada alfabéticamente.</p>
+    <label>Lista sucia (pega aquí)</label>
+    <textarea id="lista-input" placeholder="1. GARCIA LOPEZ, JUAN CARLOS&#10;2.  Martínez  Ruiz Maria"></textarea>
+    <div class="btn-row">
+      <button class="btn btn-cyan" onclick="cleanList()">Limpiar Lista</button>
+      <button class="btn btn-ghost" onclick="copyEl('lista-output')">📋 Copiar</button>
+    </div>
+    <label style="margin-top:16px;">Lista limpia</label>
+    <textarea id="lista-output" readonly style="color:var(--accent-neon);"></textarea>
+  </div>
+
+  <!-- WORKSPACE 2: ASISTENCIA -->
+  <div class="single-tool-workspace" id="ws-doc-asistencia">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">📄 Generador de Lista de Asistencia</h3>
+    <p style="font-size:.875rem; color:var(--text-secondary); margin-bottom:20px;">Ingresa los datos del grupo y genera una lista ordenada para imprimir.</p>
+    <div class="grid-2">
+      <div><label>Materia / Grupo</label><input type="text" id="att-grupo" placeholder="6°A — Matemáticas"></div>
+      <div><label>Docente</label><input type="text" id="att-docente" placeholder="Profr. García"></div>
+      <div><label>Fecha</label><input type="date" id="att-fecha"></div>
+      <div><label>Número de alumnos</label><input type="number" id="att-num" value="30" min="1" max="60"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-cyan" onclick="generateAttendance()">Generar Lista</button>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir</button>
+    </div>
+    <div id="att-preview"></div>
+  </div>
+
+  <!-- WORKSPACE 3: PROMEDIO -->
+  <div class="single-tool-workspace" id="ws-doc-promedio">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">🧮 Promedio Ponderado</h3>
+    <div id="prom-rows">
+      <div class="dyn-row">
+        <input type="text" value="Exámenes" style="max-width:160px;">
+        <input type="number" value="40" style="max-width:80px;" oninput="calcPromedio()"> %
+        <input type="number" placeholder="8.5" style="max-width:80px;" oninput="calcPromedio()"> /10
       </div>
-      <div class="price-card featured">
-        <div class="price-label" style="color:var(--accent-cyan);">Pro Ilimitado</div>
-        <div class="price-amount">$99</div>
-        <div class="price-period">MXN / mes · <strong style="color:var(--accent-neon);">1er mes GRATIS</strong></div>
-        <div class="price-feature">Todas las herramientas sin límite</div>
-        <div class="price-feature">Exportaciones PDF e impresiones ilimitadas</div>
-        <div class="price-feature">1 mes gratis por cada colega invitado</div>
-        <div class="btn-row" style="margin-top:20px;"><a href="index.html" class="btn btn-cyan" style="width:100%;justify-content:center;">Probar 1 mes gratis →</a></div>
-      </div>
-      <div class="price-card">
-        <div class="price-label">Despachos &amp; Equipos</div>
-        <div class="price-amount" style="font-size:2rem;">Personalizado</div>
-        <div class="price-period">Para firmas y consultorías</div>
-        <div class="price-feature">Cuentas corporativas múltiples</div>
-        <div class="btn-row" style="margin-top:20px;"><a href="mailto:batallagroup@gmail.com" class="btn btn-ghost" style="width:100%;justify-content:center;">Contactar →</a></div>
+      <div class="dyn-row">
+        <input type="text" value="Tareas" style="max-width:160px;">
+        <input type="number" value="30" style="max-width:80px;" oninput="calcPromedio()"> %
+        <input type="number" placeholder="9.0" style="max-width:80px;" oninput="calcPromedio()"> /10
       </div>
     </div>
+    <div id="prom-result" class="output-box" style="display:none;">
+      <div>Promedio Final: <span class="result-display" id="prom-val">—</span></div>
+    </div>
+  </div>
+
+  <!-- WORKSPACE 4: RECETA MÉDICA -->
+  <div class="single-tool-workspace" id="ws-med-receta">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">📋 Receta Médica Imprimible</h3>
+    <div class="grid-3">
+      <div><label>Médico</label><input type="text" id="rx-medico" placeholder="Dr. Ramírez Torres"></div>
+      <div><label>Cédula</label><input type="text" id="rx-cedula" placeholder="12345678"></div>
+      <div><label>Paciente</label><input type="text" id="rx-paciente" placeholder="Juan García"></div>
+    </div>
+    <label>Diagnóstico</label>
+    <input type="text" id="rx-diagnostico" placeholder="Faringitis aguda">
+    <div class="btn-row">
+      <button class="btn btn-cyan" onclick="generateReceta()">Generar Receta</button>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir</button>
+    </div>
+    <div id="receta-preview"></div>
+  </div>
+
+  <!-- WORKSPACE 5: DOSIS PEDIÁTRICA -->
+  <div class="single-tool-workspace" id="ws-med-dosis">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">💊 Dosis Pediátrica por Peso</h3>
+    <div class="grid-2">
+      <div><label>Peso (kg)</label><input type="number" id="dosis-peso" placeholder="18" oninput="calcDosis()"></div>
+      <div>
+        <label>Medicamento</label>
+        <select id="dosis-med" onchange="calcDosis()">
+          <option value="10,15">Paracetamol (10-15 mg/kg)</option>
+          <option value="5,10">Ibuprofeno (5-10 mg/kg)</option>
+        </select>
+      </div>
+    </div>
+    <div id="dosis-result" class="output-box" style="display:none;"></div>
+  </div>
+
+  <!-- WORKSPACE 6: ÁREAS -->
+  <div class="single-tool-workspace" id="ws-arq-areas">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">📐 Cálculo de Áreas</h3>
+    <div class="grid-2">
+      <div><label>Largo (m)</label><input type="number" id="ar-a" placeholder="5" oninput="calcArea()"></div>
+      <div><label>Ancho (m)</label><input type="number" id="ar-b" placeholder="4" oninput="calcArea()"></div>
+    </div>
+    <div id="area-result" class="output-box" style="display:none;"></div>
+  </div>
+
+  <!-- WORKSPACE 7: MATERIALES -->
+  <div class="single-tool-workspace" id="ws-arq-materiales">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">🧱 Cálculo de Materiales</h3>
+    <div class="grid-2">
+      <div><label>Largo del muro (m)</label><input type="number" id="mt-l" placeholder="4" oninput="calcMaterial()"></div>
+      <div><label>Alto del muro (m)</label><input type="number" id="mt-h" placeholder="2.5" oninput="calcMaterial()"></div>
+    </div>
+    <div id="mat-result" class="output-box" style="display:none;"></div>
+  </div>
+
+  <!-- WORKSPACE 8: IVA -->
+  <div class="single-tool-workspace" id="ws-cont-iva">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">💹 Calculadora de IVA (16%)</h3>
+    <div class="grid-2">
+      <div><label>Precio sin IVA</label><input type="number" id="iva-base" placeholder="1000" oninput="calcIvaFrom('base')"></div>
+      <div><label>Precio con IVA</label><input type="number" id="iva-total" placeholder="1160" oninput="calcIvaFrom('total')"></div>
+    </div>
+    <div id="iva-result" class="output-box" style="display:none;"></div>
+  </div>
+
+  <!-- WORKSPACE 9: CLABE -->
+  <div class="single-tool-workspace" id="ws-cont-clabe">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">🏦 Validador de CLABE Bancaria</h3>
+    <label>CLABE (18 dígitos)</label>
+    <input type="text" id="clabe-input" maxlength="18" placeholder="000000000000000000" oninput="validateClabe()">
+    <div id="clabe-result" class="output-box" style="display:none;"></div>
+  </div>
+
+  <!-- WORKSPACE 10: CONTRATO -->
+  <div class="single-tool-workspace" id="ws-abo-contrato">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">📜 Contrato de Arrendamiento</h3>
+    <div class="grid-2">
+      <div><label>Arrendador</label><input type="text" id="leg-prop" placeholder="Carlos Batalla"></div>
+      <div><label>Arrendatario</label><input type="text" id="leg-inq" placeholder="María López"></div>
+      <div><label>Inmueble</label><input type="text" id="leg-dir" placeholder="Av. Juárez 100, Puebla"></div>
+      <div><label>Renta ($ MXN)</label><input type="number" id="leg-renta" placeholder="4500"></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-cyan" onclick="generateContrato()">Generar Contrato</button>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Imprimir</button>
+    </div>
+    <div id="leg-preview" style="margin-top:16px;"></div>
+  </div>
+
+  <!-- WORKSPACE 11: FINIQUITO -->
+  <div class="single-tool-workspace" id="ws-abo-finiquito">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">💼 Calculadora de Finiquito (LFT)</h3>
+    <div class="grid-2">
+      <div><label>Sueldo mensual ($ MXN)</label><input type="number" id="fin-sueldo" placeholder="12000" oninput="calcFiniquito()"></div>
+      <div><label>Días trabajados en el año</label><input type="number" id="fin-dias" placeholder="180" oninput="calcFiniquito()"></div>
+    </div>
+    <div id="fin-result" class="output-box" style="display:none;"></div>
+  </div>
+
+  <!-- WORKSPACE 12: MEZCLA CONCRETO -->
+  <div class="single-tool-workspace" id="ws-ing-mezcla">
+    <button class="btn-back" onclick="closeSingleTool()">← Volver a herramientas</button>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:1.2rem; font-weight:700; text-transform:uppercase; margin-bottom:6px;">🏗️ Dosificador de Concreto</h3>
+    <div class="grid-2">
+      <div><label>Volumen de concreto (m³)</label><input type="number" id="ing-vol" placeholder="2" oninput="calcMezcla()"></div>
+      <div>
+        <label>Resistencia requerida (f'c)</label>
+        <select id="ing-fc" onchange="calcMezcla()">
+          <option value="150">f'c = 150 kg/cm²</option>
+          <option value="200">f'c = 200 kg/cm²</option>
+        </select>
+      </div>
+    </div>
+    <div id="ing-result" class="output-box" style="display:none;"></div>
   </div>
 
 </div><!-- /container -->
@@ -428,8 +486,9 @@
 function showToast(m='¡Copiado!'){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2100); }
 function copyEl(id){ const el=document.getElementById(id); if(!el)return; navigator.clipboard.writeText(el.value||el.innerText).then(()=>showToast()); }
 
-// ── NAVEGACIÓN POR PROFESIONES (CUADRITOS) ──
+// ── NAVEGACIÓN MODULAR (PROFESIÓN Y HERRAMIENTA ÚNICA) ──
 function selectProf(profId, cardEl) {
+  closeSingleTool();
   document.querySelectorAll('.prof-card').forEach(c=>c.classList.remove('active'));
   if(cardEl) cardEl.classList.add('active');
   document.querySelectorAll('.prof-panel').forEach(p=>p.classList.remove('active'));
@@ -437,86 +496,53 @@ function selectProf(profId, cardEl) {
   if(target) target.classList.add('active');
 }
 
+function openSingleTool(toolId) {
+  document.querySelectorAll('.prof-panel').forEach(p=>p.style.display='none');
+  document.querySelectorAll('.single-tool-workspace').forEach(w=>w.classList.remove('active'));
+  const target = document.getElementById('ws-'+toolId);
+  if(target) {
+    target.classList.add('active');
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function closeSingleTool() {
+  document.querySelectorAll('.single-tool-workspace').forEach(w=>w.classList.remove('active'));
+  document.querySelectorAll('.prof-panel').forEach(p=>p.style.display='');
+}
+
 function filterTools() {
   const query = document.getElementById('search-prof').value.toLowerCase().trim();
-  if(!query) return;
-  // Buscar en todos los paneles y mostrar los que coincidan
-  document.querySelectorAll('.tool-section').forEach(sec => {
-    const text = sec.innerText.toLowerCase();
-    if(text.includes(query)) {
-      sec.style.display = 'block';
-      sec.closest('.prof-panel').classList.add('active');
-    } else {
-      sec.style.display = 'none';
-    }
+  if(!query) { closeSingleTool(); return; }
+  document.querySelectorAll('.subtool-card').forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(query) ? 'block' : 'none';
   });
 }
 
 // ── DOCENTES ──
-function cleanList(){
-  const raw=document.getElementById('lista-input').value;
-  const lines=raw.split('\n').map(l=>l.trim()).filter(Boolean);
-  const cleaned=lines.map(l=>l.replace(/^\d+[\.\)]\s*/,'').replace(/\s+/g,' ').split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()).join(' ')).sort((a,b)=>a.localeCompare(b,'es'));
-  document.getElementById('lista-output').value=cleaned.map((n,i)=>`${i+1}. ${n}`).join('\n');
-}
-function generateAttendance(){
-  const grupo=document.getElementById('att-grupo').value||'Grupo';
-  const docente=document.getElementById('att-docente').value||'—';
-  const num=parseInt(document.getElementById('att-num').value)||30;
-  let rows=''; for(let i=1;i<=num;i++) rows+=`<tr><td style="width:30px;text-align:center;">${i}</td><td></td><td style="width:100px;"></td></tr>`;
-  document.getElementById('att-preview').innerHTML=`<div class="print-target" style="margin-top:16px;"><table class="attendance-table"><thead><tr><th colspan="3">${grupo} | Docente: ${docente}</th></tr><tr><th>#</th><th>Nombre</th><th>Firma</th></tr></thead><tbody>${rows}</tbody></table></div>`;
-}
-function calcPromedio(){
-  const rows=document.querySelectorAll('#prom-rows .dyn-row'); let totP=0, totProm=0;
-  rows.forEach(r=>{ const i=r.querySelectorAll('input[type=number]'); const p=parseFloat(i[0].value)||0, c=parseFloat(i[1].value); if(!isNaN(c)){ totP+=p; totProm+=c*p; } });
-  document.getElementById('prom-result').style.display='block';
-  document.getElementById('prom-val').textContent=totP>0?(totProm/totP).toFixed(2):'—';
-}
+function cleanList(){ const raw=document.getElementById('lista-input').value; const lines=raw.split('\n').map(l=>l.trim()).filter(Boolean); const cleaned=lines.map(l=>l.replace(/^\d+[\.\)]\s*/,'').replace(/\s+/g,' ').split(' ').map(w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()).join(' ')).sort((a,b)=>a.localeCompare(b,'es')); document.getElementById('lista-output').value=cleaned.map((n,i)=>`${i+1}. ${n}`).join('\n'); }
+function generateAttendance(){ const grupo=document.getElementById('att-grupo').value||'Grupo'; const docente=document.getElementById('att-docente').value||'—'; const num=parseInt(document.getElementById('att-num').value)||30; let rows=''; for(let i=1;i<=num;i++) rows+=`<tr><td style="width:30px;text-align:center;">${i}</td><td></td><td style="width:100px;"></td></tr>`; document.getElementById('att-preview').innerHTML=`<div class="print-target" style="margin-top:16px;"><table class="attendance-table"><thead><tr><th colspan="3">${grupo} | Docente: ${docente}</th></tr><tr><th>#</th><th>Nombre</th><th>Firma</th></tr></thead><tbody>${rows}</tbody></table></div>`; }
+function calcPromedio(){ const rows=document.querySelectorAll('#prom-rows .dyn-row'); let totP=0, totProm=0; rows.forEach(r=>{ const i=r.querySelectorAll('input[type=number]'); const p=parseFloat(i[0].value)||0, c=parseFloat(i[1].value); if(!isNaN(c)){ totP+=p; totProm+=c*p; } }); document.getElementById('prom-result').style.display='block'; document.getElementById('prom-val').textContent=totP>0?(totProm/totP).toFixed(2):'—'; }
 
 // ── MÉDICOS ──
-function generateReceta(){
-  const med=document.getElementById('rx-medico').value||'Dr.';
-  const ced=document.getElementById('rx-cedula').value||'—';
-  const pac=document.getElementById('rx-paciente').value||'Paciente';
-  const diag=document.getElementById('rx-diagnostico').value||'—';
-  document.getElementById('receta-preview').innerHTML=`<div class="print-target" style="background:#fff;color:#111;padding:24px;border-radius:4px;margin-top:12px;"><strong>${med}</strong> (Céd. ${ced})<br>Paciente: ${pac}<br>Diagnóstico: ${diag}</div>`;
-}
-function calcDosis(){
-  const p=parseFloat(document.getElementById('dosis-peso').value); const [minD,maxD]=document.getElementById('dosis-med').value.split(',').map(Number);
-  const r=document.getElementById('dosis-result'); if(isNaN(p)){r.style.display='none';return;}
-  r.style.display='block'; r.innerHTML=`Dosis sugerida: <strong>${(minD*p).toFixed(1)} mg – ${(maxD*p).toFixed(1)} mg</strong> por dosis.`;
-}
+function generateReceta(){ const med=document.getElementById('rx-medico').value||'Dr.'; const ced=document.getElementById('rx-cedula').value||'—'; const pac=document.getElementById('rx-paciente').value||'Paciente'; const diag=document.getElementById('rx-diagnostico').value||'—'; document.getElementById('receta-preview').innerHTML=`<div class="print-target" style="background:#fff;color:#111;padding:24px;border-radius:4px;margin-top:12px;"><strong>${med}</strong> (Céd. ${ced})<br>Paciente: ${pac}<br>Diagnóstico: ${diag}</div>`; }
+function calcDosis(){ const p=parseFloat(document.getElementById('dosis-peso').value); const [minD,maxD]=document.getElementById('dosis-med').value.split(',').map(Number); const r=document.getElementById('dosis-result'); if(isNaN(p)){r.style.display='none';return;} r.style.display='block'; r.innerHTML=`Dosis sugerida: <strong>${(minD*p).toFixed(1)} mg – ${(maxD*p).toFixed(1)} mg</strong> por dosis.`; }
 
 // ── ARQUITECTOS ──
-function calcArea(){ const a=parseFloat(document.getElementById('ar-a').value), b=parseFloat(document.getElementById('ar-b').value); const r=document.getElementById('area-result'); if(isNaN(a)||isNaN(b)){r.style.display='none';return;} r.style.display='block'; r.innerHTML=`Área: <strong>${(a*b).toFixed(2)} m²</strong> (${(a*b*10.7639).toFixed(2)} ft²)`; }
-function calcMaterial(){ const l=parseFloat(document.getElementById('mt-l').value), h=parseFloat(document.getElementById('mt-h').value); const r=document.getElementById('mat-result'); if(isNaN(l)||isNaN(h)){r.style.display='none';return;} r.style.display='block'; r.innerHTML=`Piezas estimadas: <strong>${Math.ceil(l*h*12.5*1.05)} tabiques</strong> (con 5% desperdicio)`; }
+function calcArea(){ const a=parseFloat(document.getElementById('ar-a').value), b=parseFloat(document.getElementById('ar-b').value); const r=document.getElementById('area-result'); if(isNaN(a)||isNaN(b)){r.style.display='none';return;} r.style.display='block'; r.innerHTML=`Área: <strong>${(a*b).toFixed(2)} m²</strong>`; }
+function calcMaterial(){ const l=parseFloat(document.getElementById('mt-l').value), h=parseFloat(document.getElementById('mt-h').value); const r=document.getElementById('mat-result'); if(isNaN(l)||isNaN(h)){r.style.display='none';return;} r.style.display='block'; r.innerHTML=`Piezas estimadas: <strong>${Math.ceil(l*h*12.5*1.05)} tabiques</strong>`; }
 
 // ── CONTADORES ──
 function calcIvaFrom(f){ const b=parseFloat(document.getElementById('iva-base').value), t=parseFloat(document.getElementById('iva-total').value); const r=document.getElementById('iva-result'); r.style.display='block'; if(f==='base'&&!isNaN(b)){ document.getElementById('iva-total').value=(b*1.16).toFixed(2); r.innerHTML=`Base: $${b.toFixed(2)} | IVA: $${(b*0.16).toFixed(2)} | Total: $${(b*1.16).toFixed(2)}`; } else if(f==='total'&&!isNaN(t)){ document.getElementById('iva-base').value=(t/1.16).toFixed(2); r.innerHTML=`Base: $${(t/1.16).toFixed(2)} | IVA: $${(t-t/1.16).toFixed(2)} | Total: $${t.toFixed(2)}`; } }
-function validateClabe(){ const c=document.getElementById('clabe-input').value.replace(/\D/g,''); const r=document.getElementById('clabe-result'); r.style.display='block'; if(c.length===18){ r.innerHTML=`<span style="color:var(--accent-neon);">✓ CLABE de 18 dígitos con estructura correcta</span>`; } else { r.innerHTML=`<span>Ingresa 18 dígitos (${c.length}/18)</span>`; } }
+function validateClabe(){ const c=document.getElementById('clabe-input').value.replace(/\D/g,''); const r=document.getElementById('clabe-result'); r.style.display='block'; if(c.length===18){ r.innerHTML=`<span style="color:var(--accent-neon);">✓ CLABE de 18 dígitos válida</span>`; } else { r.innerHTML=`<span>18 dígitos requeridos</span>`; } }
 
 // ── ABOGADOS ──
-function generateContrato(){
-  const prop=document.getElementById('leg-prop').value||'Propietario';
-  const inq=document.getElementById('leg-inq').value||'Inquilino';
-  const dir=document.getElementById('leg-dir').value||'Inmueble';
-  const renta=document.getElementById('leg-renta').value||'0';
-  document.getElementById('leg-preview').innerHTML=`<div class="print-target" style="background:#fff;color:#111;padding:24px;border-radius:4px;"><h3>CONTRATO DE ARRENDAMIENTO</h3>En Puebla, México, celebran el presente contrato <strong>${prop}</strong> (Arrendador) y <strong>${inq}</strong> (Arrendatario) sobre el inmueble en <strong>${dir}</strong> por un monto mensual de <strong>$${renta} MXN</strong>.</div>`;
-}
-function calcFiniquito(){
-  const s=parseFloat(document.getElementById('fin-sueldo').value), d=parseFloat(document.getElementById('fin-dias').value);
-  const r=document.getElementById('fin-result'); if(isNaN(s)||isNaN(d)){r.style.display='none';return;} r.style.display='block';
-  const agui=(s/30)*15*(d/365), vac=(s/30)*12*(d/365), pVac=vac*0.25;
-  r.innerHTML=`Estimación finiquito proporcional:<br>• Aguinaldo: $${agui.toFixed(2)}<br>• Vacaciones: $${vac.toFixed(2)}<br>• Prima vacacional (25%): $${pVac.toFixed(2)}<br><strong>Total estimado: $${(agui+vac+pVac).toFixed(2)} MXN</strong>`;
-}
+function generateContrato(){ const prop=document.getElementById('leg-prop').value||'Propietario', inq=document.getElementById('leg-inq').value||'Inquilino', dir=document.getElementById('leg-dir').value||'Inmueble', renta=document.getElementById('leg-renta').value||'0'; document.getElementById('leg-preview').innerHTML=`<div class="print-target" style="background:#fff;color:#111;padding:24px;border-radius:4px;"><h3>CONTRATO DE ARRENDAMIENTO</h3>En Puebla, México, celebran el presente contrato <strong>${prop}</strong> y <strong>${inq}</strong> sobre <strong>${dir}</strong> por <strong>$${renta} MXN</strong>.</div>`; }
+function calcFiniquito(){ const s=parseFloat(document.getElementById('fin-sueldo').value), d=parseFloat(document.getElementById('fin-dias').value); const r=document.getElementById('fin-result'); if(isNaN(s)||isNaN(d)){r.style.display='none';return;} r.style.display='block'; const agui=(s/30)*15*(d/365), vac=(s/30)*12*(d/365), pVac=vac*0.25; r.innerHTML=`Aguinaldo: $${agui.toFixed(2)} | Vacaciones: $${vac.toFixed(2)} | <strong>Total: $${(agui+vac+pVac).toFixed(2)} MXN</strong>`; }
 
 // ── INGENIEROS ──
-function calcMezcla(){
-  const vol=parseFloat(document.getElementById('ing-vol').value), fc=document.getElementById('ing-fc').value;
-  const r=document.getElementById('ing-result'); if(isNaN(vol)){r.style.display='none';return;} r.style.display='block';
-  const bultos=Math.ceil(vol*(fc==='150'?6:7.5));
-  r.innerHTML=`Para ${vol} m³ de concreto (f'c ${fc}):<br>• Bultos de Cemento (50kg): <strong>${bultos} bultos</strong><br>• Arena: ${(vol*0.55).toFixed(2)} m³ | Grava: ${(vol*0.65).toFixed(2)} m³ | Agua: ${Math.round(vol*190)} Litros`;
-}
+function calcMezcla(){ const vol=parseFloat(document.getElementById('ing-vol').value), fc=document.getElementById('ing-fc').value; const r=document.getElementById('ing-result'); if(isNaN(vol)){r.style.display='none';return;} r.style.display='block'; const bultos=Math.ceil(vol*(fc==='150'?6:7.5)); r.innerHTML=`Para ${vol} m³ (f'c ${fc}): <strong>${bultos} bultos de cemento</strong> | ${(vol*0.55).toFixed(2)} m³ arena | ${(vol*0.65).toFixed(2)} m³ grava`; }
 </script>
 </body>
 </html>
