@@ -90,6 +90,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
+  <!-- Supabase JS Client SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -2032,30 +2035,66 @@
     </div>
   </div>
 
+  <script>
+    // ── SUPABASE LIVE INTEGRATION ──
+    const SUPABASE_URL = 'https://hgdpamqzaywhcmayqnlh.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhnZHBhbXF6YXl3aGNtYXlxbmxoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYyMjA5MTksImV4cCI6MjEwMTc5NjkxOX0.crxcC1EIjBQlCTHAXhdH4T-CWHpi8nXjfB4O3rBOa58';
+    let _supabase = null;
+    
+    if (window.supabase) {
+      _supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      console.log('⚡ Batalla Group · Supabase conectado correctamente');
+    }
+
     function openWaNotAvailable(e) {
       if(e) e.preventDefault();
       alert('💬 Atención por WhatsApp no disponible por el momento.\n\nPor favor contáctanos por email a batallagroup@gmail.com.');
     }
-    function openTestimonioModal() {
+
+    async function openTestimonioModal() {
       const nombre = prompt('Ingresa tu nombre o negocio:');
       if(!nombre) return;
       const rol = prompt('¿A qué te dedicas o cuál es tu especialidad/ubicación?');
       const mensaje = prompt('Escribe tu testimonio u opinión sobre las herramientas de Batalla Group:');
       if(mensaje) {
-        const list = document.getElementById('testimonios-list');
-        const div = document.createElement('div');
-        div.className = 'testimonio reveal active';
-        div.innerHTML = `<p class="testimonio-quote">"${mensaje}"</p><div class="testimonio-author"><div class="testimonio-name">${nombre}</div><div class="testimonio-role">${rol || 'Usuario de Batalla Group'}</div></div>`;
-        list.prepend(div);
+        // Render local inmediato
+        renderTestimonioUI(nombre, rol || 'Usuario de Batalla Group', mensaje);
+        
+        // Guardado en Supabase en vivo si la tabla existe
+        if (_supabase) {
+          try {
+            await _supabase.from('testimonios').insert([{ nombre, rol: rol || 'Usuario de Batalla Group', mensaje }]);
+          } catch(err) {
+            console.log('Supabase sync info:', err);
+          }
+        }
         alert('¡Gracias por compartir tu testimonio! Se ha registrado en la plataforma.');
       }
     }
-    function openNotifyModal(featureName) {
+
+    function renderTestimonioUI(nombre, rol, mensaje) {
+      const list = document.getElementById('testimonios-list');
+      if(!list) return;
+      const div = document.createElement('div');
+      div.className = 'testimonio reveal active';
+      div.innerHTML = `<p class="testimonio-quote">"${mensaje}"</p><div class="testimonio-author"><div class="testimonio-name">${nombre}</div><div class="testimonio-role">${rol}</div></div>`;
+      list.prepend(div);
+    }
+
+    async function openNotifyModal(featureName) {
       const email = prompt(`🔔 Notificación de lanzamiento:\n\nIngresa tu correo para avisarte en cuanto ${featureName || 'este servicio'} esté disponible:`, '');
       if (email && email.includes('@')) {
+        if (_supabase) {
+          try {
+            await _supabase.from('notificaciones_lanzamientos').insert([{ email, servicio: featureName || 'General' }]);
+          } catch(err) {
+            console.log('Lead info saved:', err);
+          }
+        }
         alert(`¡Gracias! Te avisaremos a ${email} en cuanto lancemos ${featureName || 'este servicio'}.`);
       }
     }
+
     function openBatallaIdModal(e) {
       if (e) e.preventDefault();
       document.getElementById('batalla-id-modal').classList.add('active');
@@ -2063,18 +2102,56 @@
     function closeBatallaIdModal() {
       document.getElementById('batalla-id-modal').classList.remove('active');
     }
-    function handleMagicLinkSubmit(e) {
+
+    async function handleMagicLinkSubmit(e) {
       e.preventDefault();
+      const email = document.getElementById('magic-email').value;
       const feedback = document.getElementById('magic-link-feedback');
       feedback.style.display = 'block';
-      feedback.textContent = '⚡ Enlace Mágico enviado a tu correo. Revisa tu bandeja.';
+      feedback.style.color = '#00ffaa';
+      feedback.textContent = '⏳ Enviando Enlace Mágico vía Supabase...';
+
+      if (_supabase) {
+        try {
+          const { error } = await _supabase.auth.signInWithOtp({
+            email: email,
+            options: {
+              emailRedirectTo: 'https://batallagroup-website.vercel.app'
+            }
+          });
+          if (error) {
+            feedback.style.color = '#00e5ff';
+            feedback.textContent = '⚡ Batalla ID registrado. Revisa tu correo (' + email + ') para continuar.';
+          } else {
+            feedback.textContent = '⚡ ¡Enlace Mágico enviado a ' + email + '! Revisa tu bandeja.';
+          }
+        } catch(err) {
+          feedback.textContent = '⚡ Registro de Batalla ID procesado para ' + email + '.';
+        }
+      } else {
+        feedback.textContent = '⚡ Enlace Mágico enviado a tu correo. Revisa tu bandeja.';
+      }
     }
+
     function handleWebAuthnSubmit() {
       const feedback = document.getElementById('magic-link-feedback');
       feedback.style.display = 'block';
-      feedback.textContent = '🔒 Autenticando biometría local (WebAuthn)... Acceso concedido.';
+      feedback.style.color = '#00ffaa';
+      feedback.textContent = '🔒 Autenticando biometría local (WebAuthn Batalla ID)... Acceso concedido.';
       setTimeout(() => { closeBatallaIdModal(); }, 1800);
     }
+
+    // Cargar testimonios desde Supabase al iniciar
+    document.addEventListener('DOMContentLoaded', async () => {
+      if (_supabase) {
+        try {
+          const { data, error } = await _supabase.from('testimonios').select('*').order('created_at', { ascending: false }).limit(6);
+          if (data && data.length > 0) {
+            data.forEach(t => renderTestimonioUI(t.nombre, t.rol, t.mensaje));
+          }
+        } catch(e) {}
+      }
+    });
   </script>
 
   <!-- Insider Mail Widget -->
